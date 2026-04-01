@@ -167,6 +167,7 @@ h1 span {
 .prose p,
 .timeline-item p,
 .project-card p,
+.article-card p,
 .education-list p,
 .single {
   margin: 0;
@@ -180,6 +181,13 @@ h1 span {
   gap: 1rem;
 }
 
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
 .project-card {
   padding: 1.2rem 1.2rem 1.3rem;
   border: 1px solid var(--rule);
@@ -190,6 +198,14 @@ h1 span {
   gap: 0.95rem;
 }
 
+.article-card {
+  padding: 1.1rem 1.2rem 1.25rem;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.42);
+  display: grid;
+  gap: 0.8rem;
+}
+
 .project-meta,
 .timeline-meta {
   display: flex;
@@ -198,7 +214,19 @@ h1 span {
   color: var(--muted);
 }
 
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .project-card h3,
+.article-card h3,
 .timeline-item h3,
 .education-list h3 {
   font-size: 1.22rem;
@@ -300,6 +328,7 @@ h1 span {
   }
 
   .project-grid,
+  .article-grid,
   .split-section {
     grid-template-columns: 1fr;
   }

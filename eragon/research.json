@@ -1,0 +1,1071 @@
+{
+  "researchDate": "2026-11-16",
+  "sources": [
+    {
+      "id": "home",
+      "title": "Eragon · product and customer logos",
+      "url": "https://www.eragon.ai/",
+      "kind": "Company claim",
+      "note": "Public product description and named customer marks; no independent revenue or ROI verification."
+    },
+    {
+      "id": "agents",
+      "title": "Eragon · agent lifecycle",
+      "url": "https://www.eragon.ai/agents/",
+      "kind": "Company claim",
+      "note": "Assembly, execution, approvals, and specialist workflow examples."
+    },
+    {
+      "id": "knowledge",
+      "title": "Eragon · knowledge, ontology, and skills",
+      "url": "https://www.eragon.ai/knowledge/",
+      "kind": "Company claim",
+      "note": "Company context, source connections, memory, scoped credentials, and versioned skills."
+    },
+    {
+      "id": "gateway",
+      "title": "Eragon · Flux and the Deel deployment",
+      "url": "https://www.eragon.ai/gateway/",
+      "kind": "Company claim",
+      "note": "Reports coding routing across 2,000+ Deel engineers. Its GEPA example is a development suite, not a held-out evaluation."
+    },
+    {
+      "id": "sovereign",
+      "title": "Eragon · deployment boundaries",
+      "url": "https://www.eragon.ai/sovereignty/",
+      "kind": "Company claim",
+      "note": "Dedicated managed, customer cloud, Kubernetes, and offline deployment options; validate requirements in discovery."
+    },
+    {
+      "id": "flux",
+      "title": "Introducing Eragon Flux · 28 Oct 2026",
+      "url": "https://www.eragon.ai/news/introducing-eragon-flux/",
+      "kind": "Company claim",
+      "note": "Names Deel, Slash, and Prodware as production Flux customers. Does not disclose customer economics."
+    },
+    {
+      "id": "browser",
+      "title": "Introducing Browser Use · 2 Nov 2026",
+      "url": "https://www.eragon.ai/news/introducing-eragon-browser-use/",
+      "kind": "Company claim",
+      "note": "Names Slash, Deel, Prodware, and Corgi as Browser Use customers. Workflow proposals here are not customer case studies."
+    },
+    {
+      "id": "menlo",
+      "title": "Menlo Ventures · State of Enterprise AI 2026",
+      "url": "https://menlovc.com/perspective/2026-the-state-of-enterprise-ai/",
+      "kind": "Research estimate",
+      "note": "Annualized revenue estimates, using a survey and bottom-up model. Historical categories were reclassified. These figures are not Eragon TAM."
+    },
+    {
+      "id": "mckinsey",
+      "title": "McKinsey · State of AI 2026",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "kind": "Survey",
+      "note": "Self-reported adoption and financial impact, published 25 Aug 2026. Does not establish causal financial returns."
+    }
+  ],
+  "segments": [
+    {
+      "id": "ai",
+      "name": "AI-intensive software",
+      "short": "AI & engineering",
+      "color": "#536979",
+      "description": "A controlled Flux evaluation in internal coding or knowledge work. Proprietary voice inference is a different purchase."
+    },
+    {
+      "id": "workforce",
+      "name": "Global workforce",
+      "short": "Workforce",
+      "color": "#8a674e",
+      "description": "Country-specific documents, service requests, and operational handoffs. Keep payroll and employment decisions under existing authority."
+    },
+    {
+      "id": "fintech",
+      "name": "Financial operations",
+      "short": "Fintech",
+      "color": "#537363",
+      "description": "The casework around money: investigation, onboarding, and follow-up. Existing ledgers and controls remain authoritative."
+    },
+    {
+      "id": "insurance",
+      "name": "Insurance operations",
+      "short": "Insurance",
+      "color": "#8a5266",
+      "description": "Submission readiness and servicing across documents and portals. Licensed professionals retain coverage and binding decisions."
+    },
+    {
+      "id": "erp",
+      "name": "ERP & implementation",
+      "short": "ERP ecosystem",
+      "color": "#74658b",
+      "description": "Delivery knowledge and cross-system exceptions. Potential channel economics and platform competition need validation."
+    },
+    {
+      "id": "regulated",
+      "name": "Controlled environments",
+      "short": "Regulated enterprise",
+      "color": "#82744a",
+      "description": "A later motion where infrastructure control matters enough to justify a longer evaluation and procurement cycle."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "deel",
+      "name": "Deel",
+      "mark": "D",
+      "tag": "Engineering + operations",
+      "evidence": "Eragon names Deel for Flux and Browser Use; its gateway reports a coding deployment across 2,000+ engineers.",
+      "source": "gateway",
+      "source2": "browser",
+      "logic": "Two adjacencies: existing AI economics in engineering, and country-specific operational context. A shared industry does not establish an unmet need."
+    },
+    {
+      "id": "slash",
+      "name": "Slash",
+      "mark": "S",
+      "tag": "Financial workflows",
+      "evidence": "Eragon names Slash as a production customer for Flux and Browser Use. The announcements do not quantify savings.",
+      "source": "flux",
+      "source2": "browser",
+      "logic": "Follow financial-services casework that crosses support, records, and external systems. Do not pitch capabilities a prospect already sells."
+    },
+    {
+      "id": "corgi",
+      "name": "Corgi",
+      "mark": "C",
+      "tag": "Insurance operations",
+      "evidence": "Eragon names Corgi in its Browser Use announcement. The proposed quote-preparation flows in this atlas are hypotheses.",
+      "source": "browser",
+      "logic": "Explore the administrative work around insurance: complete submissions, retrieved documents, and follow-up. Underwriting and binding remain outside the initial scope."
+    },
+    {
+      "id": "prodware",
+      "name": "Prodware",
+      "mark": "P",
+      "tag": "Enterprise systems",
+      "evidence": "Eragon names Prodware for Flux and Browser Use. A customer relationship does not establish a reseller agreement.",
+      "source": "flux",
+      "source2": "browser",
+      "logic": "Test whether a repeated cross-system workflow earns a place beside an implementation partner’s existing Microsoft and AI capabilities."
+    }
+  ],
+  "prospects": [
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "url": "https://elevenlabs.io/",
+      "segment": "ai",
+      "anchor": "deel",
+      "entry": "Both",
+      "buyer": "Engineering",
+      "group": "AI economics",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets voice generation, developer APIs, and a conversational-agent platform.",
+      "adjacency": "An AI-native developer business is adjacent to Deel’s reported coding-routing use, but its own agent platform raises build-versus-buy questions.",
+      "workflow": "Evaluate Flux on an internal coding workload, with the existing route as the control.",
+      "constraint": "Strong internal capability and an overlapping agent product. Do not assume its voice-serving stack is an Eragon routing opportunity.",
+      "expansion": "Internal account research and implementation handoffs.",
+      "validate": "Eligible internal spend, current routing, procurement owner, and performance on unseen tasks.",
+      "tags": [
+        "ai"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "ElevenLabs · official product page",
+          "url": "https://elevenlabs.io/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "deepgram",
+      "name": "Deepgram",
+      "url": "https://deepgram.com/",
+      "segment": "ai",
+      "anchor": "deel",
+      "entry": "Flux",
+      "buyer": "Engineering",
+      "group": "AI economics",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Describes a voice stack spanning speech recognition, LLM orchestration, and speech generation.",
+      "adjacency": "Developer infrastructure suggests a possible internal engineering evaluation; published orchestration also makes replacement unlikely.",
+      "workflow": "Route a bounded set of internal coding or research tasks across approved models.",
+      "constraint": "Existing orchestration expertise and real-time requirements; separate internal work from customer-facing audio.",
+      "expansion": "Approved internal knowledge workflows.",
+      "validate": "A genuinely unserved workload and full cost including verification, latency, and retries.",
+      "tags": [
+        "ai"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A measurable increase in eligible internal model cost, or an unresolved model-governance requirement.",
+      "sources": [
+        {
+          "title": "Deepgram · official product page",
+          "url": "https://deepgram.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "assemblyai",
+      "name": "AssemblyAI",
+      "url": "https://www.assemblyai.com/",
+      "segment": "ai",
+      "anchor": "deel",
+      "entry": "Flux",
+      "buyer": "Engineering",
+      "group": "AI economics",
+      "priority": "Defer",
+      "confidence": "Medium",
+      "evidence": "Its official overview includes speech APIs, voice agents, and an LLM Gateway.",
+      "adjacency": "Engineering context is adjacent, but a published gateway is a direct reason to question purchase intent.",
+      "workflow": "Discovery only: determine whether internal knowledge or governance remains outside its gateway.",
+      "constraint": "Substantial gateway and agent overlap. A generic model-routing pitch is weak.",
+      "expansion": "Only a clearly differentiated internal workflow.",
+      "validate": "Why its existing gateway cannot serve the proposed task.",
+      "tags": [
+        "ai"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A measurable increase in eligible internal model cost, or an unresolved model-governance requirement.",
+      "sources": [
+        {
+          "title": "AssemblyAI · official product page",
+          "url": "https://www.assemblyai.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "cartesia",
+      "name": "Cartesia",
+      "url": "https://cartesia.ai/",
+      "segment": "ai",
+      "anchor": "deel",
+      "entry": "Both",
+      "buyer": "Engineering",
+      "group": "AI economics",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets speech models, managed voice agents, and cloud/on-device deployment options.",
+      "adjacency": "An internal coding or company-context evaluation could transfer from Deel, while its own agent capability limits the wedge.",
+      "workflow": "Benchmark company-aware internal engineering tasks with approved models.",
+      "constraint": "In-house research capability and overlapping deployment options.",
+      "expansion": "Sales-engineering and customer implementation preparation.",
+      "validate": "Internal task volume, willingness to buy, and acceptable context/model boundaries.",
+      "tags": [
+        "ai"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Cartesia · official product page",
+          "url": "https://cartesia.ai/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "rippling",
+      "name": "Rippling",
+      "url": "https://www.rippling.com/",
+      "segment": "workforce",
+      "anchor": "deel",
+      "entry": "Both",
+      "buyer": "Engineering",
+      "group": "Case coordination",
+      "priority": "Defer",
+      "confidence": "Medium",
+      "evidence": "Markets unified HR, payroll, IT, finance, permissions, and business-aware AI.",
+      "adjacency": "Close industry adjacency to Deel, with unusually strong overlap in company context and automation.",
+      "workflow": "Consider an internal engineering evaluation only after identifying a gap.",
+      "constraint": "A rich proprietary workforce graph and native AI materially weaken a broad agent pitch.",
+      "expansion": "A specific internal operational exception, if proven.",
+      "validate": "An owner who can explain why its own platform is insufficient.",
+      "tags": [
+        "workforce",
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Rippling · official product page",
+          "url": "https://www.rippling.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "remote",
+      "name": "Remote",
+      "url": "https://remote.com/",
+      "segment": "workforce",
+      "anchor": "deel",
+      "entry": "Both",
+      "buyer": "Operations",
+      "group": "Case coordination",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets global payroll, employer-of-record and contractor services, plus Remote Agents and API/MCP access.",
+      "adjacency": "Country-specific service coordination resembles the Deel archetype; native agents make incremental value the key question.",
+      "workflow": "Prepare a country-specific service case with evidence and a proposed next action.",
+      "constraint": "Remote already offers agents. Avoid duplicating its system of record or legal judgment.",
+      "expansion": "Approved internal knowledge and complex case handoffs.",
+      "validate": "Case categories that remain unresolved, integrations, reviewer effort, and native-agent coverage.",
+      "tags": [
+        "workforce"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Remote · official product page",
+          "url": "https://remote.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "oyster",
+      "name": "Oyster",
+      "url": "https://www.oysterhr.com/",
+      "segment": "workforce",
+      "anchor": "deel",
+      "entry": "Agents",
+      "buyer": "Operations",
+      "group": "Case coordination",
+      "priority": "Start",
+      "confidence": "Medium",
+      "evidence": "Describes global employer-of-record services supported by HR experts and country-specific guidance.",
+      "adjacency": "The people-and-country context in global employment creates a plausible case-coordination adjacency.",
+      "workflow": "Prepare employee-service case packets: timeline, approved country sources, missing information, and owner.",
+      "constraint": "Actual backlog, tool access, and existing automation are unknown. Employment decisions require authorized review.",
+      "expansion": "Onboarding document readiness and recurring client-service handoffs.",
+      "validate": "Which case category is frequent, costly, accessible, and owned by a sponsor.",
+      "tags": [
+        "workforce"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Oyster · official product page",
+          "url": "https://www.oysterhr.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "papaya",
+      "name": "Papaya Global",
+      "url": "https://www.papayaglobal.com/",
+      "segment": "workforce",
+      "anchor": "deel",
+      "entry": "Both",
+      "buyer": "Operations",
+      "group": "Document operations",
+      "priority": "Defer",
+      "confidence": "Medium",
+      "evidence": "Publicly markets AI agents, workforce payments, and an intelligence layer mapping HCM and ERP data.",
+      "adjacency": "A strong sector match comes with direct overlap in orchestration and enterprise data.",
+      "workflow": "Explore only an uncovered internal document exception.",
+      "constraint": "Native AI and unified data capabilities. Do not offer to rebuild its existing payment operation.",
+      "expansion": "A narrow internal workflow outside core product coverage.",
+      "validate": "A real capability gap, source-system access, and accountable buyer.",
+      "tags": [
+        "workforce",
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Papaya Global · official product page",
+          "url": "https://www.papayaglobal.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "ramp",
+      "name": "Ramp",
+      "url": "https://ramp.com/",
+      "segment": "fintech",
+      "anchor": "slash",
+      "entry": "Both",
+      "buyer": "Engineering",
+      "group": "AI economics",
+      "priority": "Defer",
+      "confidence": "Medium",
+      "evidence": "Markets finance agents, spend controls, accounting automation, and Stack by Ramp.",
+      "adjacency": "The Slash adjacency is obvious; its own finance-agent products make a generic operations sale unattractive.",
+      "workflow": "Seek an internal engineering or cross-functional gap before a product evaluation.",
+      "constraint": "Strong native finance automation and internal-build capability.",
+      "expansion": "Only a buyer-confirmed gap outside native workflows.",
+      "validate": "Why the current agent stack cannot solve it and whether a separate budget exists.",
+      "tags": [
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Ramp · official product page",
+          "url": "https://ramp.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "brex",
+      "name": "Brex",
+      "url": "https://www.brex.com/",
+      "segment": "fintech",
+      "anchor": "slash",
+      "entry": "Both",
+      "buyer": "Operations",
+      "group": "Case coordination",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets cards, banking, expenses, and AI-assisted approvals and invoice entry.",
+      "adjacency": "Financial-services casework is adjacent to Slash; existing automation narrows the opportunity.",
+      "workflow": "Assemble a support investigation packet across case history and authorized transaction records.",
+      "constraint": "Core expense and invoice automation is already part of the product.",
+      "expansion": "Customer implementation and approved investigation handoffs.",
+      "validate": "Case volume, data permissions, existing support stack, and which steps need human sign-off.",
+      "tags": [
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Brex · official product page",
+          "url": "https://www.brex.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "url": "https://mercury.com/",
+      "segment": "fintech",
+      "anchor": "slash",
+      "entry": "Both",
+      "buyer": "Operations",
+      "group": "Case coordination",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets business banking services, payments, invoicing, accounting connections, and AI automations.",
+      "adjacency": "Financial customer operations offers a possible Slash-like entry, distinct from core money movement.",
+      "workflow": "Prepare a customer service case chronology and evidence bundle.",
+      "constraint": "Existing AI, privacy requirements, and internal capability. Mercury identifies itself as a fintech, not a bank.",
+      "expansion": "Internal account reviews and policy-change preparation.",
+      "validate": "Unserved case types, authorized systems, and measurable handling/reopen rates.",
+      "tags": [
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Mercury · official product page",
+          "url": "https://mercury.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "airwallex",
+      "name": "Airwallex",
+      "url": "https://www.airwallex.com/",
+      "segment": "fintech",
+      "anchor": "slash",
+      "entry": "Both",
+      "buyer": "Operations",
+      "group": "Document operations",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets global payments, treasury, spend, APIs, and AI-native financial infrastructure.",
+      "adjacency": "Cross-border customer operations combines financial context with jurisdiction-specific documentation.",
+      "workflow": "Prepare an onboarding-document exception packet for authorized reviewers.",
+      "constraint": "Native automation, multi-region controls, and a large buying committee.",
+      "expansion": "Customer implementation and recurring policy evidence.",
+      "validate": "Which internal workflow is still manual and why the existing platform cannot address it.",
+      "tags": [
+        "fintech",
+        "regulated"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Airwallex · official product page",
+          "url": "https://www.airwallex.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "relay",
+      "name": "Relay",
+      "url": "https://relayfi.com/",
+      "segment": "fintech",
+      "anchor": "slash",
+      "entry": "Agents",
+      "buyer": "Operations",
+      "group": "Case coordination",
+      "priority": "Start",
+      "confidence": "Medium",
+      "evidence": "Describes business banking with account organization and cash-management tools.",
+      "adjacency": "Business-finance servicing resembles the Slash archetype, while a narrow read-first case workflow avoids moving funds.",
+      "workflow": "Collect support history and authorized transaction references into a payment-investigation packet.",
+      "constraint": "No public evidence of a buying project or manual backlog. Validate access and existing tooling first.",
+      "expansion": "Internal servicing knowledge and approved follow-up preparation.",
+      "validate": "A recurring case category, available evidence, reviewer effort, and an operations sponsor.",
+      "tags": [
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Relay · official product page",
+          "url": "https://relayfi.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "moderntreasury",
+      "name": "Modern Treasury",
+      "url": "https://www.moderntreasury.com/",
+      "segment": "fintech",
+      "anchor": "slash",
+      "entry": "Both",
+      "buyer": "Operations",
+      "group": "Case coordination",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets APIs covering money movement, onboarding, ledgering, returns, and reconciliation.",
+      "adjacency": "The casework surrounding payment infrastructure is adjacent; deterministic ledgering already belongs to its core product.",
+      "workflow": "Draft customer implementation and exception-investigation packets from approved records.",
+      "constraint": "High product overlap. An agent must add context and coordination around the ledger.",
+      "expansion": "Implementation knowledge and recurring customer reviews.",
+      "validate": "What remains outside existing automation and whether accepted case cost can improve.",
+      "tags": [
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Modern Treasury · official product page",
+          "url": "https://www.moderntreasury.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "vouch",
+      "name": "Vouch",
+      "url": "https://www.vouch.us/",
+      "segment": "insurance",
+      "anchor": "corgi",
+      "entry": "Agents",
+      "buyer": "Operations",
+      "group": "Document operations",
+      "priority": "Start",
+      "confidence": "Medium",
+      "evidence": "An insurance broker and risk adviser that describes combining human expertise with AI to reduce paperwork.",
+      "adjacency": "The Corgi adjacency is administrative insurance work across customer information, documents, and advisers.",
+      "workflow": "Assemble a submission-readiness packet and flag missing evidence for a broker.",
+      "constraint": "Already uses AI. Coverage interpretation and placement decisions stay with authorized professionals.",
+      "expansion": "Renewal preparation and contract-evidence collection.",
+      "validate": "A specific submission type, current AI coverage, reviewer minutes, and portal access.",
+      "tags": [
+        "insurance"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Vouch · official product page",
+          "url": "https://www.vouch.us/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "newfront",
+      "name": "Newfront / WTW",
+      "url": "https://www.newfront.com/",
+      "segment": "insurance",
+      "anchor": "corgi",
+      "entry": "Agents",
+      "buyer": "Operations",
+      "group": "Document operations",
+      "priority": "Defer",
+      "confidence": "Medium",
+      "evidence": "The homepage states Newfront has joined WTW and describes digital submissions and servicing.",
+      "adjacency": "Broker workflow adjacency remains, but the ownership change can alter vendor decisions and integration priorities.",
+      "workflow": "Investigate renewal-document readiness within an approved team.",
+      "constraint": "WTW ownership, existing technology, and procurement complexity. Do not treat it as an independent startup.",
+      "expansion": "Broader servicing only after group-level requirements are clear.",
+      "validate": "Post-acquisition buyer, approved platform strategy, and remaining workflow gaps.",
+      "tags": [
+        "insurance"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Newfront / WTW · official product page",
+          "url": "https://www.newfront.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "ascend",
+      "name": "Ascend",
+      "url": "https://www.useascend.com/",
+      "segment": "insurance",
+      "anchor": "corgi",
+      "entry": "Both",
+      "buyer": "Engineering",
+      "group": "Document operations",
+      "priority": "Defer",
+      "confidence": "Medium",
+      "evidence": "Markets AI-powered insurance accounting, billing, cash application, collections, and carrier payables.",
+      "adjacency": "A close insurance-finance adjacency also creates direct overlap with Eragon workflow proposals.",
+      "workflow": "Explore internal engineering context rather than pitching its advertised accounting workflows.",
+      "constraint": "Its core product already automates many proposed finance use cases.",
+      "expansion": "A clearly separate internal process, if demonstrated.",
+      "validate": "An internal buyer and a problem outside Ascend’s existing product.",
+      "tags": [
+        "insurance"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Ascend · official product page",
+          "url": "https://www.useascend.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "coverdash",
+      "name": "Coverdash",
+      "url": "https://www.coverdash.com/",
+      "segment": "insurance",
+      "anchor": "corgi",
+      "entry": "Agents",
+      "buyer": "Operations",
+      "group": "Document operations",
+      "priority": "Start",
+      "confidence": "Medium",
+      "evidence": "Markets online small-business insurance across multiple coverage types and insurers.",
+      "adjacency": "Multi-carrier administrative coordination is a plausible extension of the Corgi pattern.",
+      "workflow": "Check submission completeness and prepare missing-document requests for approval.",
+      "constraint": "Existing quoting automation and actual manual workload are unknown. No autonomous coverage or binding decisions.",
+      "expansion": "Renewal packets and partner-servicing preparation.",
+      "validate": "An underserved submission class, portal permissions, and measurable rework.",
+      "tags": [
+        "insurance"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Coverdash · official product page",
+          "url": "https://www.coverdash.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "hso",
+      "name": "HSO",
+      "url": "https://www.hso.com/",
+      "segment": "erp",
+      "anchor": "prodware",
+      "entry": "Both",
+      "buyer": "Delivery",
+      "group": "Delivery & ERP",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets Microsoft transformation services and Horizon, an agentic transformation offering.",
+      "adjacency": "Prodware suggests an implementation-company archetype, but a partner’s own platform determines the gap.",
+      "workflow": "Prepare an internal project handoff across statements of work, decisions, and open risks.",
+      "constraint": "Existing Horizon and Microsoft commitment create competition and channel conflict.",
+      "expansion": "A repeatable delivery accelerator, subject to a commercial agreement.",
+      "validate": "Own-use buyer versus channel sponsor, delivery ownership, and differentiated capability.",
+      "tags": [
+        "erp"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "HSO · official product page",
+          "url": "https://www.hso.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "avanade",
+      "name": "Avanade",
+      "url": "https://www.avanade.com/",
+      "segment": "erp",
+      "anchor": "prodware",
+      "entry": "Both",
+      "buyer": "Delivery",
+      "group": "Delivery & ERP",
+      "priority": "Defer",
+      "confidence": "Low",
+      "evidence": "Publicly positions itself around Microsoft AI, cloud, and digital transformation.",
+      "adjacency": "A large implementation business is adjacent to Prodware, with substantial incumbent alignment.",
+      "workflow": "Discover an internal delivery-preparation gap before discussing a partner offer.",
+      "constraint": "Scale, Microsoft alignment, and procurement make it a slower initial target.",
+      "expansion": "One approved cross-system delivery pattern.",
+      "validate": "A named sponsor and a requirement existing Microsoft tools cannot meet.",
+      "tags": [
+        "erp"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Avanade · official product page",
+          "url": "https://www.avanade.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "hitachi",
+      "name": "Hitachi Solutions",
+      "url": "https://global.hitachi-solutions.com/",
+      "segment": "erp",
+      "anchor": "prodware",
+      "entry": "Both",
+      "buyer": "Delivery",
+      "group": "Delivery & ERP",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Describes Microsoft-focused AI, cloud, data, Dynamics finance, and supply-chain services.",
+      "adjacency": "A comparable enterprise-delivery setting may reuse ontology, integration, and evaluation patterns.",
+      "workflow": "Draft a project exception brief with source-linked requirements and decisions.",
+      "constraint": "Strong Microsoft alignment and its own AI delivery practice.",
+      "expansion": "Reusable handoffs across a bounded project portfolio.",
+      "validate": "A real unmet cross-platform requirement and ownership of support and commercial margin.",
+      "tags": [
+        "erp"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Hitachi Solutions · official product page",
+          "url": "https://global.hitachi-solutions.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "saglobal",
+      "name": "sa.global",
+      "url": "https://www.saglobal.com/",
+      "segment": "erp",
+      "anchor": "prodware",
+      "entry": "Both",
+      "buyer": "Delivery",
+      "group": "Delivery & ERP",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets Microsoft-based industry platforms combining ERP, business context, and AI.",
+      "adjacency": "A useful Prodware adjacency with explicit overlap in company-aware intelligence.",
+      "workflow": "Test internal statement-of-work and project handoff preparation.",
+      "constraint": "Existing evergreen, HomebuilderONE, and AI capabilities. Avoid a generic platform replacement.",
+      "expansion": "A specific delivery accelerator beyond the incumbent scope.",
+      "validate": "Capability gap, implementation effort, and whether own-use or partnership economics are better.",
+      "tags": [
+        "erp"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "sa.global · official product page",
+          "url": "https://www.saglobal.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "clearbank",
+      "name": "ClearBank",
+      "url": "https://clear.bank/",
+      "segment": "regulated",
+      "anchor": "slash",
+      "entry": "Agents",
+      "buyer": "Risk & technology",
+      "group": "Document operations",
+      "priority": "Defer",
+      "confidence": "Low",
+      "evidence": "Markets API-native banking and payment infrastructure with UK and European operations.",
+      "adjacency": "Financial operations is adjacent to Slash, with a more demanding infrastructure and review environment.",
+      "workflow": "Prepare source-linked internal operational evidence for reviewer approval.",
+      "constraint": "Longer approval path, infrastructure boundaries, and no established buying intent.",
+      "expansion": "Additional evidence-preparation workflows after approval.",
+      "validate": "Deployment boundary, procurement owner, retention rules, and existing tooling.",
+      "tags": [
+        "regulated",
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "ClearBank · official product page",
+          "url": "https://clear.bank/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "starling",
+      "name": "Starling",
+      "url": "https://www.starlingbank.com/",
+      "segment": "regulated",
+      "anchor": "slash",
+      "entry": "Both",
+      "buyer": "Risk & technology",
+      "group": "Case coordination",
+      "priority": "Defer",
+      "confidence": "Low",
+      "evidence": "Markets personal and business banking and an AI feature for spending insights.",
+      "adjacency": "A controlled internal workflow could transfer from fintech; public consumer AI does not prove enterprise procurement need.",
+      "workflow": "Prepare internal servicing case evidence without making account decisions.",
+      "constraint": "Bank procurement, existing AI capability, and sensitive data access.",
+      "expansion": "Controlled internal knowledge workflows.",
+      "validate": "An approved use case, operator, infrastructure requirements, and incumbent coverage.",
+      "tags": [
+        "regulated",
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Starling · official product page",
+          "url": "https://www.starlingbank.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "oaknorth",
+      "name": "OakNorth",
+      "url": "https://oaknorth.co.uk/",
+      "segment": "regulated",
+      "anchor": "slash",
+      "entry": "Agents",
+      "buyer": "Risk & technology",
+      "group": "Document operations",
+      "priority": "Defer",
+      "confidence": "Low",
+      "evidence": "Markets business loans, business banking, and personal savings.",
+      "adjacency": "Document-intensive financial operations is an adjacency hypothesis; credit decisions are excluded from the first workflow.",
+      "workflow": "Assemble an internal document-completeness checklist with source references.",
+      "constraint": "Governance review and existing internal capability; no evidence of an active project.",
+      "expansion": "Approved servicing and knowledge preparation.",
+      "validate": "Document category, error cost, deployment constraints, and accountable sponsor.",
+      "tags": [
+        "regulated",
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "OakNorth · official product page",
+          "url": "https://oaknorth.co.uk/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    },
+    {
+      "id": "ebury",
+      "name": "Ebury",
+      "url": "https://ebury.com/",
+      "segment": "regulated",
+      "anchor": "slash",
+      "entry": "Both",
+      "buyer": "Operations",
+      "group": "Document operations",
+      "priority": "Explore",
+      "confidence": "Medium",
+      "evidence": "Markets global accounts, FX, payments, financing, APIs, and reconciliation integrations.",
+      "adjacency": "Cross-border financial operations combines the Slash archetype with multi-country documents and handoffs.",
+      "workflow": "Prepare a client implementation or onboarding exception packet.",
+      "constraint": "Existing APIs and reconciliation capabilities; multi-jurisdiction controls.",
+      "expansion": "Approved operational knowledge and customer handoffs.",
+      "validate": "An unserved coordination step, buyer authority, and actual deployment requirements.",
+      "tags": [
+        "regulated",
+        "fintech"
+      ],
+      "trigger": "Unknown. Public positioning supports the adjacency; it does not establish an active buying project.",
+      "triggerHypothesis": "A persistent queue, repeated document rework, or a service-level problem owned by the proposed buyer.",
+      "sources": [
+        {
+          "title": "Ebury · official product page",
+          "url": "https://ebury.com/"
+        }
+      ],
+      "date": "2026-11-16",
+      "status": "Prospect hypothesis"
+    }
+  ],
+  "bets": [
+    {
+      "n": "01",
+      "title": "Start with casework.",
+      "subtitle": "Oyster · Relay",
+      "entry": "Workflow agents",
+      "body": "I would look for a recurring service case that requires several systems and a human decision. Put the preparation and coordination under the agent; keep the decision with its owner.",
+      "buyer": "Operations leader",
+      "trigger": "A measured backlog or missed service target; not yet verified.",
+      "offer": "One paid, bounded case-preparation pilot.",
+      "metric": "Accepted cases per reviewer-hour, with no rise in reopens.",
+      "risk": "The existing support stack may already solve it.",
+      "change": "No repeated cross-system gap, or no owner willing to change the process.",
+      "ids": [
+        "oyster",
+        "relay"
+      ]
+    },
+    {
+      "n": "02",
+      "title": "Make submissions ready.",
+      "subtitle": "Vouch · Coverdash",
+      "entry": "Workflow agents",
+      "body": "I would test document completeness before quote preparation. It is narrow enough to audit and close enough to revenue to matter.",
+      "buyer": "Insurance operations leader",
+      "trigger": "A verified submission queue or repeat missing-document work.",
+      "offer": "One submission class, existing rating systems, broker approval.",
+      "metric": "Reviewer minutes and rework per accepted submission.",
+      "risk": "Native automation may cover most of the work.",
+      "change": "Low remaining handling time or unavailable carrier-portal permissions.",
+      "ids": [
+        "vouch",
+        "coverdash"
+      ]
+    },
+    {
+      "n": "03",
+      "title": "Earn the routing layer.",
+      "subtitle": "Cartesia · ElevenLabs",
+      "entry": "Flux evaluation",
+      "body": "I would ask for a small sample of internal coding or knowledge tasks. Win on cost per accepted result before asking for a wider deployment.",
+      "buyer": "Engineering / AI platform",
+      "trigger": "Eligible cost or governance friction; spend is unknown.",
+      "offer": "A controlled comparison against the current route.",
+      "metric": "All-in cost at an agreed quality and latency threshold.",
+      "risk": "These teams can build, and already sell agents.",
+      "change": "No cost-quality advantage after retries and verification.",
+      "ids": [
+        "cartesia",
+        "elevenlabs"
+      ]
+    }
+  ],
+  "deployments": [
+    {
+      "id": "oyster",
+      "label": "Oyster",
+      "title": "A service case, ready for its owner.",
+      "before": "A proposed starting point: a country-specific request whose context is split across messages, documents, and case history. Current handling and tools must be established in discovery.",
+      "steps": [
+        "Read request + authorized case history",
+        "Retrieve approved country guidance",
+        "Assemble timeline + missing information",
+        "Route to the case owner for review"
+      ],
+      "systems": "Case system, approved country knowledge, customer records, and communications. Exact systems are unknown.",
+      "approval": "An authorized specialist approves employment guidance and any external response.",
+      "success": "Lower reviewer time and shorter case turnaround, without worse corrections or reopen rates.",
+      "expand": "Onboarding-document readiness → client handoffs → recurring service reviews."
+    },
+    {
+      "id": "coverdash",
+      "label": "Coverdash",
+      "title": "A complete submission, before the quote.",
+      "before": "Hypothesis: some submissions still require document chasing or inconsistent carrier packets. Confirm the uncovered case type before building.",
+      "steps": [
+        "Read intake + supplied documents",
+        "Check required fields against a checklist",
+        "Retrieve missing-document status",
+        "Prepare a packet for broker approval"
+      ],
+      "systems": "Authorized intake records, document storage, approved carrier requirements, and permitted portal access.",
+      "approval": "A licensed professional retains coverage, placement, and binding authority.",
+      "success": "Less rework and fewer reviewer minutes per accepted submission; quote conversion is a later measure.",
+      "expand": "Submission completeness → renewal packets → partner-service preparation."
+    },
+    {
+      "id": "relay",
+      "label": "Relay",
+      "title": "An investigation with its evidence attached.",
+      "before": "Hypothesis: a payment-service request needs evidence from more than one authorized source. Existing automation, volume, and permissions remain unknown.",
+      "steps": [
+        "Identify the request + permitted records",
+        "Retrieve history and transaction references",
+        "Prepare chronology + unresolved questions",
+        "Hand off to the authorized reviewer"
+      ],
+      "systems": "Support cases, approved account metadata, transaction references, and internal procedures. No inferred production stack.",
+      "approval": "The authorized team decides the response and any account action. The first agent does not move money.",
+      "success": "Accepted packets per reviewer-hour, citation correctness, and unchanged or improved reopen rate.",
+      "expand": "Investigation packets → approved follow-up preparation → internal service knowledge."
+    }
+  ]
+}

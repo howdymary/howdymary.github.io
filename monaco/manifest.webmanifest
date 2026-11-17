@@ -1,0 +1,12 @@
+{
+  "name": "Monaco · Agent Fieldguide",
+  "short_name": "Agent Guide",
+  "description": "A visual guide to building research agents, RAG, MCP, and durable harnesses.",
+  "id": "./",
+  "start_url": "./#start",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f7f2",
+  "theme_color": "#f8f7f2",
+  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}

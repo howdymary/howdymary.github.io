@@ -1,0 +1,303 @@
+{
+  "source_repository": "https://github.com/howdymary/mochi-demo",
+  "source_commit": "26e60fed923d286ac4082aba5d07b5d7fc8bf485",
+  "study": "terrain-v12",
+  "replay_scenarios": [
+    "development-43000",
+    "held-out-44000",
+    "held-out-44001",
+    "held-out-44002",
+    "held-out-44003",
+    "held-out-44004",
+    "held-out-44005"
+  ],
+  "directional_study": "directional-v14",
+  "note": "Archived MuJoCo trajectories are unmodified. Renderer interpolates recorded samples; no model calls or new simulation occur in the browser. The development MP4 is a separate screen recording and is not a matched final-test pair.",
+  "files": [
+    {
+      "path": "curriculum-stage.js",
+      "source_git_blob": "6aadfa087a50628c07c05f1f006731d961eb4180",
+      "sha256": "ff0323e4cc5a68ceafa14256f61ee4b9700f602c53f056d6260c5ff34bb82a65"
+    },
+    {
+      "path": "richdesk-stage.js",
+      "source_git_blob": "499380533f5bff841f010814b96007f2f9ecafbc",
+      "sha256": "a472913dbc8998bf8a4de46767dc498ac0d7f563e9d782bef85dc85d29aa656a"
+    },
+    {
+      "path": "vintage-clock.js",
+      "source_git_blob": "a97ba08005903fde7e8eee7b4832dc9be8655a80",
+      "sha256": "86fc73e755a4fe650d1f7fd5466879eea78396c7b2895b9a82e396ac632bd22f"
+    },
+    {
+      "path": "g1-stage.js",
+      "source_git_blob": "bd962a54cbdcc039cc58fe5778f40a38f685a018",
+      "sha256": "887357b14f6bf007f477cda3e52f40b666fd242c1d6e76643be4917113005e06"
+    },
+    {
+      "path": "realism.js",
+      "source_git_blob": "67e0a18caa6f007783a7eeaa5a7a39874f54fc9f",
+      "sha256": "ee8e9311959fcf13e108d46ac3a3e098461df1de02710260d88b3b0100dcb072"
+    },
+    {
+      "path": "assets/sources.json",
+      "source_git_blob": "09ad735b8023bf1f4197f349e53dea12424e4988",
+      "sha256": "e4078339dd53cc7241ed13c5f57f38068404ef21b6de3ca87520f8464f6adc0f"
+    },
+    {
+      "path": "assets/laptop-display.png",
+      "source_git_blob": "71bfb35269f4c3ab2b722265df2abb874d775a7f",
+      "sha256": "48c489fc3f2fc07af87d13dba75665a36ca007e2897b27f6602e57ca6922a380"
+    },
+    {
+      "path": "assets/sand3d-attribution.json",
+      "source_git_blob": "d6261b6f52f9d33474f59cfc45615a97a8b105d1",
+      "sha256": "a35fd8f6a1a21234ce0995284c504c66898714bbd1e1b174c735758c7a71493d"
+    },
+    {
+      "path": "assets/sand-globe-base.glb",
+      "source_git_blob": "bec5706a2fbc4bc8955181c09592241c85075f99",
+      "sha256": "e894583ee2a7f0b45c8c51a52e1031d69f1e8b914018d4e7653e7679a3c47d4d"
+    },
+    {
+      "path": "assets/g1-contact-preview.jpg",
+      "source_git_blob": "5787c0cf6c57d1016123e93c6470d60aabc73b3c",
+      "sha256": "4ffa7215a54fac21ba688185176afcf699a1655eec8e91b2e217e38a0a70323c"
+    },
+    {
+      "path": "assets/oak-color.jpg",
+      "source_git_blob": "d869d4c6305e09d8a4110ebbe56800b19267797f",
+      "sha256": "63ae5cd186197b40f18bc020fe2b652bb08df4d9fc6240c6cbf8a7e3bc32c096"
+    },
+    {
+      "path": "assets/G1-LICENSE.txt",
+      "source_git_blob": "62637c8d1416c57ef1aafdf0d4867502e96b9164",
+      "sha256": "98335465f43a20b5850e4651db6e74c4aa1e9fc8e8813d38f345178045c0da50"
+    },
+    {
+      "path": "assets/g1-mini.glb",
+      "source_git_blob": "c37b19461666a6c17b0347b272d341c801c6eb81",
+      "sha256": "0b089c11bc93a9a73c628dad5b846cb8d566d04ec2f95cf44ae80b9617150dd8"
+    },
+    {
+      "path": "assets/studio.hdr",
+      "source_git_blob": "e9a2d2272ceee33041dbfefaff72f510d86a164c",
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "path": "assets/clock-attribution.json",
+      "source_git_blob": "4ac6f76ffccd13f50287cd41e2fcd6cb2f870b77",
+      "sha256": "d01e1a52182409e3059d87c624a29ad1125b470334efa15511940aea264dfc12"
+    },
+    {
+      "path": "assets/globe-map.jpg",
+      "source_git_blob": "c27804a9294cbbe323fc41e2f0b951ca7de0d335",
+      "sha256": "b2b1b59d33290e3d1cb3e0819bfcccb0a81f0ad6b8969b60b3f4d9c98efe3ac7"
+    },
+    {
+      "path": "assets/oak-roughness.jpg",
+      "source_git_blob": "4077e93832a53ce8043417348b9e67cd6c9cc65f",
+      "sha256": "c788876d80e4d96598590631f8de92447fb1b0ba1265a812514ee717d270ac3e"
+    },
+    {
+      "path": "assets/oak-normal.jpg",
+      "source_git_blob": "1491a5b356a8b13882b4b9df931cd04d41a7c531",
+      "sha256": "d56f02c911391267ddc6adc92e8a5bc29b9803196e8d57ad5b9702e6c842dc28"
+    },
+    {
+      "path": "assets/sand-desk-lamp.glb",
+      "source_git_blob": "0acb86c95d5f0702d00979cb7b85c167630305e0",
+      "sha256": "3045061a82e85135a69c8e99e80b12413807fb2f6d914b4d267dfb6cf75f031b"
+    },
+    {
+      "path": "assets/g1-free-standing-preview.jpg",
+      "source_git_blob": "89f6403c5f0476ccd54cbb08a58e423b72639b2d",
+      "sha256": "a91f7c49ea0f199f943b31ca29fb742b7627e1b4dae512ad13883be4d2d1e6f6"
+    },
+    {
+      "path": "assets/sand-clock-case.glb",
+      "source_git_blob": "14fda6c7dfd1c281938bb8290375e9d972e50de4",
+      "sha256": "37f477d5870274e5f8530b201608faecac5949c6814f23e14c4a186677506276"
+    },
+    {
+      "path": "assets/sand-earth.glb",
+      "source_git_blob": "c35a8ca34385dae5675f10a3458b56facdf1442f",
+      "sha256": "8e6b6865a2f15ba80e1be1e89f8e76db621ba9356b6a3129d5eec8a872a7ed88"
+    },
+    {
+      "path": "assets/sand-laptop-lid.glb",
+      "source_git_blob": "52cd7a6423157b994e3bc169fc4a471f79998435",
+      "sha256": "2304369074560272084ea510ff71c692919351ef5d7b70a0e08060aa620c4c12"
+    },
+    {
+      "path": "assets/g1-source.json",
+      "source_git_blob": "e7de0edc1f4ee4d59ec370984780c9adf5fff0de",
+      "sha256": "e21b548581be51d8880dc8a758c2a2d10051214e3bdac9835b4a37f0f0aff989"
+    },
+    {
+      "path": "assets/sand-laptop-base.glb",
+      "source_git_blob": "fd5ff99cfc92ddf26c1ccba0b28ad5e71b26376c",
+      "sha256": "bc6606698efcaead8d0a947243ba271d52c8c03907ccb1f2c5e8cc1b28cfb8da"
+    },
+    {
+      "path": "assets/sand-clock-stop.glb",
+      "source_git_blob": "98e61f4a414f2b4c94d796ec93d7d648bbfadd02",
+      "sha256": "f8d5c28a5ef701bc13cf187cabed8d37dbe897a09cb14d28117aa7432b8481ba"
+    },
+    {
+      "path": "assets/richdesk/notebook.glb",
+      "source_git_blob": "7a91edb8a772c0486752a95d029c8d66b429aeef",
+      "sha256": "37850ff64354862fbfad7112ab33977779963356fcef8842530335995e5b51e2"
+    },
+    {
+      "path": "assets/richdesk/pencil.glb",
+      "source_git_blob": "625bc680e5e605feb859ab9ae8bf530efa3eacd5",
+      "sha256": "b5fb46943cab432082b092ae125cb9a3f5d0432ae30a5596453dd433fa00841b"
+    },
+    {
+      "path": "assets/richdesk/printer.glb",
+      "source_git_blob": "2f528c60846a1da79200686f83dd2c0beadb7dbc",
+      "sha256": "bb5d51f7eaa698f436afcda35a0a27065a27f76283bd19d8ca6b8b26ec03aebc"
+    },
+    {
+      "path": "assets/richdesk/glasses.glb",
+      "source_git_blob": "aa9ac96fd29e83dba43941cce5452ca1dcd7b635",
+      "sha256": "b68c2dbe41d0c81e0ce8eccde0fcdba48de5935276edea77eb94d6c0faf2a1a7"
+    },
+    {
+      "path": "assets/richdesk/book.glb",
+      "source_git_blob": "f6444cbea66e7588f4480c0acd86d5a8a4342cda",
+      "sha256": "32a82d11365974c9c1e9736f3444ae093e881b22a34ee67b8597626c254f433c"
+    },
+    {
+      "path": "assets/richdesk/pen.glb",
+      "source_git_blob": "fe9cd1f3157183232d50e18e26eecb2dbe058a6b",
+      "sha256": "98e40b3ff5ee89b0479e8a9c5fc1ae6d4665362a5e9b23e564b113d1e2fcb6d0"
+    },
+    {
+      "path": "assets/richdesk/attribution.json",
+      "source_git_blob": "7bd5c33753cf89bd0f7171730c0175c13a6b8b1c",
+      "sha256": "9914a3eae0c3c425eb6abaeb4abdb8da90911797f1a07a6c8da6ad9d1df641a3"
+    },
+    {
+      "path": "assets/richdesk/mug.glb",
+      "source_git_blob": "15178d2fbec32b43b8a1073f54fcd38475f9ed49",
+      "sha256": "f32a7456e5e0fa1c7cf3811b190d46ec43f4cc381aa2a94366dfd3795cb12fec"
+    },
+    {
+      "path": "assets/richdesk/stapler.glb",
+      "source_git_blob": "a4c21d38294d45e52239a6eec356666b264a26ec",
+      "sha256": "aac2b8e652568f895414e4e0843609e2aba7f9c50a0f346e5b66b704f1e77e3c"
+    },
+    {
+      "path": "terrain-training/development-43000-1.json.gz",
+      "source_git_blob": "610eb656ce6ee4e274db4fa009be6b49178c3df1",
+      "sha256": "9f34d18758cd4d29ed35d69349c6ed4bf9576f13986f25665ba3c07006a7fd35"
+    },
+    {
+      "path": "terrain-training/development-43000-8.json.gz",
+      "source_git_blob": "9dd41b4024fcc79107ca1e73ed54cf0b1c837896",
+      "sha256": "d2a24a5b5ec523830ef6fd134f5d94ea34133068845a885b32df75c1b66facfd"
+    },
+    {
+      "path": "terrain-training/development-43000-0.json.gz",
+      "source_git_blob": "120e2e381ad33913b561046040f774f1bf84ece5",
+      "sha256": "aa2317d439652f9203cce508c669f61ff9e42a999e710918e4e7f42495f5996b"
+    },
+    {
+      "path": "terrain-training/development-43000-32.json.gz",
+      "source_git_blob": "b48b6bff802d46efb66af694fd794c7665592f82",
+      "sha256": "497805a8c44a7e42923c454b989fd6012b384f5af190a5814c6f190936de5acc"
+    },
+    {
+      "path": "terrain-training/held-out-parent-44000-0.json.gz",
+      "source_git_blob": "4e71e09c8b4fb43a57082f1f9995503e227a6de1",
+      "sha256": "f1471d5660e940d14214274e1ce0eca56d5dee888a5df514aff91c58f1496aaf"
+    },
+    {
+      "path": "terrain-training/held-out-selected-44000-1.json.gz",
+      "source_git_blob": "f96b5353d8b923bcde6d9d78bd0eb7b58a270459",
+      "sha256": "a9e9236d7fc1175be6308611fac48c590db7fa33938214ebb3fec8c27fa222fc"
+    },
+    {
+      "path": "terrain-training/held-out-selected-44001-1.json.gz",
+      "source_git_blob": "e99911630a140b8b931fa08be078f508d67f6e9e",
+      "sha256": "b7995a237ec6ab6e2b990103da0b0187efcd0344914efce5256deecf509ad1f4"
+    },
+    {
+      "path": "terrain-training/held-out-parent-44001-0.json.gz",
+      "source_git_blob": "578ed1b254b8fa7f85cf1a49c17c518fd56fd48c",
+      "sha256": "e76ce433f4cb2928a26640880d6e24d76370ad0db162eb1fdc7917d29803e412"
+    },
+    {
+      "path": "terrain-training/held-out-selected-44002-1.json.gz",
+      "source_git_blob": "b03816a80196c7ba0e19b045df57c6ba07c0edf9",
+      "sha256": "734f747c7f5f98590365ab4e2cbad098b73bfa47b4411234077cf14d1ff3ac3d"
+    },
+    {
+      "path": "terrain-training/held-out-parent-44002-0.json.gz",
+      "source_git_blob": "fce56120f6d91c32de46a62422ad9705e9cbc816",
+      "sha256": "1a5898ec4c3135f1bb9f1115f2117359d572308171a7f681b3b5a9e4b3231a49"
+    },
+    {
+      "path": "terrain-training/held-out-parent-44003-0.json.gz",
+      "source_git_blob": "ec932ce3504c20de586d81db6beeb7bd26c11860",
+      "sha256": "9c998a4c17ced633a0802dee5e9c82b25d12f2c29a426dd24816ecd178250d3c"
+    },
+    {
+      "path": "terrain-training/held-out-selected-44003-1.json.gz",
+      "source_git_blob": "16d4bf73829c619e95853db2e680b86fdc41eb7c",
+      "sha256": "744259d746bc21531150d9b02d8523ae8f152abd95c1cf632d70a838022b349e"
+    },
+    {
+      "path": "terrain-training/held-out-selected-44004-1.json.gz",
+      "source_git_blob": "6b51e578c0655111a941feb2bac5ccc9d64015ed",
+      "sha256": "7e445734f7051b670f59189034898d3e494c8a006cc659862dcec7c553f08f5e"
+    },
+    {
+      "path": "terrain-training/held-out-parent-44004-0.json.gz",
+      "source_git_blob": "862069d299a065c9532946f6c89f1147861e180b",
+      "sha256": "2f458b9c928d9db189f8a839aa12e50b99aa99fd003a823f5c3b2b0715647fed"
+    },
+    {
+      "path": "terrain-training/held-out-selected-44005-1.json.gz",
+      "source_git_blob": "a67f41aea6c5c0bd8a0dcd8f4999781fe425b4c7",
+      "sha256": "4818976639f2d3427d4b17f3e738d91164aedfaee32e735fd8ecf2e4fb8ef667"
+    },
+    {
+      "path": "terrain-training/held-out-parent-44005-0.json.gz",
+      "source_git_blob": "bacc65a8e664c524c134483989749dd024f91738",
+      "sha256": "ba0bba27a86806c5140bffb1041c1883341ecad42385b8b20f62f9d2bad925cb"
+    },
+    {
+      "path": "terrain-training/manifest.json",
+      "source_git_blob": "94de799f880707fd0161ff45cdd304f939c4d9cc",
+      "sha256": "cb2d237c8cc082144a8d8f973f4a6c736317be611cb3adfcec7a2c7be664b8d0"
+    },
+    {
+      "path": "directional-v14/desk-corner-before.json.gz",
+      "source_git_blob": "8a868a8457fe23f5829ee1c2fa2ed0c7e707a268",
+      "sha256": "b0088953f2e4dbabccacc0b56c9842e4060c05cf7779a9837dc2e6e014ed261b"
+    },
+    {
+      "path": "directional-v14/desk-corner-after.json.gz",
+      "source_git_blob": "f89d807785a0ec269ac2846a1655deb5f3ed64e3",
+      "sha256": "e6f232691671154d9696e29971108377492eee5eed8a6d4483cece5c70f4484b"
+    },
+    {
+      "path": "directional-v14/four-tasks-before.json.gz",
+      "source_git_blob": "1488d817284f88e70717505761bce914d28bd56c",
+      "sha256": "c80802aaa2e33b5ba96996088fc99f06acaab543cc131af4ead1d9b0141b9934"
+    },
+    {
+      "path": "directional-v14/four-tasks-after.json.gz",
+      "source_git_blob": "8d2d5027564fea32a4452d35f8116940b93dad5f",
+      "sha256": "59070e34c525b76ca72ba68a692a16d2f6a91d4ee32d196006c03d1dd28301ed"
+    },
+    {
+      "path": "directional-v14/manifest.json",
+      "source_git_blob": "6ff56a421cc5c94fdca1a1b3441f02b04ec47802",
+      "sha256": "b77d1466b7af18f570062cff74d9e5c1f104366aec153e3e34d614d645e985d1"
+    }
+  ]
+}

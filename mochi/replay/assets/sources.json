@@ -1,0 +1,66 @@
+{
+  "retrieved_at": "2026-11-18T01:16:03.236530+00:00",
+  "assets": [
+    {
+      "file": "studio.hdr",
+      "source": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_09_1k.hdr",
+      "asset_page": "https://polyhaven.com/a/studio_small_09",
+      "authors": {
+        "Sergej Majboroda": "All"
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
+      "bytes": 1615248
+    },
+    {
+      "file": "oak-color.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_table_001/wood_table_001_diff_2k.jpg",
+      "asset_page": "https://polyhaven.com/a/wood_table_001",
+      "authors": {
+        "Dimitrios Savva": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "sha256": "63ae5cd186197b40f18bc020fe2b652bb08df4d9fc6240c6cbf8a7e3bc32c096",
+      "bytes": 924532
+    },
+    {
+      "file": "oak-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_table_001/wood_table_001_nor_gl_2k.jpg",
+      "asset_page": "https://polyhaven.com/a/wood_table_001",
+      "authors": {
+        "Dimitrios Savva": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "sha256": "d56f02c911391267ddc6adc92e8a5bc29b9803196e8d57ad5b9702e6c842dc28",
+      "bytes": 385020
+    },
+    {
+      "file": "oak-roughness.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_table_001/wood_table_001_rough_2k.jpg",
+      "asset_page": "https://polyhaven.com/a/wood_table_001",
+      "authors": {
+        "Dimitrios Savva": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "sha256": "c788876d80e4d96598590631f8de92447fb1b0ba1265a812514ee717d270ac3e",
+      "bytes": 963377
+    },
+    {
+      "file": "globe-map.jpg",
+      "source": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_110m_admin_0_countries.geojson",
+      "source_revision": "ca96624a56bd078437bca8184e78163e5039ad19",
+      "source_sha256": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f",
+      "license": "Public domain",
+      "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "processing": "110m country polygons, original typesetting, print grain and graticule",
+      "sha256": "b2b1b59d33290e3d1cb3e0819bfcccb0a81f0ad6b8969b60b3f4d9c98efe3ac7"
+    }
+  ]
+}

@@ -1,0 +1,565 @@
+{
+  "credit": "Sand3D, Thibault Neveu and Andr\u00e9a Loy, Sandflow, 2026; per-object original credits below.",
+  "assets": [
+    {
+      "id": "objaverse-6c2e5ccb27cf459892d1329ebf0b682f",
+      "name": "Book",
+      "dataset": "objaverse",
+      "family": "Stationery",
+      "joints": 0,
+      "glb": true,
+      "loc": 23,
+      "part": false,
+      "parts": 2,
+      "entry": "book",
+      "source": "objaverse",
+      "source_label": "Objaverse",
+      "family_raw": "stationery",
+      "split": "train",
+      "f_score": 0.9951535986145754,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Russian physics textbook\" by igor.rizaev00, https://sketchfab.com/3d-models/6c2e5ccb27cf459892d1329ebf0b682f, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "asset_id": "objaverse:6c2e5ccb27cf459892d1329ebf0b682f",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 7519,
+      "dataset_label": "Objaverse",
+      "repo": "Sandflow/sand3d-objaverse",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/viewer/default/train?row=13519",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/main/usda/0001/objaverse-6c2e5ccb27cf459892d1329ebf0b682f.usda",
+      "glb_url": "/glb/objaverse-6c2e5ccb27cf459892d1329ebf0b682f.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "book",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/objaverse-6c2e5ccb27cf459892d1329ebf0b682f.glb?v=598faf4f72a9",
+      "source_sha256": "07f2493014ed9bc65ad9fa1af6639980ae66e39bec9243e5e5d4cf25d18a5e18",
+      "source_bytes": 4620,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/objaverse-6c2e5ccb27cf459892d1329ebf0b682f",
+      "file": "richdesk/book.glb",
+      "normalized_axes": [
+        0,
+        1,
+        2
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.08605000376701355,
+          -0.14000000059604645,
+          -0.005950000137090683
+        ],
+        "hi": [
+          0.08605000376701355,
+          0.14000000059604645,
+          0.005950000137090683
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "32a82d11365974c9c1e9736f3444ae093e881b22a34ee67b8597626c254f433c"
+    },
+    {
+      "id": "objaverse-07141ec4d54b4485be1819a52e8ce7f6",
+      "name": "Notebook",
+      "dataset": "objaverse",
+      "family": "Stationery",
+      "joints": 0,
+      "glb": true,
+      "loc": 35,
+      "part": false,
+      "parts": 39,
+      "entry": "notebook",
+      "source": "objaverse",
+      "source_label": "Objaverse",
+      "family_raw": "stationery",
+      "split": "train",
+      "f_score": 1.0,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Notepad\" by ellieharrodine, https://sketchfab.com/3d-models/07141ec4d54b4485be1819a52e8ce7f6, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "asset_id": "objaverse:07141ec4d54b4485be1819a52e8ce7f6",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 6987558,
+      "dataset_label": "Objaverse",
+      "repo": "Sandflow/sand3d-objaverse",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/viewer/default/train?row=265",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/main/usda/0000/objaverse-07141ec4d54b4485be1819a52e8ce7f6.usda",
+      "glb_url": "/glb/objaverse-07141ec4d54b4485be1819a52e8ce7f6.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "notebook",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/objaverse-07141ec4d54b4485be1819a52e8ce7f6.glb?v=598faf4f72a9",
+      "source_sha256": "48a45ecbbcb2357e2c73b259630a89b557d47c729ea490fa182018b7a40b941c",
+      "source_bytes": 535436,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/objaverse-07141ec4d54b4485be1819a52e8ce7f6",
+      "file": "richdesk/notebook.glb",
+      "normalized_axes": [
+        1,
+        0,
+        2
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.15709945559501648,
+          -0.12832866609096527,
+          -0.004785437602549791
+        ],
+        "hi": [
+          0.14555945992469788,
+          0.11424239724874496,
+          0.006725436542183161
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "37850ff64354862fbfad7112ab33977779963356fcef8842530335995e5b51e2"
+    },
+    {
+      "id": "objaverse-cf6d456a59814605a18d983ef26453d8",
+      "name": "Pencil",
+      "dataset": "objaverse",
+      "family": "Stationery",
+      "joints": 0,
+      "glb": true,
+      "loc": 53,
+      "part": false,
+      "parts": 23,
+      "entry": "pencil",
+      "source": "objaverse",
+      "source_label": "Objaverse",
+      "family_raw": "stationery",
+      "split": "train",
+      "f_score": 0.9967443961555836,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Pencil\" by FallenBranches, https://sketchfab.com/3d-models/cf6d456a59814605a18d983ef26453d8, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "asset_id": "objaverse:cf6d456a59814605a18d983ef26453d8",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 276452,
+      "dataset_label": "Objaverse",
+      "repo": "Sandflow/sand3d-objaverse",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/viewer/default/train?row=7806",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/main/usda/0000/objaverse-cf6d456a59814605a18d983ef26453d8.usda",
+      "glb_url": "/glb/objaverse-cf6d456a59814605a18d983ef26453d8.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "pencil",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/objaverse-cf6d456a59814605a18d983ef26453d8.glb?v=598faf4f72a9",
+      "source_sha256": "0d69f90c3a9ebc4e8d6cce4f3e3a3de23dac6c311ce5a6137810c191cbf1858a",
+      "source_bytes": 76128,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/objaverse-cf6d456a59814605a18d983ef26453d8",
+      "file": "richdesk/pencil.glb",
+      "normalized_axes": [
+        1,
+        0,
+        2
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.004699999932199717,
+          -0.10639001429080963,
+          -0.004700005985796452
+        ],
+        "hi": [
+          0.004699999932199717,
+          0.08360501378774643,
+          0.004699999932199717
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "b5fb46943cab432082b092ae125cb9a3f5d0432ae30a5596453dd433fa00841b"
+    },
+    {
+      "id": "objaverse-8760a14500c7487d82790f18fe5c5540",
+      "name": "Pen",
+      "dataset": "objaverse",
+      "family": "Stationery",
+      "joints": 0,
+      "glb": true,
+      "loc": 78,
+      "part": false,
+      "parts": 18,
+      "entry": "pen",
+      "source": "objaverse",
+      "source_label": "Objaverse",
+      "family_raw": "stationery",
+      "split": "train",
+      "f_score": 0.9754806738444175,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"3-Color Ballpoint Pen\" by marchal0298, https://sketchfab.com/3d-models/8760a14500c7487d82790f18fe5c5540, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "asset_id": "objaverse:8760a14500c7487d82790f18fe5c5540",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 839698,
+      "dataset_label": "Objaverse",
+      "repo": "Sandflow/sand3d-objaverse",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/viewer/default/train?row=23521",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/main/usda/0002/objaverse-8760a14500c7487d82790f18fe5c5540.usda",
+      "glb_url": "/glb/objaverse-8760a14500c7487d82790f18fe5c5540.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "pen",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/objaverse-8760a14500c7487d82790f18fe5c5540.glb?v=598faf4f72a9",
+      "source_sha256": "646083fe6913d81809ddb5fe2ad0438700f324e222ce9509460cebb1fb6c9702",
+      "source_bytes": 124884,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/objaverse-8760a14500c7487d82790f18fe5c5540",
+      "file": "richdesk/pen.glb",
+      "normalized_axes": [
+        1,
+        0,
+        2
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.0017749990802258253,
+          -0.07240492105484009,
+          -0.023600004613399506
+        ],
+        "hi": [
+          0.015179421752691269,
+          0.07331394404172897,
+          0.04555601254105568
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "98e40b3ff5ee89b0479e8a9c5fc1ae6d4665362a5e9b23e564b113d1e2fcb6d0"
+    },
+    {
+      "id": "objaverse-13cb5f6c327c4aeabe1f4690dbe73838",
+      "name": "Mug",
+      "dataset": "objaverse",
+      "family": "Tableware",
+      "joints": 0,
+      "glb": true,
+      "loc": 37,
+      "part": false,
+      "parts": 218,
+      "entry": "mug",
+      "source": "objaverse",
+      "source_label": "Objaverse",
+      "family_raw": "tableware",
+      "split": "train",
+      "f_score": 0.9854121639314807,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "\"Mug 4 Heavy Drinker\" by Aditya.Refodhio, https://sketchfab.com/3d-models/13cb5f6c327c4aeabe1f4690dbe73838, CC-BY-4.0; modified: rewritten as a sand3d program",
+      "asset_id": "objaverse:13cb5f6c327c4aeabe1f4690dbe73838",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 10132832,
+      "dataset_label": "Objaverse",
+      "repo": "Sandflow/sand3d-objaverse",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/viewer/default/train?row=55940",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-objaverse/blob/main/usda/0010/objaverse-13cb5f6c327c4aeabe1f4690dbe73838.usda",
+      "glb_url": "/glb/objaverse-13cb5f6c327c4aeabe1f4690dbe73838.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "mug",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/objaverse-13cb5f6c327c4aeabe1f4690dbe73838.glb?v=598faf4f72a9",
+      "source_sha256": "9f4ccc98fcde8c45869a6d550424473559d35ffdccbfe1c8c07ffa06c3388f4d",
+      "source_bytes": 1563124,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/objaverse-13cb5f6c327c4aeabe1f4690dbe73838",
+      "file": "richdesk/mug.glb",
+      "normalized_axes": [
+        0,
+        1,
+        2
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.04506416991353035,
+          -0.06727803498506546,
+          -0.005040000192821026
+        ],
+        "hi": [
+          0.05782415717840195,
+          0.08344416320323944,
+          0.13915999233722687
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "f32a7456e5e0fa1c7cf3811b190d46ec43f4cc381aa2a94366dfd3795cb12fec"
+    },
+    {
+      "id": "articraft-rec_all_in_one_printer_with_scanner_lid_and_paper_tray_2fa487f194524ba7b35fc345b2252469",
+      "name": "Home office printer",
+      "dataset": "articraft",
+      "family": "All in one printer with scanner lid and paper tray",
+      "joints": 8,
+      "glb": true,
+      "loc": 148,
+      "part": false,
+      "parts": 53,
+      "entry": "home_office_printer",
+      "source": "articraft",
+      "source_label": "Articraft",
+      "family_raw": "all_in_one_printer_with_scanner_lid_and_paper_tray",
+      "split": "train",
+      "f_score": 1.0,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "Articraft Data, Matt Zhou et al., record rec_all_in_one_printer_with_scanner_lid_and_paper_tray_2fa487f194524ba7b35fc345b2252469, CC BY 4.0; modified: rewritten as a sand3d program",
+      "asset_id": "articraft:rec_all_in_one_printer_with_scanner_lid_and_paper_tray_2fa487f194524ba7b35fc345b2252469",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 129219,
+      "dataset_label": "Articraft",
+      "repo": "Sandflow/sand3d-articraft",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-articraft/viewer/default/train?row=4649",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-articraft/blob/main/usda/0003/articraft-rec_all_in_one_printer_with_scanner_lid_and_paper_tray_2fa487f194524ba7b35fc345b2252469.usda",
+      "glb_url": "/glb/articraft-rec_all_in_one_printer_with_scanner_lid_and_paper_tray_2fa487f194524ba7b35fc345b2252469.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "printer",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/articraft-rec_all_in_one_printer_with_scanner_lid_and_paper_tray_2fa487f194524ba7b35fc345b2252469.glb?v=598faf4f72a9",
+      "source_sha256": "0809883fdcb1a05f5b48708400c96c0fa81d3001a10c625e6d6bbf2a807bbff8",
+      "source_bytes": 71644,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/articraft-rec_all_in_one_printer_with_scanner_lid_and_paper_tray_2fa487f194524ba7b35fc345b2252469",
+      "file": "richdesk/printer.glb",
+      "normalized_axes": [
+        0,
+        1,
+        2
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.23000001907348633,
+          -0.20400004088878632,
+          0.0
+        ],
+        "hi": [
+          0.23000001907348633,
+          0.19100001454353333,
+          0.19500002264976501
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "bb5d51f7eaa698f436afcda35a0a27065a27f76283bd19d8ca6b8b26ec03aebc"
+    },
+    {
+      "id": "articraft-rec_desktop_stapler_with_hinged_top_arm_6d603e7d424e4a7095ad88946eb09294",
+      "name": "Premium desktop stapler",
+      "dataset": "articraft",
+      "family": "Desktop stapler with hinged top arm",
+      "joints": 2,
+      "glb": true,
+      "loc": 82,
+      "part": false,
+      "parts": 12,
+      "entry": "premium_desktop_stapler",
+      "source": "articraft",
+      "source_label": "Articraft",
+      "family_raw": "desktop_stapler_with_hinged_top_arm",
+      "split": "train",
+      "f_score": 0.9929,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "Articraft Data, Matt Zhou et al., record rec_desktop_stapler_with_hinged_top_arm_6d603e7d424e4a7095ad88946eb09294, CC BY 4.0; modified: rewritten as a sand3d program",
+      "asset_id": "articraft:rec_desktop_stapler_with_hinged_top_arm_6d603e7d424e4a7095ad88946eb09294",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 39345,
+      "dataset_label": "Articraft",
+      "repo": "Sandflow/sand3d-articraft",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-articraft/viewer/default/train?row=995",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-articraft/blob/main/usda/0002/articraft-rec_desktop_stapler_with_hinged_top_arm_6d603e7d424e4a7095ad88946eb09294.usda",
+      "glb_url": "/glb/articraft-rec_desktop_stapler_with_hinged_top_arm_6d603e7d424e4a7095ad88946eb09294.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "stapler",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/articraft-rec_desktop_stapler_with_hinged_top_arm_6d603e7d424e4a7095ad88946eb09294.glb?v=598faf4f72a9",
+      "source_sha256": "47704760d27edafceaeeeeeb465dd8ad3f487db895bdf21e9ef10267e2df7431",
+      "source_bytes": 21612,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/articraft-rec_desktop_stapler_with_hinged_top_arm_6d603e7d424e4a7095ad88946eb09294",
+      "file": "richdesk/stapler.glb",
+      "normalized_axes": [
+        0,
+        1,
+        2
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.08400000631809235,
+          -0.024000003933906555,
+          0.0
+        ],
+        "hi": [
+          0.09000000357627869,
+          0.024000003933906555,
+          0.05000000819563866
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "aac2b8e652568f895414e4e0843609e2aba7f9c50a0f346e5b66b704f1e77e3c"
+    },
+    {
+      "id": "articraft-rec_glasses_2cc81dbe846f430a96a5444d1ef4bf55",
+      "name": "Rectangular eyeglasses",
+      "dataset": "articraft",
+      "family": "Glasses",
+      "joints": 2,
+      "glb": true,
+      "loc": 95,
+      "part": false,
+      "parts": 32,
+      "entry": "rectangular_eyeglasses",
+      "source": "articraft",
+      "source_label": "Articraft",
+      "family_raw": "glasses",
+      "split": "train",
+      "f_score": 1.0,
+      "license": "CC-BY-4.0",
+      "source_license": "CC-BY-4.0",
+      "license_status": "ok",
+      "attribution": "Articraft Data, Matt Zhou et al., record rec_glasses_2cc81dbe846f430a96a5444d1ef4bf55, CC BY 4.0; modified: rewritten as a sand3d program",
+      "asset_id": "articraft:rec_glasses_2cc81dbe846f430a96a5444d1ef4bf55",
+      "sand3d_version": "1.5.0",
+      "usda_bytes": 123131,
+      "dataset_label": "Articraft",
+      "repo": "Sandflow/sand3d-articraft",
+      "row_url": "https://huggingface.co/datasets/Sandflow/sand3d-articraft/viewer/default/train?row=613",
+      "usda_url": "https://huggingface.co/datasets/Sandflow/sand3d-articraft/blob/main/usda/0002/articraft-rec_glasses_2cc81dbe846f430a96a5444d1ef4bf55.usda",
+      "glb_url": "/glb/articraft-rec_glasses_2cc81dbe846f430a96a5444d1ef4bf55.glb?v=598faf4f72a9",
+      "assembly": null,
+      "library_url": "https://github.com/Sandflow-ai/sand3d",
+      "has_similar": true,
+      "key": "glasses",
+      "asset_repository": "Sandflow/sand3d-explorer-assets",
+      "download_url": "https://sandflow-sand3d-explorer.hf.space/glb/articraft-rec_glasses_2cc81dbe846f430a96a5444d1ef4bf55.glb?v=598faf4f72a9",
+      "source_sha256": "c73018991bd9b43514c71e6df9e9cd130ddd2e22181bc508f61ed90af63d5101",
+      "source_bytes": 50456,
+      "source_page": "https://sandflow-sand3d-explorer.hf.space/o/articraft-rec_glasses_2cc81dbe846f430a96a5444d1ef4bf55",
+      "file": "richdesk/glasses.glb",
+      "normalized_axes": [
+        0,
+        2,
+        1
+      ],
+      "source_bounds": {
+        "lo": [
+          -0.08419103920459747,
+          -0.003000000026077032,
+          -0.023500001057982445
+        ],
+        "hi": [
+          0.08419103920459747,
+          0.016500001773238182,
+          0.023500001057982445
+        ]
+      },
+      "normalized_bounds": {
+        "lo": [
+          -0.5,
+          -0.5,
+          0
+        ],
+        "hi": [
+          0.5,
+          0.5,
+          1
+        ]
+      },
+      "modifications": "Rigid mesh transforms baked, thin book dimension mapped to Z and pencil/pen length mapped to X; unit bounding box, then explicit metre dimensions supplied by the shared scene config. Original materials retained.",
+      "sha256": "b68c2dbe41d0c81e0ce8eccde0fcdba48de5935276edea77eb94d6c0faf2a1a7"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "file": "sand-clock-case.glb",
+    "dataset": "Sandflow/sand3d-simready",
+    "revision": "ba1baf9d89ddf57433d7c47cb461f6d8883067a1",
+    "record_id": "simready-measurement_clock_alarm_a01",
+    "source_usda_path": "usda/0003/simready-measurement_clock_alarm_a01.usda",
+    "source_usda_sha256": "f11446fb2e3c07a74d951b354fcf0af662d4086670817298fb567f6332a6c133",
+    "license": "CC-BY-4.0",
+    "source_license": "CC-BY-4.0",
+    "attribution": "NVIDIA SimReady assets: \"measurement_clock_alarm_a01\" by NVIDIA, https://huggingface.co/datasets/nvidia/simready-assets/tree/653d91e182011f357cf1644013cc94ddf194d349/measurement_clock_alarm_a01, CC BY 4.0; modified: rewritten as a sand3d program",
+    "additional_credit": "Sand3D, Thibault Neveu and Andr\u00e9a Loy, Sandflow, 2026",
+    "modifications": "Uniform similarity fit; native case, bells, feet and winders retained; carrying arch omitted to keep the contact approach clear. Original dial print supplied separately.",
+    "sha256": "37f477d5870274e5f8530b201608faecac5949c6814f23e14c4a186677506276"
+  },
+  {
+    "file": "sand-clock-stop.glb",
+    "dataset": "Sandflow/sand3d-simready",
+    "revision": "ba1baf9d89ddf57433d7c47cb461f6d8883067a1",
+    "record_id": "simready-measurement_clock_alarm_a01",
+    "source_usda_path": "usda/0003/simready-measurement_clock_alarm_a01.usda",
+    "source_usda_sha256": "f11446fb2e3c07a74d951b354fcf0af662d4086670817298fb567f6332a6c133",
+    "license": "CC-BY-4.0",
+    "source_license": "CC-BY-4.0",
+    "attribution": "NVIDIA SimReady assets: \"measurement_clock_alarm_a01\" by NVIDIA, https://huggingface.co/datasets/nvidia/simready-assets/tree/653d91e182011f357cf1644013cc94ddf194d349/measurement_clock_alarm_a01, CC BY 4.0; modified: rewritten as a sand3d program",
+    "additional_credit": "Sand3D, Thibault Neveu and Andr\u00e9a Loy, Sandflow, 2026",
+    "modifications": "Native hammer and stem retargeted to the existing physical slider as a benchmark alarm silencer. Control pad matches its 25 x 18 x 4 mm contact envelope; no floating housing. This adds articulation absent from the upstream rigid asset.",
+    "sha256": "f8d5c28a5ef701bc13cf187cabed8d37dbe897a09cb14d28117aa7432b8481ba"
+  }
+]

@@ -1,0 +1,962 @@
+{
+  "study": "mochi-directional-v14",
+  "scope": "Navigation controller engineering; zero new Tinker optimizer updates. Fixed pretrained native gait. Actual MuJoCo body trajectories.",
+  "cases": [
+    {
+      "id": "desk-corner",
+      "label": "A turn at the desk corner",
+      "scope": "Isolated navigation probe, starting on the flat desk.",
+      "scene": {
+        "version": "richdesk-v9",
+        "units": "metres",
+        "desk": [
+          1.2,
+          0.8
+        ],
+        "initial_pose": [
+          -0.18899405489400115,
+          -0.18164908940479046,
+          1.576076854282338
+        ],
+        "clock_offset": [
+          0,
+          0,
+          0.024
+        ],
+        "globe_offset": [
+          0,
+          -0.37,
+          0
+        ],
+        "book_height": 0.008,
+        "book_collision_scope": "Fixed, nonsliding book terrain; visual meshes and collision envelopes share the same placements. No root motion is authored.",
+        "props": [
+          {
+            "name": "book-step-1",
+            "asset": "book",
+            "pos": [
+              -0.36,
+              0.02,
+              0
+            ],
+            "size": [
+              0.23,
+              0.3,
+              0.008
+            ],
+            "yaw": 0,
+            "color": "#334d56",
+            "shape": "box",
+            "climb": true,
+            "title": "FIELD NOTES"
+          },
+          {
+            "name": "book-step-2",
+            "asset": "book",
+            "pos": [
+              -0.36,
+              0.045,
+              0.008
+            ],
+            "size": [
+              0.22,
+              0.23,
+              0.008
+            ],
+            "yaw": 0,
+            "color": "#8f5248",
+            "shape": "box",
+            "climb": true,
+            "title": "ROBOT MOTION"
+          },
+          {
+            "name": "book-step-3",
+            "asset": "book",
+            "pos": [
+              -0.36,
+              0.07,
+              0.016
+            ],
+            "size": [
+              0.2,
+              0.18,
+              0.008
+            ],
+            "yaw": 0,
+            "color": "#777c55",
+            "shape": "box",
+            "climb": true,
+            "title": "PRACTICAL MECHANICS"
+          },
+          {
+            "name": "printer",
+            "asset": "printer",
+            "pos": [
+              0.435,
+              0.29,
+              0
+            ],
+            "size": [
+              0.28,
+              0.18,
+              0.17
+            ],
+            "yaw": 0,
+            "shape": "box"
+          },
+          {
+            "name": "coffee-mug",
+            "asset": "mug",
+            "pos": [
+              -0.06,
+              -0.13,
+              0
+            ],
+            "size": [
+              0.105,
+              0.085,
+              0.095
+            ],
+            "yaw": -0.3,
+            "shape": "cylinder"
+          },
+          {
+            "name": "spiral-notebook",
+            "asset": "notebook",
+            "pos": [
+              0.055,
+              -0.265,
+              0
+            ],
+            "size": [
+              0.2,
+              0.145,
+              0.007
+            ],
+            "yaw": -0.12,
+            "shape": "box"
+          },
+          {
+            "name": "pencil-1",
+            "asset": "pencil",
+            "pos": [
+              -0.214,
+              -0.239,
+              0
+            ],
+            "size": [
+              0.17,
+              0.007,
+              0.007
+            ],
+            "yaw": 0.22,
+            "shape": "capsule"
+          },
+          {
+            "name": "pencil-2",
+            "asset": "pencil",
+            "pos": [
+              0.1,
+              -0.235,
+              0.007
+            ],
+            "size": [
+              0.16,
+              0.0065,
+              0.0065
+            ],
+            "yaw": -0.46,
+            "shape": "capsule"
+          },
+          {
+            "name": "pencil-3",
+            "asset": "pencil",
+            "pos": [
+              -0.267,
+              0.293,
+              0
+            ],
+            "size": [
+              0.15,
+              0.007,
+              0.007
+            ],
+            "yaw": 0.33,
+            "shape": "capsule"
+          },
+          {
+            "name": "pen-1",
+            "asset": "pen",
+            "pos": [
+              -0.115,
+              -0.265,
+              0
+            ],
+            "size": [
+              0.145,
+              0.009,
+              0.009
+            ],
+            "yaw": -0.62,
+            "shape": "capsule"
+          },
+          {
+            "name": "pen-2",
+            "asset": "pen",
+            "pos": [
+              0.245,
+              -0.276,
+              0
+            ],
+            "size": [
+              0.14,
+              0.009,
+              0.009
+            ],
+            "yaw": 0.15,
+            "shape": "capsule"
+          },
+          {
+            "name": "stapler",
+            "asset": "stapler",
+            "pos": [
+              0.213,
+              0.327,
+              0
+            ],
+            "size": [
+              0.11,
+              0.035,
+              0.04
+            ],
+            "yaw": 0.12,
+            "shape": "box"
+          },
+          {
+            "name": "reading-glasses",
+            "asset": "glasses",
+            "pos": [
+              0.235,
+              -0.325,
+              0
+            ],
+            "size": [
+              0.14,
+              0.044,
+              0.016
+            ],
+            "yaw": -0.1,
+            "shape": "box"
+          },
+          {
+            "name": "reference-book",
+            "asset": "book",
+            "pos": [
+              -0.43,
+              0.285,
+              0
+            ],
+            "size": [
+              0.19,
+              0.14,
+              0.015
+            ],
+            "yaw": -0.08,
+            "color": "#545755",
+            "shape": "box",
+            "title": "WORKSHOP HANDBOOK"
+          },
+          {
+            "name": "loose-page-1",
+            "asset": "paper",
+            "pos": [
+              0.355,
+              -0.315,
+              0
+            ],
+            "size": [
+              0.15,
+              0.105,
+              0.0002
+            ],
+            "yaw": 0.12,
+            "shape": "box"
+          },
+          {
+            "name": "loose-page-2",
+            "asset": "paper",
+            "pos": [
+              0.365,
+              -0.298,
+              0.0002
+            ],
+            "size": [
+              0.15,
+              0.105,
+              0.0002
+            ],
+            "yaw": 0.07,
+            "shape": "box"
+          },
+          {
+            "name": "sticky-notes",
+            "asset": "sticky",
+            "pos": [
+              0.236,
+              0.015,
+              0
+            ],
+            "size": [
+              0.044,
+              0.044,
+              0.0024
+            ],
+            "yaw": 0.08,
+            "shape": "box"
+          },
+          {
+            "name": "printer-output-tray",
+            "asset": "tray",
+            "pos": [
+              0.435,
+              0.185,
+              0.048
+            ],
+            "size": [
+              0.19,
+              0.065,
+              0.005
+            ],
+            "yaw": 0,
+            "shape": "box"
+          },
+          {
+            "name": "printer-printout",
+            "asset": "paper",
+            "pos": [
+              0.435,
+              0.181,
+              0.054
+            ],
+            "size": [
+              0.17,
+              0.085,
+              0.0002
+            ],
+            "yaw": 0.03,
+            "shape": "box"
+          }
+        ],
+        "route": [
+          {
+            "name": "climb-to-alarm",
+            "goal": [
+              -0.375,
+              0.025,
+              1.5707963267948966
+            ],
+            "surface_height": 0.024
+          },
+          {
+            "name": "descend-books",
+            "goal": [
+              -0.375,
+              -0.19,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "clear-books",
+            "goal": [
+              -0.19,
+              -0.17,
+              0
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "drawer",
+            "goal": [
+              -0.13,
+              0.02,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "laptop-corridor",
+            "goal": [
+              0.3,
+              0.02,
+              0
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "laptop",
+            "goal": [
+              0.3,
+              0.16,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "globe-corridor",
+            "goal": [
+              0.35,
+              0.02,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "globe",
+            "goal": [
+              0.35,
+              -0.145,
+              0
+            ],
+            "surface_height": 0
+          }
+        ],
+        "terrain_conditions": {
+          "initial_xy_offset_m": [
+            0.0010059451059988445,
+            -0.0016490894047904833
+          ],
+          "initial_yaw_offset_rad": 0.005280527487441491,
+          "terrain_friction_multiplier": 0.9913414793461877
+        }
+      },
+      "seed": 81000,
+      "before": {
+        "file": "desk-corner-before.json.gz",
+        "sha256": "b0088953f2e4dbabccacc0b56c9842e4060c05cf7779a9837dc2e6e014ed261b",
+        "source_sha256": "a2c18e1b6196f86ef84fafee80ac9a3694b129bef432b84a97df20305c13cedc",
+        "complete": true,
+        "duration_s": 16.969032447736883,
+        "direction_metrics": {
+          "moving_distance_m": 0.2025588260524739,
+          "forward_distance_m": 0.1531724824963831,
+          "lateral_travel_m": 0.08307508883135091,
+          "backward_distance_m": 0.0,
+          "distance_weighted_heading_error_degrees": 30.157637615887882,
+          "forward_facing_fraction": 0.7131935685628085,
+          "turning_seconds": 0.0,
+          "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+        },
+        "task_results": {},
+        "fall": false,
+        "forbidden_contact": false
+      },
+      "after": {
+        "file": "desk-corner-after.json.gz",
+        "sha256": "e6f232691671154d9696e29971108377492eee5eed8a6d4483cece5c70f4484b",
+        "source_sha256": "98372736a08f51b508366211b70322b8be456c0bac66a2e00d299095f3e416ff",
+        "complete": true,
+        "duration_s": 20.157163604214663,
+        "direction_metrics": {
+          "moving_distance_m": 0.20139782643375598,
+          "forward_distance_m": 0.1896949935671099,
+          "lateral_travel_m": 0.044761365949638504,
+          "backward_distance_m": 0.0,
+          "distance_weighted_heading_error_degrees": 13.832054361066028,
+          "forward_facing_fraction": 0.9288267873633849,
+          "turning_seconds": 2.6036399999999986,
+          "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+        },
+        "task_results": {},
+        "fall": false,
+        "forbidden_contact": false
+      }
+    },
+    {
+      "id": "four-tasks",
+      "label": "One continuous four-task route",
+      "scope": "Clock \u2192 drawer \u2192 laptop \u2192 globe. Validated backward book descent and short fixture-clearance steps are retained.",
+      "scene": {
+        "version": "richdesk-v9",
+        "units": "metres",
+        "desk": [
+          1.2,
+          0.8
+        ],
+        "initial_pose": [
+          -0.375,
+          -0.225,
+          1.5707963267948966
+        ],
+        "clock_offset": [
+          0,
+          0,
+          0.024
+        ],
+        "globe_offset": [
+          0,
+          -0.37,
+          0
+        ],
+        "book_height": 0.008,
+        "book_collision_scope": "Fixed, nonsliding book terrain; visual meshes and collision envelopes share the same placements. No root motion is authored.",
+        "props": [
+          {
+            "name": "book-step-1",
+            "asset": "book",
+            "pos": [
+              -0.36,
+              0.02,
+              0
+            ],
+            "size": [
+              0.23,
+              0.3,
+              0.008
+            ],
+            "yaw": 0,
+            "color": "#334d56",
+            "shape": "box",
+            "climb": true,
+            "title": "FIELD NOTES"
+          },
+          {
+            "name": "book-step-2",
+            "asset": "book",
+            "pos": [
+              -0.36,
+              0.045,
+              0.008
+            ],
+            "size": [
+              0.22,
+              0.23,
+              0.008
+            ],
+            "yaw": 0,
+            "color": "#8f5248",
+            "shape": "box",
+            "climb": true,
+            "title": "ROBOT MOTION"
+          },
+          {
+            "name": "book-step-3",
+            "asset": "book",
+            "pos": [
+              -0.36,
+              0.07,
+              0.016
+            ],
+            "size": [
+              0.2,
+              0.18,
+              0.008
+            ],
+            "yaw": 0,
+            "color": "#777c55",
+            "shape": "box",
+            "climb": true,
+            "title": "PRACTICAL MECHANICS"
+          },
+          {
+            "name": "printer",
+            "asset": "printer",
+            "pos": [
+              0.435,
+              0.29,
+              0
+            ],
+            "size": [
+              0.28,
+              0.18,
+              0.17
+            ],
+            "yaw": 0,
+            "shape": "box"
+          },
+          {
+            "name": "coffee-mug",
+            "asset": "mug",
+            "pos": [
+              -0.06,
+              -0.13,
+              0
+            ],
+            "size": [
+              0.105,
+              0.085,
+              0.095
+            ],
+            "yaw": -0.3,
+            "shape": "cylinder"
+          },
+          {
+            "name": "spiral-notebook",
+            "asset": "notebook",
+            "pos": [
+              0.055,
+              -0.265,
+              0
+            ],
+            "size": [
+              0.2,
+              0.145,
+              0.007
+            ],
+            "yaw": -0.12,
+            "shape": "box"
+          },
+          {
+            "name": "pencil-1",
+            "asset": "pencil",
+            "pos": [
+              -0.214,
+              -0.239,
+              0
+            ],
+            "size": [
+              0.17,
+              0.007,
+              0.007
+            ],
+            "yaw": 0.22,
+            "shape": "capsule"
+          },
+          {
+            "name": "pencil-2",
+            "asset": "pencil",
+            "pos": [
+              0.1,
+              -0.235,
+              0.007
+            ],
+            "size": [
+              0.16,
+              0.0065,
+              0.0065
+            ],
+            "yaw": -0.46,
+            "shape": "capsule"
+          },
+          {
+            "name": "pencil-3",
+            "asset": "pencil",
+            "pos": [
+              -0.267,
+              0.293,
+              0
+            ],
+            "size": [
+              0.15,
+              0.007,
+              0.007
+            ],
+            "yaw": 0.33,
+            "shape": "capsule"
+          },
+          {
+            "name": "pen-1",
+            "asset": "pen",
+            "pos": [
+              -0.115,
+              -0.265,
+              0
+            ],
+            "size": [
+              0.145,
+              0.009,
+              0.009
+            ],
+            "yaw": -0.62,
+            "shape": "capsule"
+          },
+          {
+            "name": "pen-2",
+            "asset": "pen",
+            "pos": [
+              0.245,
+              -0.276,
+              0
+            ],
+            "size": [
+              0.14,
+              0.009,
+              0.009
+            ],
+            "yaw": 0.15,
+            "shape": "capsule"
+          },
+          {
+            "name": "stapler",
+            "asset": "stapler",
+            "pos": [
+              0.213,
+              0.327,
+              0
+            ],
+            "size": [
+              0.11,
+              0.035,
+              0.04
+            ],
+            "yaw": 0.12,
+            "shape": "box"
+          },
+          {
+            "name": "reading-glasses",
+            "asset": "glasses",
+            "pos": [
+              0.235,
+              -0.325,
+              0
+            ],
+            "size": [
+              0.14,
+              0.044,
+              0.016
+            ],
+            "yaw": -0.1,
+            "shape": "box"
+          },
+          {
+            "name": "reference-book",
+            "asset": "book",
+            "pos": [
+              -0.43,
+              0.285,
+              0
+            ],
+            "size": [
+              0.19,
+              0.14,
+              0.015
+            ],
+            "yaw": -0.08,
+            "color": "#545755",
+            "shape": "box",
+            "title": "WORKSHOP HANDBOOK"
+          },
+          {
+            "name": "loose-page-1",
+            "asset": "paper",
+            "pos": [
+              0.355,
+              -0.315,
+              0
+            ],
+            "size": [
+              0.15,
+              0.105,
+              0.0002
+            ],
+            "yaw": 0.12,
+            "shape": "box"
+          },
+          {
+            "name": "loose-page-2",
+            "asset": "paper",
+            "pos": [
+              0.365,
+              -0.298,
+              0.0002
+            ],
+            "size": [
+              0.15,
+              0.105,
+              0.0002
+            ],
+            "yaw": 0.07,
+            "shape": "box"
+          },
+          {
+            "name": "sticky-notes",
+            "asset": "sticky",
+            "pos": [
+              0.236,
+              0.015,
+              0
+            ],
+            "size": [
+              0.044,
+              0.044,
+              0.0024
+            ],
+            "yaw": 0.08,
+            "shape": "box"
+          },
+          {
+            "name": "printer-output-tray",
+            "asset": "tray",
+            "pos": [
+              0.435,
+              0.185,
+              0.048
+            ],
+            "size": [
+              0.19,
+              0.065,
+              0.005
+            ],
+            "yaw": 0,
+            "shape": "box"
+          },
+          {
+            "name": "printer-printout",
+            "asset": "paper",
+            "pos": [
+              0.435,
+              0.181,
+              0.054
+            ],
+            "size": [
+              0.17,
+              0.085,
+              0.0002
+            ],
+            "yaw": 0.03,
+            "shape": "box"
+          }
+        ],
+        "route": [
+          {
+            "name": "climb-to-alarm",
+            "goal": [
+              -0.375,
+              0.025,
+              1.5707963267948966
+            ],
+            "surface_height": 0.024
+          },
+          {
+            "name": "descend-books",
+            "goal": [
+              -0.375,
+              -0.19,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "clear-books",
+            "goal": [
+              -0.19,
+              -0.17,
+              0
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "drawer",
+            "goal": [
+              -0.13,
+              0.02,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "laptop-corridor",
+            "goal": [
+              0.3,
+              0.02,
+              0
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "laptop",
+            "goal": [
+              0.3,
+              0.16,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "globe-corridor",
+            "goal": [
+              0.35,
+              0.02,
+              1.5707963267948966
+            ],
+            "surface_height": 0
+          },
+          {
+            "name": "globe",
+            "goal": [
+              0.35,
+              -0.145,
+              0
+            ],
+            "surface_height": 0
+          }
+        ],
+        "terrain_conditions": {
+          "initial_xy_offset_m": [
+            0.0,
+            0.0
+          ],
+          "initial_yaw_offset_rad": 0.0,
+          "terrain_friction_multiplier": 1.0
+        }
+      },
+      "seed": 41001,
+      "before": {
+        "file": "four-tasks-before.json.gz",
+        "sha256": "c80802aaa2e33b5ba96996088fc99f06acaab543cc131af4ead1d9b0141b9934",
+        "source_sha256": "b92c3edaa6a7505134d7e755bad2cb6d4977bb8f249fbdd971b30d0def7fbbe8",
+        "complete": true,
+        "duration_s": 251.4601663552679,
+        "direction_metrics": {
+          "moving_distance_m": 1.3093579344547788,
+          "forward_distance_m": 0.4083203459382628,
+          "lateral_travel_m": 0.7939596054803992,
+          "backward_distance_m": 0.26834953744202145,
+          "distance_weighted_heading_error_degrees": 80.58787243130558,
+          "forward_facing_fraction": 0.24346144249153323,
+          "turning_seconds": 0.0,
+          "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+        },
+        "task_results": {
+          "alarm": true,
+          "drawer": true,
+          "laptop": true,
+          "globe": true
+        },
+        "fall": false,
+        "forbidden_contact": false
+      },
+      "after": {
+        "file": "four-tasks-after.json.gz",
+        "sha256": "59070e34c525b76ca72ba68a692a16d2f6a91d4ee32d196006c03d1dd28301ed",
+        "source_sha256": "8be24b618a8cc4dbcd848e5e14f558393d448b003f62a40592c4e9f5672ad3a5",
+        "complete": true,
+        "duration_s": 265.685771069439,
+        "direction_metrics": {
+          "moving_distance_m": 1.2335209487879288,
+          "forward_distance_m": 1.1694198170248642,
+          "lateral_travel_m": 0.2109667237703097,
+          "backward_distance_m": 0.0336999498653407,
+          "distance_weighted_heading_error_degrees": 14.463860036104567,
+          "forward_facing_fraction": 0.9515767323282072,
+          "turning_seconds": 22.671696999999966,
+          "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+        },
+        "task_results": {
+          "alarm": true,
+          "drawer": true,
+          "laptop": true,
+          "globe": true
+        },
+        "fall": false,
+        "forbidden_contact": false
+      }
+    }
+  ],
+  "default_case": "desk-corner",
+  "note": "Both panes use the same physical initial state and playback speed. Every pane is an uninterrupted rollout. Display coordinates are rounded to six decimals; raw simulation archives and failed attempts are retained.",
+  "training": {
+    "run": "https://github.com/howdymary/mochi-demo/actions/runs/44600829444",
+    "note": "The active V13 training comparison keeps its previous navigation frozen. This turning refinement is evaluated separately."
+  }
+}

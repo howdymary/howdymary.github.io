@@ -2,13 +2,13 @@
   "study": "mochi-efficient-v15",
   "source_sha": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
   "workflow_run": "mochi-t15-44625135986",
-  "observed_at": "2026-11-20T00:17:04.348220+00:00",
+  "observed_at": "2026-11-20T00:22:35.520095+00:00",
   "status": "running",
   "phase": "Matched directional development tests for every saved checkpoint",
   "optimizer_updates_completed": 16,
-  "recorded_checkpoint_update": 8,
-  "recorded_checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45",
-  "physical_rollouts_returned": 160,
+  "recorded_checkpoint_update": 16,
+  "recorded_checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+  "physical_rollouts_returned": 163,
   "first_update_qualified_pair": {
     "parent_steps": 806,
     "updated_steps": 586,
@@ -740,7 +740,8 @@
     0,
     1,
     4,
-    8
+    8,
+    16
   ],
   "domain_probability_changes": {
     "walk": 0.1396704912185669,
@@ -898,26 +899,26 @@
     "scope": "First predeclared development scenario; no final-test or general reliability claim."
   },
   "latest_recording": {
-    "checkpoint_update": 8,
-    "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45",
-    "cumulative_updates": 113,
+    "checkpoint_update": 16,
+    "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+    "cumulative_updates": 121,
     "seed": 92000,
     "complete": true,
     "qualified_complete": true,
     "failure": null,
-    "duration": 216.4340495188071,
+    "duration": 217.172224501964,
     "steps": {
-      "attempts": 476,
-      "completed": 476,
+      "attempts": 482,
+      "completed": 482,
       "unfinished": 0,
       "by_category": {
         "book_ascent": 20,
         "book_descent": 14,
         "stance_transition": 2,
-        "turning": 141,
-        "flat_transit": 227,
-        "alignment": 42,
-        "fixture_clearance": 30
+        "turning": 143,
+        "flat_transit": 226,
+        "alignment": 49,
+        "fixture_clearance": 28
       },
       "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
     },
@@ -929,11 +930,11 @@
     },
     "archive": {
       "volume": "mochi-efficient-v15-artifacts",
-      "path": "mochi-t15-44625135986/dev-8-92000-policy.json.gz",
-      "sha256": "32bcfb8a772ce87817c4a9b58155ca8fd459844383166d4c9ece2f0ecdb0a969",
-      "uncompressed_sha256": "d72193757f039d79a2e514d1bb629df56aa9672029e938ee2a16b307807dc3cd"
+      "path": "mochi-t15-44625135986/dev-16-92000-policy.json.gz",
+      "sha256": "e169f4ba169a6184d51b1c6f1447e359903593d43804c775cbc0e55af1ee477f",
+      "uncompressed_sha256": "b48b8fca8a2e2f01ffde1c76a33423e7691289b2cde9be16039f1ecf0f94b279"
     },
-    "sha256": "ccd6dd6a31a2440c23c56eaa4b786f023c58db5c5e9612b6c93e2311a9b1b3b4",
-    "uncompressed_sha256": "18ee12931d9b4d5f153a9394764770a5c9f50a46199ed22022330925b7966d57"
+    "sha256": "ac002fd99c0815ace09ad87441dcaf1f6719f4654c88811b1fc42ffaf9544514",
+    "uncompressed_sha256": "8757cacab25f80691ab43bf27da90b2c7998d06760fa053b56f4ffcfb12f456f"
   }
 }

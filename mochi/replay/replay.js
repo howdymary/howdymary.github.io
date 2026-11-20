@@ -38,7 +38,7 @@ function showError(error) {
   setPlaying(false);
   loading = false;
   $('#status').classList.add('error');
-  $('#status').textContent = `The replay could not load. ${error.message} Reload this view to retry; the recording and written assessment remain available in the story.`;
+  $('#status').textContent = `The replay could not load. ${error.message} Reload this view to retry; the recording and written assessment remain available in the article.`;
   console.error(error);
 }
 
@@ -142,7 +142,7 @@ function tick(now) {
 
 async function init() {
   $('#study-label').textContent = efficiency?'MOCHI · WALKING AND TASK-CONTROL TRAINING':navigation ? 'MOCHI · NAVIGATION REFINEMENT' : 'MOCHI · TRAINING CHECKPOINTS';
-  $('#title').textContent = efficiency?'Walking and task control across checkpoints.':navigation ? 'Turn toward the next corridor.' : 'Same scenario. Different checkpoint.';
+  $('#title').textContent = efficiency?'V15 walking and task-control evaluation':navigation ? 'V14 turn-first navigation comparison' : 'V12 checkpoint evaluation';
   const response = await fetch(folder + 'manifest.json',{cache:'no-store'});
   if (!response.ok) throw Error('Study manifest unavailable.');
   manifest = await response.json();

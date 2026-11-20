@@ -30,7 +30,7 @@ document.querySelectorAll('[data-replay]').forEach(block => {
     const query=new URLSearchParams({study:block.dataset.replay});
     if(block.dataset.scenario)query.set('scenario',block.dataset.scenario);
     iframe.src = `replay/?${query}`;
-    iframe.title = block.dataset.replay === 'training' ? 'Matched parent and trained checkpoint simulation replay' : 'Matched navigation controller comparison';
+    iframe.title = block.dataset.replay === 'efficiency' ? 'Walking and task-control progression across five trained checkpoints' : block.dataset.replay === 'training' ? 'Matched parent and trained checkpoint simulation replay' : 'Matched navigation controller comparison';
     iframe.allowFullscreen = true;
     const bar = document.createElement('div');
     bar.className = 'replay-loaded';

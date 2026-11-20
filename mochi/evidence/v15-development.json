@@ -2,13 +2,13 @@
   "study": "mochi-efficient-v15",
   "source_sha": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
   "workflow_run": "mochi-t15-44625135986",
-  "observed_at": "2026-11-20T00:22:35.520095+00:00",
+  "observed_at": "2026-11-20T00:32:29.073087+00:00",
   "status": "running",
-  "phase": "Matched directional development tests for every saved checkpoint",
+  "phase": "Unopened final tests against parent, fixed and training-only static policies",
   "optimizer_updates_completed": 16,
   "recorded_checkpoint_update": 16,
   "recorded_checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
-  "physical_rollouts_returned": 163,
+  "physical_rollouts_returned": 164,
   "first_update_qualified_pair": {
     "parent_steps": 806,
     "updated_steps": 586,
@@ -779,7 +779,184 @@
     }
   ],
   "native_gait_weights_fixed": true,
-  "selection_pending": true,
+  "selection_pending": false,
+  "selected_checkpoint": {
+    "update": 16,
+    "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+    "development": {
+      "n": 3,
+      "complete_successes": 3,
+      "smooth_complete_successes": 3,
+      "wilson_95_complete_rate": [
+        0.43849391955098227,
+        1
+      ],
+      "task_successes": {
+        "alarm": 3,
+        "drawer": 3,
+        "laptop": 3,
+        "globe": 3
+      },
+      "falls": 0,
+      "invalid_contacts": 0,
+      "mean_duration_s": 218.11013453962588,
+      "mean_roll_rms_deg": 0.27788055865517763,
+      "mean_contact_travel_m": 0.5848544538896608,
+      "recovery_successes": 12,
+      "successful_recovery_mean_joint_travel_rad": 6.540577760636515,
+      "qualified_complete_successes": 3,
+      "successful_mean_steps": 485.3333333333333,
+      "successful_mean_seconds": 218.11013453962588,
+      "successful_mean_forward_facing_fraction": 0.9529082250760695
+    }
+  },
+  "development_summary": [
+    {
+      "update": 0,
+      "statistics": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 265.50483781406206,
+        "mean_roll_rms_deg": 0.27057619503527935,
+        "mean_contact_travel_m": 0.8999625852931127,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 5.366520368134999,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 805.3333333333334,
+        "successful_mean_seconds": 265.50483781406206,
+        "successful_mean_forward_facing_fraction": 0.9236408528712629
+      }
+    },
+    {
+      "update": 1,
+      "statistics": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 237.9484850282769,
+        "mean_roll_rms_deg": 0.26820595059030383,
+        "mean_contact_travel_m": 0.7746948807094455,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 5.536469181147109,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 583.3333333333334,
+        "successful_mean_seconds": 237.9484850282769,
+        "successful_mean_forward_facing_fraction": 0.9376043584260058
+      }
+    },
+    {
+      "update": 4,
+      "statistics": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 219.03469257500845,
+        "mean_roll_rms_deg": 0.2777728554477921,
+        "mean_contact_travel_m": 0.6380059030844686,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 6.523481398636016,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 494.6666666666667,
+        "successful_mean_seconds": 219.03469257500845,
+        "successful_mean_forward_facing_fraction": 0.9526373059078951
+      }
+    },
+    {
+      "update": 8,
+      "statistics": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 218.20196361652654,
+        "mean_roll_rms_deg": 0.2777862847214925,
+        "mean_contact_travel_m": 0.6397910203003546,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 6.51914303341368,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 488.0,
+        "successful_mean_seconds": 218.20196361652654,
+        "successful_mean_forward_facing_fraction": 0.952636149215014
+      }
+    },
+    {
+      "update": 16,
+      "statistics": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 218.11013453962588,
+        "mean_roll_rms_deg": 0.27788055865517763,
+        "mean_contact_travel_m": 0.5848544538896608,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 6.540577760636515,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 485.3333333333333,
+        "successful_mean_seconds": 218.11013453962588,
+        "successful_mean_forward_facing_fraction": 0.9529082250760695
+      }
+    }
+  ],
   "final_test_results_pending": true,
   "first_update_changed_actions": [
     {

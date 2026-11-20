@@ -343,6 +343,19 @@
         "uncompressed_sha256": "3b0baec9a1f06d45258583fbbaaa9e4d88901d3b1fe815f675b2826557805a6e"
       },
       "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b"
+    },
+    {
+      "path": "efficient-v15/development-92000-8.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "ccd6dd6a31a2440c23c56eaa4b786f023c58db5c5e9612b6c93e2311a9b1b3b4",
+      "uncompressed_sha256": "18ee12931d9b4d5f153a9394764770a5c9f50a46199ed22022330925b7966d57",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-8-92000-policy.json.gz",
+        "sha256": "32bcfb8a772ce87817c4a9b58155ca8fd459844383166d4c9ece2f0ecdb0a969",
+        "uncompressed_sha256": "d72193757f039d79a2e514d1bb629df56aa9672029e938ee2a16b307807dc3cd"
+      },
+      "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45"
     }
   ],
   "studies": {
@@ -355,16 +368,16 @@
     "efficient_v15": {
       "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
       "workflow_run": "mochi-t15-44625135986",
-      "recorded_update": 4,
+      "recorded_update": 8,
       "scenario": 92000,
       "selection": "First declared development scenario; not chosen for its outcome."
     }
   },
   "latest_recording": {
     "study": "efficient_v15",
-    "checkpoint_update": 4,
+    "checkpoint_update": 8,
     "scenario": 92000,
     "evaluation_status": "development_preview",
-    "observed_at": "2026-11-20T00:07:01.219646+00:00"
+    "observed_at": "2026-11-20T00:17:04.348220+00:00"
   }
 }

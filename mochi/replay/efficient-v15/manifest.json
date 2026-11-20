@@ -5,10 +5,10 @@
   "evaluation_status": "development_preview",
   "selection_finalized": false,
   "selected_update": null,
-  "default_update": 4,
+  "default_update": 8,
   "optimizer_updates_completed": 16,
-  "recorded_update": 4,
-  "observed_at": "2026-11-20T00:07:01.219646+00:00",
+  "recorded_update": 8,
+  "observed_at": "2026-11-20T00:17:04.348220+00:00",
   "scene": {
     "version": "richdesk-v9",
     "units": "metres",
@@ -443,6 +443,10 @@
         {
           "update": 4,
           "file": "development-92000-4.json.gz"
+        },
+        {
+          "update": 8,
+          "file": "development-92000-8.json.gz"
         }
       ]
     }
@@ -564,6 +568,45 @@
       },
       "sha256": "cfdd891ea42f7a5fcad666a096a8d5067cc5c3a9e03997a4258b57af638b6f0c",
       "uncompressed_sha256": "de40d9fab5515edecafa365dde65e8007ac2ec5c12d442bd1ade678d3998fbcb"
+    },
+    "development-92000-8.json.gz": {
+      "checkpoint_update": 8,
+      "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45",
+      "cumulative_updates": 113,
+      "seed": 92000,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "duration": 216.4340495188071,
+      "steps": {
+        "attempts": 476,
+        "completed": 476,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 141,
+          "flat_transit": 227,
+          "alignment": 42,
+          "fixture_clearance": 30
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      },
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-8-92000-policy.json.gz",
+        "sha256": "32bcfb8a772ce87817c4a9b58155ca8fd459844383166d4c9ece2f0ecdb0a969",
+        "uncompressed_sha256": "d72193757f039d79a2e514d1bb629df56aa9672029e938ee2a16b307807dc3cd"
+      },
+      "sha256": "ccd6dd6a31a2440c23c56eaa4b786f023c58db5c5e9612b6c93e2311a9b1b3b4",
+      "uncompressed_sha256": "18ee12931d9b4d5f153a9394764770a5c9f50a46199ed22022330925b7966d57"
     }
   },
   "first_update_pair": {

@@ -1,225 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MOCHI: Post-training robot control decisions · Mary Liu</title>
-  <meta name="description" content="Methods and results for post-training a robot controller selector with Tinker, shared experiment memory in past.dev, and matched MuJoCo evaluations.">
-  <link rel="canonical" href="https://howdymary.github.io/mochi/">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="MOCHI: Post-training robot control decisions">
-  <meta property="og:description" content="Recorded checkpoints, training methods, evaluation results and limitations.">
-  <meta property="og:url" content="https://howdymary.github.io/mochi/">
-  <meta property="og:image" content="https://howdymary.github.io/mochi/media/mochi-poster.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#eeeeeb">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&amp;family=JetBrains+Mono:wght@400..500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261119-taste">
-  <script src="script.js?v=20261119-taste" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>MOCHI: Teaching a robot to take fewer steps · Mary Liu</title>
+<meta content="Follow Mochi from early failed attempts to matched training runs: how post-training changed a robot’s controller choices, and what the measurements actually show." name="description"/>
+<link href="https://howdymary.github.io/mochi/" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="MOCHI: Teaching a robot to take fewer steps" property="og:title"/>
+<meta content="From finishing four desk chores to taking fewer steps: the recordings, training decisions, measured improvements and limits." property="og:description"/>
+<meta content="https://howdymary.github.io/mochi/" property="og:url"/>
+<meta content="https://howdymary.github.io/mochi/media/mochi-poster.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="#eeeeeb" name="theme-color"/>
+<link href="icon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&amp;family=JetBrains+Mono:wght@400..500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=20261119-narrative" rel="stylesheet"/>
+<script defer="" src="script.js?v=20261119-narrative"></script>
 </head>
 <body>
-  <a class="skip" href="#article">Skip to article</a>
-  <div class="reading-progress" aria-hidden="true"></div>
-  <header class="site-header wrap">
-    <a class="author" href="/">Mary Liu<span class="author-detail">Independent research</span></a>
-    <nav aria-label="Page navigation"><a href="#watch">Simulation replay</a><a href="#next">Results</a><a href="https://github.com/howdymary/mochi-demo/tree/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi">Source code</a></nav>
-  </header>
+<a class="skip" href="#article">Skip to article</a>
+<div aria-hidden="true" class="reading-progress"></div>
+<header class="site-header wrap">
+<a class="author" href="/">Mary Liu<span class="author-detail">Independent research</span></a>
+<nav aria-label="Page navigation"><a href="#watch">Simulation replay</a><a href="#next">Results</a><a href="https://github.com/howdymary/mochi-demo/tree/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi">Source code</a></nav>
+</header>
+<main id="article">
+<div class="hero wrap">
+<p class="eyebrow"><span>Robotics / Field notes</span><span class="edition">Research report · 2026</span></p>
+<h1><span class="project-name">MOCHI<span class="title-colon">:</span></span><span class="project-title">Teaching a robot to take fewer steps</span></h1>
+<p class="deck">On the desk, Mochi’s first challenge was finishing the route. Then we asked it to do the same work with fewer steps. Here’s what changed as we trained the model choosing its next move.</p>
+<div class="byline"><span>By <a href="/">Mary Liu</a></span><span>November 19, 2026</span><span>Simulation study</span><a class="hero-jump" href="#training-runs">Follow the training runs <span aria-hidden="true">↘</span></a></div>
+</div>
+<figure class="hero-film latest-film wrap" id="watch">
+<div class="latest-film-heading"><span class="caption-tag">Latest recorded checkpoint</span><a href="replay/?study=efficiency" rel="noopener" target="_blank">Open the full comparison</a></div>
+<iframe allowfullscreen="" data-visibility-replay="" loading="eager" src="replay/?study=efficiency&amp;autoplay=1" title="Selected Mochi checkpoint beside its parent model on the same final-test scenario"></iframe>
+<figcaption><span class="caption-tag" id="latest-recording-label">V15 · RECORDED UPDATE 16</span><span id="latest-recording-caption">The selected checkpoint completes the first declared final-test scenario in 472 steps versus 804 and 216.6 physical seconds versus 265.1. Development scenarios retain checkpoints 0, 1, 4, 8 and 16.</span></figcaption>
+</figure>
+<section aria-labelledby="overview-title" class="study-overview wrap">
+<div class="overview-title"><span class="section-index">Study brief</span><h2 id="overview-title">First finish the route.<br/>Then waste fewer steps.</h2><a href="#next">Go to the V15 results <span aria-hidden="true">↗</span></a></div>
+<div><h3>Where we started</h3><p>Early attempts could fail at a book edge or pass a task with the wrong contact. The first challenge was making a completed route mean something.</p></div>
+<div><h3>What improved</h3><p>In the final V15 test, the selected checkpoint used 40.9% fewer step attempts than its parent across four scenarios. All four policies completed every route.</p></div>
+<div class="overview-caveat"><h3>What remains open</h3><p>A simple static policy performed similarly. The model learned more efficient choices in this setting; the study does not establish an advantage from adapting those choices to each state.</p></div>
+</section>
+<div class="article-layout wrap">
+<aside aria-label="On this page" class="contents">
+<p class="eyebrow">In this report</p>
 
-  <main id="article">
-    <div class="hero wrap">
-      <p class="eyebrow"><span>Robotics / Field notes</span><span class="edition">Research report · 2026</span></p>
-      <h1><span class="project-name">MOCHI<span class="title-colon">:</span></span><span class="project-title">Post-training robot control decisions</span></h1>
-      <p class="deck">Supervised post-training of a Qwen3.5-4B model to select walking, manipulation and arm-recovery controllers in MuJoCo. This article describes the experiment data, shared memory, checkpoint evaluations and limitations.</p>
-      <div class="byline"><span>By <a href="/">Mary Liu</a></span><span>November 19, 2026</span><span>Simulation study</span><a class="hero-jump" href="#watch">Watch the matched run <span aria-hidden="true">↘</span></a></div>
-    </div>
-
-    <figure class="hero-film latest-film wrap" id="watch">
-      <div class="latest-film-heading"><span class="caption-tag">Latest recorded checkpoint</span><a href="replay/?study=efficiency" target="_blank" rel="noopener">Open the full comparison</a></div>
-      <iframe src="replay/?study=efficiency&amp;autoplay=1" title="Selected Mochi checkpoint beside its parent model on the same final-test scenario" allowfullscreen data-visibility-replay loading="eager"></iframe>
-      <figcaption><span class="caption-tag" id="latest-recording-label">V15 · RECORDED UPDATE 16</span><span id="latest-recording-caption">The selected checkpoint completes the first declared final-test scenario in 472 steps versus 804 and 216.6 physical seconds versus 265.1. Development scenarios retain checkpoints 0, 1, 4, 8 and 16.</span></figcaption>
-    </figure>
 
 
-    <section class="study-overview wrap" aria-labelledby="overview-title">
-      <div class="overview-title"><span class="section-index">Study brief</span><h2 id="overview-title">Controller choices,<br>tested in physics.</h2><a href="#next">Go to the V15 results <span aria-hidden="true">↗</span></a></div>
-      <div><h3>The question</h3><p>Can post-training improve controller selection while the robot’s gait, action library and physical environment stay fixed?</p></div>
-      <div><h3>The finding</h3><p>On four final scenarios, the selected checkpoint used 40.9% fewer step attempts than its parent. All four policies completed all four routes.</p></div>
-      <div class="overview-caveat"><h3>The qualification</h3><p>A training-derived static policy performed similarly. The results do not establish an adaptive-selection advantage or a causal benefit from memory or search.</p></div>
-    </section>
 
-    <div class="article-layout wrap">
-      <aside class="contents" aria-label="On this page">
-        <p class="eyebrow">In this report</p>
-        <a href="#a-small-world">Robot and tasks</a>
-        <a href="#beginnings">Initial experiments</a>
-        <a href="#memory">Experiment memory</a>
-        <a href="#research">Research and simulation</a>
-        <a href="#training">Tinker post-training</a>
-        <a href="#results">Checkpoint evaluation</a>
-        <a href="#audit">Contact audit and failures</a>
-        <a href="#navigation">Turn-first navigation</a>
-        <a href="#next">V15 results</a>
-        <a href="#sources">Sources and artifacts</a>
-      </aside>
 
-      <details class="mobile-contents"><summary>Explore this report <span aria-hidden="true">+</span></summary><nav aria-label="Article chapters">        <a href="#a-small-world">Robot and tasks</a>
-        <a href="#beginnings">Initial experiments</a>
-        <a href="#memory">Experiment memory</a>
-        <a href="#research">Research and simulation</a>
-        <a href="#training">Tinker post-training</a>
-        <a href="#results">Checkpoint evaluation</a>
-        <a href="#audit">Contact audit and failures</a>
-        <a href="#navigation">Turn-first navigation</a>
-        <a href="#next">V15 results</a>
-        <a href="#sources">Sources and artifacts</a>
+
+
+
+
+
+<a href="#a-small-world">The desk and its chores</a>
+<a href="#beginnings">A promising first attempt</a>
+<a href="#training">What the model learns</a>
+<a href="#results">Learning to finish</a>
+<a href="#audit">When a pass did not count</a>
+<a href="#navigation">Turning before walking</a>
+<a href="#next">Learning to take fewer steps</a>
+<a href="#memory">Remembering the failures</a>
+<a href="#research">Testing a possible fix</a>
+<a href="#sources">Sources and artifacts</a>
+</aside>
+<details class="mobile-contents"><summary>Explore this report <span aria-hidden="true">+</span></summary><nav aria-label="Article chapters">
+
+
+
+
+
+
+
+
+
+<a href="#a-small-world">The desk and its chores</a>
+<a href="#beginnings">A promising first attempt</a>
+<a href="#training">What the model learns</a>
+<a href="#results">Learning to finish</a>
+<a href="#audit">When a pass did not count</a>
+<a href="#navigation">Turning before walking</a>
+<a href="#next">Learning to take fewer steps</a>
+<a href="#memory">Remembering the failures</a>
+<a href="#research">Testing a possible fix</a>
+<a href="#sources">Sources and artifacts</a>
 </nav></details>
+<article class="prose">
 
-      <article class="prose">
-        <section id="a-small-world">
-          <p class="eyebrow">The setup</p>
-          <h2>A small world, four physical tasks</h2>
-          <p class="opening">Mochi is a miniature Unitree G1 in a MuJoCo simulation. It climbs a stack of books, turns off an alarm clock, descends, closes a drawer and a laptop, then turns a globe to a target.</p>
-          <p>The study evaluates whether supervised post-training improves controller selection when the simulator, route, available actions and success criteria are held fixed. Recorded failures inform research queries and the allocation of training examples.</p>
-          <div class="task-route" aria-label="Four tasks in order"><span>Silence the alarm</span><span>Close the drawer</span><span>Close the laptop</span><span>Align the globe</span></div>
-          <p><a href="https://past.dev/">past.dev</a> carries findings between experiments. <a href="https://tinker-docs.thinkingmachines.ai/">Tinker</a> updates the model that picks walking strategies, object-contact settings, and arm recovery. <a href="https://exa.ai/">Exa</a> supplies research sources when a failure raises a question. <a href="https://modal.com/">Modal</a> runs the physical comparisons in parallel. <a href="https://mujoco.org/">MuJoCo</a> supplies the contact dynamics and measurements.</p>
-        </section>
 
-        <section id="beginnings">
-          <p class="eyebrow">INITIAL EXPERIMENTS</p>
-          <h2>Puck pushing and the four-task environment</h2>
-          <p>The hackathon version used a supported robot arm to push a puck into a target. That gave us a small physical problem in which to test the research loop: observe a failure, search for an explanation, propose a controller change, compare it with alternatives, and keep the result.</p>
-          <p>On twelve held-out puck scenarios, the research-selected controller succeeded eight times, compared with two for the starting controller and six for conventional search. Under higher friction and mass, it succeeded only once in eight attempts; conventional search succeeded six times. The improvement did not transfer reliably to that changed condition. Tinker supplied research decisions in this first study; those calls were <strong>inference, not weight training</strong>. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/results.md">Original results and limits</a>.</p>
-          <p>The two searches had access to different controller families. That confound prevents attributing the difference to research intelligence, web search or memory.</p>
-          <p>The project continued after the hackathon. We replaced the original rounded body with a detailed Unitree G1, added the four desk tasks, and used Sand3D objects to build a furnished workspace. MuJoCo remains the authority for motion and contact. Blender and the browser render recorded body transforms; they do not decide whether a task succeeded.</p>
-          <figure class="history-film">
-            <video controls playsinline preload="metadata" poster="media/mochi-poster.jpg" aria-label="November 17 development screen recording of the earlier desk humanoid"><source src="media/development-recording.mp4" type="video/mp4"><a href="media/development-recording.mp4">Download the early recording</a>.</video>
-            <figcaption><span class="caption-tag">NOVEMBER 17 · EARLY DESK DEVELOPMENT</span>The earlier screen recording is kept here as a development milestone. It is not a matched checkpoint test. The current recording appears first, above.</figcaption>
-          </figure>
-          <p>Full-route evaluation adds dependencies between navigation, station alignment, object contact and arm recovery. We measure complete routes alongside separate walking, manipulation and recovery tests.</p>
-        </section>
 
-        <section id="memory">
-          <p class="eyebrow">SHARED EXPERIMENT MEMORY</p>
-          <h2>Experiment records in past.dev</h2>
-          <p>Rollouts record joint positions, foot contacts, body orientation and task outcomes. The research workflow uses these measurements to identify failure modes and propose changes to test.</p>
-          <p>Exact trajectories and numerical results are kept in artifact storage. past.dev stores observations, hypotheses, supporting sources, experiment results and qualified conclusions. Each record includes an author, timestamp, audience and source ID. Its record type distinguishes a hypothesis from a measured result.</p>
-          <div class="research-loop" aria-label="Experiment cycle"><div><b>Measure</b><span>Physical failure and metrics</span></div><div><b>Store</b><span>Observation and hypothesis</span></div><div><b>Train and test</b><span>Matched physical comparisons</span></div><div><b>Review</b><span>Result and qualification</span></div></div>
-          <p>Earlier descent attempts failed when a foot had not cleared the book edge. Shared records included those failures, tests of staged clearance and shorter foot placements, and findings about the clock approach and arm withdrawal.</p>
-          <p>The research stage recalled these observations before searching for methods. The design stage recalled the sourced hypothesis before choosing how to split training. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/src/mochi/desk/services.py">Inspect the memory code</a>.</p>
-          <p>The design stage selected an allocation with more recovery supervision than the balanced option. Both allocations included walking and all four manipulation tasks. The <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/web/desk/terrain-training/report.json">decision record</a> identifies the source records used for that choice.</p>
-          <p>In the completed V12 campaign, each update used sixteen recovery examples, eight walking examples, and four examples for each manipulation task. Those are training-example presentations, which can reuse measured examples. They are not a count of new physical experiments.</p>
-          <aside class="note"><strong>Memory attribution</strong><p>The records show that recalled evidence informed a training decision. Measuring its effect on robot performance would require a matched comparison without shared memory.</p></aside>
-          <details class="technical"><summary>Memory ingestion and source verification</summary><div><p>A successful write does not mean the finding is ready to read back. Before a dependent read, we wait for ingestion to finish. Pending ingestion IDs are journaled so an interruption does not lose track of the handoff.</p><p>On recall, we check that returned source IDs match the record requested, then retrieve the exact payload from the experiment journal. If the required source is missing, the handoff stops rather than substituting an unrelated result.</p><p>Shared findings and private review notes use different audiences. A synthetic private record was tested from outside its audience; the audit recorded the expected denial. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/src/mochi/terrain_v12/services.py">Ingestion and journaling code</a>.</p></div></details>
-        </section>
 
-        <section id="research">
-          <p class="eyebrow">EXA AND MODAL</p>
-          <h2>Research inputs and physical simulation</h2>
-          <p>Exa searches start from measured problems: a foot catching a book edge, an unstable descent, overshooting a target, or an inefficient withdrawal. We retain the query, source URL, retrieval time, and proposed mechanism. A paper can suggest what to test; its presence in a search result does not establish that the method will help Mochi. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/src/mochi/integrations.py">Search and memory implementation</a>.</p>
-          <p>Modal runs the candidate actions in MuJoCo. In the current study, each of four training scenarios contains twelve decision points. We try three actions from the same physical state at each point, then continue the parent model’s route with a guard against invalid choices. That produces 144 action branches and four continuous collection sequences: <strong>148 physical rollouts</strong>.</p>
-          <div class="service-map"><div><b>Exa</b><span>Find sources for a measured failure</span></div><div><b>past.dev</b><span>Recall findings and preserve their qualifications</span></div><div><b>Modal + MuJoCo</b><span>Compare actions from identical physical states</span></div><div><b>Tinker</b><span>Update the shared decision model</span></div></div>
-          <p>The new campaign uses at most four simulation workers at once. CPU execution is sufficient for these small experiments. The run records durations, physical outcomes, seeds, checkpoint identifiers, and resource receipts. Candidate actions and the full sequence are different tests: a faster action in isolation can still cause trouble later in a route. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/src/mochi/efficient_v15/remote.py">Physical experiment code</a>.</p>
-        </section>
 
-        <section id="training">
-          <p class="eyebrow">TINKER TRAINING</p>
-          <h2>Post-training the controller selector</h2>
-          <p>Tinker trains Qwen3.5-4B with LoRA, updating a small set of the model’s parameters. The model reads structured observations and picks from a fixed set of controller options: how Mochi walks, how its hand approaches and touches an object, and how its arm pulls back afterward.</p>
-          <p>During checkpoint comparison, the gait network, balance controller, and manipulation primitives do not change. Tinker updates the decision model on top of them. Its choices run through MuJoCo’s actuators; the simulator measures whether Mochi gets to the station, makes valid contact, and finishes safely.</p>
-          <p>Training examples come from physically comparing the available actions. Each checkpoint has completed gradient calculations and optimizer updates, a saved model state, and new physical runs made with that model. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/src/mochi/terrain_v12/train.py">V12 training code</a> · <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/src/mochi/efficient_v15/train.py">Current training code</a> · <a href="https://tinker-docs.thinkingmachines.ai/tinker/api-reference/trainingclient/">Tinker API</a>.</p>
-          <p>The native gait network is the existing model that turns walking commands into leg motion. It stays fixed. This project trains the decisions above it; it does not retrain that network or learn motor torques.</p>
-          <p>We test the available actions from matching states, use their measured outcomes as supervision, calculate gradients with Tinker, and perform weight-updating steps. We then save checkpoints and let them make decisions in new physical runs. The current campaign trains walking, clock, drawer, laptop, globe, and recovery decisions in every update.</p>
-        </section>
 
-        <section id="results">
-          <p class="eyebrow">CHECKPOINT EVALUATION</p>
-          <h2>V8 and V12 results</h2>
-          <p>An earlier walking-and-recovery campaign, V8, completed 64 new updates. Its development-selected checkpoint completed four of four held-out routes, compared with zero of four for the parent and four of four for the fixed controller. Separate recovery tests improved from twelve of sixteen valid recoveries to sixteen of sixteen. Matching the fixed controller limits what we can claim about the learned method. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/control-v8-study.md">Archived V8 study</a>.</p>
-          <p>A later book-traversal campaign, V12, ran <strong>32 new optimizer updates</strong>. Development evaluation selected the checkpoint after <strong>update 1</strong>. The replay below includes updates 0, 1, 8, and 32 on the same development scenario. Each checkpoint is a separate, uninterrupted attempt.</p>
-          <p>We tested on six held-out simulation scenarios. The starting model finished the whole sequence in three. The selected model finished all six within the smoothness limits we’d set. The fixed controller finished five.</p>
-          <div class="result-table" role="table" aria-label="Completed full sequences on six held-out scenarios"><div class="result-row" role="row"><span role="cell">Starting model</span><span class="trial-dots" role="img" aria-label="3 of 6 completed"><span></span><span></span><span></span><span class="empty"></span><span class="empty"></span><span class="empty"></span></span><b role="cell">3 / 6</b></div><div class="result-row selected" role="row"><span role="cell">Selected checkpoint</span><span class="trial-dots" role="img" aria-label="6 of 6 completed"><span></span><span></span><span></span><span></span><span></span><span></span></span><b role="cell">6 / 6</b></div><div class="result-row fixed" role="row"><span role="cell">Fixed controller</span><span class="trial-dots" role="img" aria-label="5 of 6 completed"><span></span><span></span><span></span><span></span><span></span><span class="empty"></span></span><b role="cell">5 / 6</b></div></div>
-          <p class="small">Full-sequence completion within the specified smoothness limits. Six scenarios, one small simulation study. No hardware validation. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/docs/terrain-v12-assessment.md">Read the assessment</a>.</p>
-          <figure class="replay-block" data-replay="training" data-scenario="development-43000">
-            <div class="replay-head"><div><span class="caption-tag">V12 · UPDATES 0 / 1 / 8 / 32</span><h3>Parent vs. trained checkpoints</h3></div><a href="replay/?study=training&amp;scenario=development-43000" target="_blank" rel="noopener">Open the checkpoint sequence</a></div>
-            <div class="replay-placeholder"><img src="media/mochi-poster.jpg" alt="Mochi in its simulated desk environment" loading="lazy"><div><p>Recorded simulation trajectories</p><span>Six final-test pairs, plus a development scenario with intermediate checkpoints.</span><button class="load-replay" type="button">Load training comparison</button></div></div>
-            <figcaption>The development scenario exposes intermediate checkpoints; six final-test pairs remain available in the scenario menu. Both sides use the same playback speed. These are archived trajectories, not a new model run.</figcaption>
-          </figure>
-          <p>The component checks narrowed down what changed. When we intervened on walking alone, the starting model fell and the selected model made a different walking choice and finished. In the manipulation and recovery checks, both models made the same profile choices. <strong>We cannot say this study demonstrated learned improvements in manipulation or recovery.</strong></p>
-          <p>We wrote the final evaluation and component-test limitations to past.dev. The review stage recalled those results and stored a qualified conclusion, which the research stage recalled before the next campaign.</p>
-        </section>
 
-        <section id="audit">
-          <p class="eyebrow">CONTACT VERIFICATION AND FAILED RUNS</p>
-          <h2>V11 contact audit and V13 follow-up</h2>
-          <p>Adding books exposed a gap in an earlier verifier. The objects reached their task targets, but the robot also hit the clock with its wrist, knee, and hip. The contact audit invalidated those apparent passes. We kept the recordings, corrected the verifier, and cancelled that proposed training campaign before it produced new gradients. Controller feasibility was required before further training. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/balanced-v11-results.md">Contact audit and rejected attempts</a>.</p>
-          <p>A separate 16-update follow-up, V13, produced no improvement in full-route completion on four new final-test scenarios: the parent and selected checkpoint each completed two, while fixed and training-only static choices each completed three. Its final memory handoff stopped because the required source was absent from recall. The numerical results were retained; the workflow remains marked incomplete. <a href="evidence/v13-followup.json">Preserved follow-up evidence</a> · <a href="https://github.com/howdymary/mochi-demo/actions/runs/44600829444">Execution record</a>.</p>
-          <p>These studies use different environments and test sets. Their success counts should not be combined into a single improvement curve. A later version number or more training updates is not evidence of better performance.</p>
-        </section>
 
-        <section id="navigation">
-          <p class="eyebrow">V14 · NAVIGATION ENGINEERING</p>
-          <h2>V14: Turn-first navigation</h2>
-          <p>V14 replaces lateral route tracking with a controller that turns toward the next corridor, walks forward, then aligns to the task pose.</p>
-          <div class="navigation-result"><div><span>Travel aligned with body heading</span><strong>24% <span>to</span> 95%</strong></div><p>On one matched four-task route.<br><b>About 14 seconds longer.</b></p></div>
-          <p>That was an engineering change, tested separately from training. Both routes completed all four tasks. The metric measures flat-desk movement within 25 degrees of body heading, averaged over a gait cycle; stationary turns and book traversal are excluded.</p>
-          <figure class="replay-block" data-replay="navigation">
-            <div class="replay-head"><div><span class="caption-tag">MATCHED NAVIGATION REPLAY</span><h3>Previous route vs. turn-first</h3></div><a href="replay/?study=navigation" target="_blank" rel="noopener">Open full screen</a></div>
-            <div class="replay-placeholder"><img src="media/mochi-poster.jpg" alt="The desk environment used in the navigation comparison" loading="lazy"><div><p>Matched navigation comparison</p><span>Compare the same route before and after the controller refinement.</span><button class="load-replay" type="button">Load navigation comparison</button></div></div>
-            <figcaption>Recorded MuJoCo body orientations. Zero new Tinker optimizer updates for this comparison. <a href="replay/directional-v14/manifest.json">Measurements</a>.</figcaption>
-          </figure>
-        </section>
 
-        <section id="next">
-          <p class="eyebrow">V15 · SUPERVISED POST-TRAINING</p>
-          <h2>V15: Step-efficient control selection</h2>
-          <p>The current campaign includes turn-first navigation in the parent and every checkpoint. It has completed <strong>16 new Tinker optimizer updates and 96 domain-gradient calculations</strong>. The native gait, physical controller library, scene, route and evaluation rules remain fixed. Checkpoints 0, 1, 4, 8 and 16 each completed all three development scenarios within the declared quality limits.</p>
-          <p>Before training, V15 recalled the earlier assessment from past.dev. The research stage used it to choose one Exa search about velocity-command tracking and corrective footsteps. After recalling the sourced hypothesis, the design stage selected twelve walking and twelve recovery examples per update, plus four for each object task. The measured set contained 48 labeled observation records, reused during training. <a href="replay/efficient-v15/report.json">Research decisions and API receipts</a>.</p>
-          <h3 class="subhead">Selecting the checkpoint</h3>
-          <p>The predeclared selection rule chose <strong>update 16</strong> across that development set. It averaged 485.3 steps and 218.1 physical seconds, compared with 805.3 steps and 265.5 seconds for the parent. The checkpoint was frozen before opening four fresh final-test scenarios.</p>
-          <h3 class="subhead">The final evaluation</h3>
-          <p>Final testing is complete. The parent, selected checkpoint, fixed controller and training-derived static policy each completed all four final scenarios within the declared quality limits. The selected checkpoint averaged 476.5 step attempts and 219.5 simulated seconds, compared with 806.0 steps and 266.4 seconds for the parent.</p>
-          <figure class="results-figure"><picture><source media="(max-width: 540px)" srcset="media/v15-final-comparison-mobile.svg" width="400" height="730"><img src="media/v15-final-comparison.svg" width="1000" height="640" loading="lazy" alt="Mean step attempts: parent 806.0, selected update 16 476.5, fixed controller 809.5, training-derived static 482.0. Mean simulated seconds: 266.4, 219.5, 264.9 and 219.1 respectively. All four policies passed all four final scenarios."></picture><figcaption><span class="caption-tag">V15 / Final evaluation</span>Means across four fresh scenarios. Lower is better; all policies passed 4/4. The static policy matches the selected checkpoint closely. Values are descriptive, with no significance claim. <a href="evidence/v15-completed.json">Source data</a>.</figcaption></figure>
-          <div class="checkpoint-progress final-comparison" role="table" aria-label="Completed four-scenario final evaluation"><div class="checkpoint-progress-row header" role="row"><span role="columnheader">Policy</span><span role="columnheader">Passed</span><span role="columnheader">Mean steps</span><span role="columnheader">Seconds</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Parent</span><span role="cell">4/4</span><span role="cell">806.0</span><span role="cell">266.4</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Selected update 16</span><span role="cell">4/4</span><span role="cell">476.5</span><span role="cell">219.5</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Fixed controller</span><span role="cell">4/4</span><span role="cell">809.5</span><span role="cell">264.9</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Training-derived static</span><span role="cell">4/4</span><span role="cell">482.0</span><span role="cell">219.1</span></div></div>
-          <p>The declared 20% step-reduction target was met on this cohort. Paired reductions averaged <strong>40.9% in steps and 17.6% in time</strong>. Descriptive paired bootstrap intervals were 39.4% to 41.8% for steps and 15.7% to 18.7% for time. These describe four fixed-layout cases. A 4/4 completion result has an approximately 51% to 100% Wilson interval at 95% confidence.</p>
-          <p>The static policy was close at 482.0 steps and 219.1 seconds, slightly faster than the selected model. They made the same controller choice in 46 of 48 corresponding decisions. The two differences were laptop profiles on seeds 93000 and 93003. These results do not establish a meaningful adaptive-selection advantage. Small cost differences under identical choice vectors remain unexplained. <a href="evidence/v15-completed.json">Completed numerical assessment</a>.</p>
-          <h3 class="subhead">The motion tradeoff</h3>
-          <p>In the final scenarios, average total arm-joint travel per successful recovery increased from 5.54 to 6.93 radians. Torso roll RMS increased slightly, from 0.271 to 0.279 degrees. Both remained within the declared limits. The step reduction did not establish lower arm travel or smoother motion in every measure.</p>
-          <h3 class="subhead">Following the training progression</h3>
-          <p>Update 0 restores a previously trained decision checkpoint with 105 cumulative updates. Counts of 0, 1, 4, 8 and 16 refer to additional optimizer updates in V15.</p>
-          <p>On the first declared development scenario, one update changed the model’s flat-desk walking choice and clock setting. Both runs completed within the declared quality limits. Steps fell from <strong>806 to 586</strong>, a 27.3% reduction; physical completion time fell from <strong>265.4 to 237.8 seconds</strong>. Recovery choices in this particular pair remained unchanged. <a href="evidence/v15-development.json">Checkpoint and measurement evidence</a>.</p>
-          <p>The first replay shows the selected checkpoint on the first declared final scenario. To inspect updates 0, 1, 4, 8 and 16, select a development scenario or use the replay below. Each row is a separate continuous physical run, not an additional independent test scenario.</p>
-          <div id="current-checkpoint-progress" class="checkpoint-progress" role="table" aria-label="Recorded training progression on development scenario 92000"></div>
-          <p class="small">First declared development case, seed 92000. Steps include turning, book traversal and alignment. A failed run’s short time or low step count does not establish improvement.</p>
-          <figure class="replay-block" data-replay="efficiency" data-scenario="development-92000">
-            <div class="replay-head"><div><span class="caption-tag">V15 · UPDATES 0 / 1 / 4 / 8 / 16</span><h3>Checkpoint progression on a matched scenario</h3></div><a href="replay/?study=efficiency&amp;scenario=development-92000" target="_blank" rel="noopener">Open the full progression</a></div>
-            <div class="replay-placeholder"><img src="media/mochi-poster.jpg" alt="The desk where Mochi completes the clock, drawer, laptop and globe sequence" loading="lazy"><div><p>Recorded controller evaluations</p><span>Switch checkpoints, inspect the feet, and compare the same physical timeline.</span><button class="load-replay" type="button">Load current training progression</button></div></div>
-            <figcaption>One development scenario, five separately recorded checkpoints. The starting state, scene, task order, and playback speed match. Each attempt is continuous, including walking and arm recovery.</figcaption>
-          </figure>
-          <h3 class="subhead">After four updates</h3>
-          <p>After four updates, this case used different choices at all twelve decision points, including every arm recovery. It completed in <strong>480 steps and 216.7 seconds</strong>, within the quality limits. The full-route result does not isolate how much each choice contributed. Completed component tests compared both models from twelve identical supported states, producing 24 valid diagnostic branches. These are separate from the uninterrupted routes.</p>
-          <p>We engineered the controller options before collecting these examples. Among actions that passed the physical validity checks, walking labels favored fewer steps and then time; task and recovery labels balanced elapsed time against arm travel. Supervised post-training teaches the model to select from that frozen action library.</p>
-          <p>The eight- and sixteen-update recordings make the same categorical choices in this case, while their measured step counts differ slightly. We have not attributed that small difference to a new learned behavior.</p>
-          <h3 class="subhead">What the component tests show</h3>
-          <p>The matched-state tests confirmed faster flat walking. The laptop approach used 324 versus 172 steps and 40.6 versus 22.0 seconds. Across four separate recovery states, total recovery time fell from 6.65 to 5.30 seconds while total joint travel increased from 22.15 to 26.77 radians. These branch totals are diagnostic measurements, not a continuous route.</p>
-          <p>We count measured footstep attempts, including turns, book traversal, alignment and unfinished attempts. Efficiency comparisons require both runs to complete within the declared limits. Failures remain in the completion denominator. We also report contacts, balance, time and arm travel. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/efficient-v15.md">Frozen study protocol</a>.</p>
-          <h3 class="subhead">Execution and the evidence trail</h3>
-          <p>The completed V15 handoff wrote the final measurements to past.dev, recalled them for review, stored a qualified conclusion and recalled that conclusion in the research stage. Six writes and seven logical recalls included four writing identities, four verified reading identities and five within-campaign cross-role handoffs. The private-canary denial test passed and no ingestions remained pending. One of the seven recalls retrieved the earlier assessment across campaigns.</p>
-          <p>The complete campaign used 204 physical rollouts and 10.341 function CPU-hours, within its limits of 224 rollouts, 18 hours and four concurrent workers. Tinker recorded 217,812 training-token presentations. These measurements describe execution and example reuse, not billed credits.</p>
-          <aside class="note"><strong>Scope and limitations</strong><p>This is a small, fixed-layout simulation study using structured state observations. It has no camera-based policy or hardware validation. We have not isolated a causal performance benefit from memory or web search. The results apply to four final cases in one furnished layout.</p></aside>
-        </section>
 
-        <section id="sources" class="sources">
-          <p class="eyebrow">METHODS AND DATA</p>
-          <h2>Sources and artifacts</h2>
-          <ul><li><a href="https://github.com/howdymary/mochi-demo/blob/eaec2f7832da277857c71c21579a1f0c5bd4fa59/mochi/docs/efficient-v15-assessment.md">Completed V15 assessment</a> · <a href="evidence/v15-completed.json">Numerical results and component tests</a><span>Full final cohort, static-control audit, motion tradeoffs and actual resource totals.</span></li><li><a href="evidence/v15-development.json">Current development evidence</a> · <a href="replay/efficient-v15/manifest.json">Latest recording manifest</a><span>Actual checkpoint identity, measured step/time changes, and the completed final-test status.</span></li><li><a href="https://github.com/howdymary/mochi-demo/actions/runs/44625135986">Completed Tinker and Modal execution</a><span>The 16-update campaign, four-policy final test, component checks and final memory handoff.</span></li><li><a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/docs/terrain-v12-assessment.md">Completed V12 assessment</a><span>Development selection, six-scenario final test, and component checks.</span></li><li><a href="https://github.com/howdymary/mochi-demo/actions/runs/44482272455">V12 training execution</a> · <a href="https://github.com/howdymary/mochi-demo/actions/runs/44514013316">V12 evaluation execution</a></li><li><a href="replay/terrain-training/manifest.json">V12 checkpoint manifest</a> · <a href="replay/directional-v14/manifest.json">V14 navigation manifest</a></li><li><a href="evidence/v13-followup.json">V13 negative result and incomplete handoff</a></li><li><a href="provenance.json">Replay provenance</a><span>Separate study sources and hashes of the unmodified recordings.</span></li><li><a href="replay/assets/sand3d-attribution.json">Scene attribution</a> · <a href="replay/assets/G1-LICENSE.txt">Robot license</a> · <a href="replay/assets/richdesk/attribution.json">Desk assets</a> · <a href="replay/vendor/LICENSE">Three.js license</a></li></ul>
-          <p class="small">This is a state-observation simulation study. Browser replays interpolate recorded physics samples; the development film is a separate screen recording. Displayed simulation time excludes remote inference waits. The clips illustrate particular runs; the assessment counts failures across the cohort.</p>
-        </section>
-      </article>
-    </div>
-  </main>
-  <footer class="site-footer wrap"><a class="author" href="/">Mary Liu</a><span>Mochi · recordings, methods and results</span><a href="#article">Back to top</a></footer>
+<section id="a-small-world">
+<p class="eyebrow">The task</p>
+<h2>A desk becomes an obstacle course</h2>
+<p class="opening">An alarm clock sits on a stack of books. To turn it off, Mochi has to climb up, reach the clock and make contact. Then it has to get down, close a drawer, close a laptop and turn a globe to its target. A small mistake early in the route can leave the later chores unfinished.</p>
+<p>Mochi is a miniature Unitree G1 in MuJoCo, a physics simulator that measures motion and contact. The project asks whether evidence from a failed attempt can improve the next one. We test that through matched physical runs.</p>
+<div aria-label="Four tasks in order" class="task-route"><span>Silence the alarm</span><span>Close the drawer</span><span>Close the laptop</span><span>Align the globe</span></div>
+<p>The project became a supervised post-training study: hold the physical system and available actions fixed, then train the model choosing its next move. <a href="https://tinker-docs.thinkingmachines.ai/">Tinker</a> updates that model; <a href="https://mujoco.org/">MuJoCo</a> measures its choices. Behind the runs, <a href="https://past.dev/">past.dev</a> carries findings forward, <a href="https://exa.ai/">Exa</a> finds research sources and <a href="https://modal.com/">Modal</a> runs comparisons in parallel.</p>
+</section><section id="beginnings">
+<p class="eyebrow">Before the desk</p>
+<h2>The first improvement did not travel well</h2>
+<p>Before the desk, the hackathon version used a supported robot arm to push a puck into a target. This gave us a small problem for the complete research loop: observe a failure, research an explanation, propose a controller change, test alternatives and retain the result.</p>
+<p>At first, that loop looked promising. On twelve held-out puck scenarios, the research-selected controller succeeded eight times; the starting controller managed two, and conventional search managed six. Then we increased friction and mass. The research-selected controller succeeded only once in eight attempts, while conventional search succeeded six times. <strong>The gain did not transfer reliably to the changed conditions.</strong> Tinker supplied research decisions here through inference; this first experiment did not update model weights. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/results.md">Original results and limits</a>.</p>
+<p>The searches also had access to different controller families, preventing us from attributing the difference to research intelligence, web search or memory. A promising result under one set of conditions was a starting point, not evidence of reliable transfer.</p>
+<p>After the hackathon, the physical problem grew. We replaced the rounded body with a detailed Unitree G1, added the four chores and furnished the workspace with Sand3D objects. MuJoCo remained the authority for motion and contact. Blender and the browser could make the run visible, but rendering recorded transforms could not decide whether a task had succeeded.</p>
+<figure class="history-film">
+<video aria-label="November 17 development screen recording of the earlier desk humanoid" controls="" playsinline="" poster="media/mochi-poster.jpg" preload="metadata"><source src="media/development-recording.mp4" type="video/mp4"/><a href="media/development-recording.mp4">Download the early recording</a>.</video>
+<figcaption><span class="caption-tag">November 17 / Early desk development</span>Before the matched training comparisons: an earlier desk recording. Use it to see the project’s development, not to measure the effect of training.</figcaption>
+</figure>
+<p>The desk linked the failures together: a good reach could not rescue a fall on the way to the station, and a quick recovery could leave the robot poorly positioned for the next chore. We began measuring complete routes alongside separate walking, manipulation and recovery tests. The film above is a development milestone, not a matched checkpoint test.</p>
+</section><section id="training">
+<p class="eyebrow">Training the decisions</p>
+<h2>What the model was actually learning</h2>
+<p>Mochi already had a library of engineered controllers for walking, object contact and arm withdrawal. The learned part was the choice: given a structured observation of the robot’s state, which option should it use next?</p>
+<p>We used Tinker to post-train Qwen3.5-4B with LoRA, which updates a small set of model parameters. The native gait network, balance controller and manipulation primitives stayed fixed during checkpoint comparisons. The decision model’s choices ran through MuJoCo’s actuators, where reaching the station, valid contact and safe completion could be measured.</p>
+<p>We physically compared actions to create supervision, calculated gradients with Tinker and performed optimizer updates. Each saved model version—a <strong>checkpoint</strong>—then made decisions in new physical runs. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/src/mochi/terrain_v12/train.py">V12 training code</a> · <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/src/mochi/efficient_v15/train.py">Current training code</a> · <a href="https://tinker-docs.thinkingmachines.ai/tinker/api-reference/trainingclient/">Tinker API</a>.</p>
+<p>The native gait network turns walking commands into leg motion. It stayed fixed: a visible change in the route could come from choosing a different walking strategy, without learning new motor torques.</p>
+<p>In V15, every update trained walking, clock, drawer, laptop, globe and recovery decisions. The experiment tested whether supervision from measured outcomes could teach the decision model to choose better options.</p>
+</section><section id="results">
+<p class="eyebrow">The first trained comparisons</p>
+<h2>Getting the whole route to finish</h2>
+<p>The first trained comparisons were about getting through the route. V8 ran 64 new updates. Its development-selected checkpoint completed four of four held-out routes, while its parent completed none. Separate recovery tests went from twelve valid recoveries in sixteen attempts to sixteen in sixteen. But a fixed controller also completed all four routes. Training improved on that parent without demonstrating an advantage over the fixed alternative. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/control-v8-study.md">Archived V8 study</a>.</p>
+<p>V12 brought the comparison into the book-traversal study. We ran <strong>32 new optimizer updates</strong>, but the development evaluation selected <strong>update 1</strong>. More updates did not automatically mean a better checkpoint. The replay keeps updates 0, 1, 8 and 32 on the same development scenario so you can inspect the separate, uninterrupted attempts.</p>
+<p>After choosing the checkpoint, we tested six held-out scenarios. The parent finished three full sequences. The selected checkpoint finished all six within the specified smoothness limits; the fixed controller finished five. This was a measurable improvement in completion within that study.</p>
+<div aria-label="Completed full sequences on six held-out scenarios" class="result-table" role="table"><div class="result-row" role="row"><span role="cell">Starting model</span><span aria-label="3 of 6 completed" class="trial-dots" role="img"><span></span><span></span><span></span><span class="empty"></span><span class="empty"></span><span class="empty"></span></span><b role="cell">3 / 6</b></div><div class="result-row selected" role="row"><span role="cell">Selected checkpoint</span><span aria-label="6 of 6 completed" class="trial-dots" role="img"><span></span><span></span><span></span><span></span><span></span><span></span></span><b role="cell">6 / 6</b></div><div class="result-row fixed" role="row"><span role="cell">Fixed controller</span><span aria-label="5 of 6 completed" class="trial-dots" role="img"><span></span><span></span><span></span><span></span><span></span><span class="empty"></span></span><b role="cell">5 / 6</b></div></div>
+<p class="small">Full-sequence completion within the specified smoothness limits. Six scenarios, one small simulation study. No hardware validation. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/docs/terrain-v12-assessment.md">Read the assessment</a>.</p>
+<figure class="replay-block" data-replay="training" data-scenario="development-43000">
+<div class="replay-head"><div><span class="caption-tag">V12 · UPDATES 0 / 1 / 8 / 32</span><h3>Can the trained model finish where its parent falls short?</h3></div><a href="replay/?study=training&amp;scenario=development-43000" rel="noopener" target="_blank">Open the checkpoint sequence</a></div>
+<div class="replay-placeholder"><img alt="Mochi in its simulated desk environment" loading="lazy" src="media/mochi-poster.jpg"/><div><p>Recorded simulation trajectories</p><span>Six final-test pairs, plus a development scenario with intermediate checkpoints.</span><button class="load-replay" type="button">Load training comparison</button></div></div>
+<figcaption>The development scenario exposes intermediate checkpoints; six final-test pairs remain available in the scenario menu. Both sides use the same playback speed. These are archived trajectories, not a new model run.</figcaption>
+</figure>
+<p>Component tests narrowed down V12’s gain. When we changed walking alone, the parent fell; the selected model chose differently and finished. In the manipulation and recovery checks, both picked the same profiles. <strong>V12 did not demonstrate learned improvements in manipulation or recovery.</strong></p>
+<p>We stored the evaluation and its component-test limits in past.dev. A review stage recalled them and wrote a qualified conclusion, which the research stage could read before the next campaign.</p>
+</section><section id="audit">
+<p class="eyebrow">The runs that changed the question</p>
+<h2>A finish was not always a valid finish</h2>
+<p>An earlier V11 audit had exposed another problem: the objects reached their targets, but Mochi also hit the clock with its wrist, knee and hip. The verifier had missed those contacts. We invalidated the apparent passes, kept the recordings, corrected the verifier and cancelled that proposed training campaign before it produced gradients. The controller had to be physically feasible before further training. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/balanced-v11-results.md">Contact audit and rejected attempts</a>.</p>
+<p>Nor did every later training run improve completion. V13 added sixteen updates, yet both the parent and selected checkpoint finished only two of four fresh final-test scenarios. Fixed and training-derived static choices each finished three. Its final memory handoff also stopped when recall did not return the required source. We retained the numerical result and marked the workflow incomplete. <a href="evidence/v13-followup.json">Preserved follow-up evidence</a> · <a href="https://github.com/howdymary/mochi-demo/actions/runs/44600829444">Execution record</a>.</p>
+<p>The studies used different environments and test sets. Their success counts cannot form one learning curve: we can compare checkpoints within a matched study, but a newer version number is not evidence of improvement.</p>
+</section><section id="navigation">
+<p class="eyebrow">A separate engineering change</p>
+<h2>Before more training, change the way it turns</h2>
+<p>Before V15, we changed the navigation controller itself. Instead of tracking the route laterally, V14 turns Mochi toward the next corridor, walks it forward and then aligns it with the task pose. This gave us a separate engineering comparison, without updating the decision model.</p>
+<div class="navigation-result"><div><span>Travel aligned with body heading</span><strong>24% <span>to</span> 95%</strong></div><p>On one matched four-task route.<br/><b>About 14 seconds longer.</b></p></div>
+<p>On one matched route, both versions completed all four chores. The turn-first version spent much more of its flat-desk travel aligned with its body heading, but took about fourteen seconds longer. The heading metric counts movement within 25 degrees of body heading, averaged over a gait cycle; it excludes stationary turns and book traversal. The change improved this alignment measure, not every measure of efficiency.</p>
+<figure class="replay-block" data-replay="navigation">
+<div class="replay-head"><div><span class="caption-tag">MATCHED NAVIGATION REPLAY</span><h3>Previous route vs. turn-first</h3></div><a href="replay/?study=navigation" rel="noopener" target="_blank">Open full screen</a></div>
+<div class="replay-placeholder"><img alt="The desk environment used in the navigation comparison" loading="lazy" src="media/mochi-poster.jpg"/><div><p>Matched navigation comparison</p><span>Compare the same route before and after the controller refinement.</span><button class="load-replay" type="button">Load navigation comparison</button></div></div>
+<figcaption>Recorded MuJoCo body orientations. Zero new Tinker optimizer updates for this comparison. <a href="replay/directional-v14/manifest.json">Measurements</a>.</figcaption>
+</figure>
+<p>We then put turn-first navigation into both the V15 parent and every checkpoint. From that point on, it stayed fixed. Any parent-to-checkpoint difference in V15 would have to be evaluated within that shared setup.</p></section><section id="next">
+<p class="eyebrow">V15 / One matched training sequence</p>
+<h2>Watching the steps fall, then checking the result</h2>
+<p>By V15, the question had changed from “can Mochi finish?” to “can it finish with less wasted movement?” We ran <strong>16 new Tinker optimizer updates and 96 domain-gradient calculations</strong>, holding the native gait, physical controller library, scene, route and evaluation rules fixed. Checkpoints 0, 1, 4, 8 and 16 each passed all three development scenarios within the declared quality limits.</p>
+<details class="technical"><summary>Training allocation and research receipts</summary><div><p>Before training, V15 recalled the earlier assessment from past.dev and made one Exa search about velocity-command tracking and corrective footsteps. After recalling the sourced hypothesis, the design stage chose twelve walking and twelve recovery examples per update, plus four for each object task. The measured set contained 48 labeled observation records that could be reused during training. <a href="replay/efficient-v15/report.json">Research decisions and API receipts</a>.</p></div></details>
+<h3 class="subhead" id="training-runs">Watch one route change across training</h3>
+<p>Start with update 0 in the recorded development sequence below. This is the parent checkpoint, already trained for 105 cumulative updates before V15. The labels 0, 1, 4, 8 and 16 count <em>additional</em> V15 optimizer updates. They do not compare an untrained robot with a trained one.</p>
+<p>On development scenario 92000, the parent completed the route in <strong>806 steps and 265.4 seconds</strong>. After one update, its walking choice on the flat desk and its clock setting changed. The new run still passed the quality checks, but needed <strong>586 steps and 237.8 seconds</strong>: 27.3% fewer steps. Its recovery choices had not changed in this pair. <a href="evidence/v15-development.json">Checkpoint and measurement evidence</a>.</p>
+<p>Move through updates 0, 1, 4, 8 and 16 in the replay. Watch the approach to each station as well as the reach. The starting state, scene, task order and playback speed match. These are five runs on one development scenario; the replay at the top instead shows a fresh final-test scenario.</p>
+<figure class="results-figure progression-figure"><img alt="On development scenario 92000, recorded V15 checkpoints 0, 1, 4, 8 and 16 used 806, 586, 480, 476 and 482 step attempts. All five passed the quality checks." height="340" loading="lazy" src="media/v15-training-progression.svg" width="450"/><figcaption><span class="caption-tag">V15 / Recorded development progression</span>One scenario, five separate continuous runs. The early reduction gives way to a plateau; this is not a curve combining different studies. Update 16 was selected using all three development scenarios. <a href="replay/efficient-v15/manifest.json">Recording manifest</a>.</figcaption></figure><div aria-label="Recorded training progression on development scenario 92000" class="checkpoint-progress" id="current-checkpoint-progress" role="table"></div>
+<p class="small">First declared development case, seed 92000. Steps include turning, book traversal and alignment. A failed run’s short time or low step count does not establish improvement.</p>
+<figure class="replay-block" data-replay="efficiency" data-scenario="development-92000">
+<div class="replay-head"><div><span class="caption-tag">V15 · UPDATES 0 / 1 / 4 / 8 / 16</span><h3>Follow the same route through five checkpoints</h3></div><a href="replay/?study=efficiency&amp;scenario=development-92000" rel="noopener" target="_blank">Open the full progression</a></div>
+<div class="replay-placeholder"><img alt="The desk where Mochi completes the clock, drawer, laptop and globe sequence" loading="lazy" src="media/mochi-poster.jpg"/><div><p>From 806 steps to roughly 480</p><span>Start at update 0, then compare updates 1 and 4. Updates 8 and 16 show the plateau on this route.</span><button class="load-replay" type="button">Load current training progression</button></div></div>
+<figcaption>Five separately recorded checkpoints on development scenario 92000. Every run passes the declared quality checks. The controls keep the scene, task order and playback speed matched; the four-scenario final evaluation below tests the selected checkpoint separately.</figcaption>
+</figure>
+<h3 class="subhead">After four updates</h3>
+<p>By update 4, the model made different choices at all twelve decision points in this case, including every arm recovery. It completed the route in <strong>480 steps and 216.7 seconds</strong>, still within the quality limits. That shows the combined effect of those choices; it does not tell us how much each one contributed. We also compared the models from twelve identical supported states, producing 24 valid diagnostic branches separate from the uninterrupted routes.</p>
+<p>The supervision rewarded measured performance inside the frozen controller library. Walking labels favored fewer steps, then time, among physically valid actions. Task and recovery labels balanced elapsed time against arm travel. The model was learning which engineered option to select from the available choices.</p>
+<p>Then the improvement levelled off on this route. Update 8 used 476 steps and 216.4 seconds; update 16 used 482 steps and 217.2 seconds. Those two checkpoints made the same categorical choices here. We have not explained the small measurement difference as a new learned behavior, and this is not a steadily improving curve.</p>
+<h3 class="subhead">Choosing a checkpoint beyond one good run</h3>
+<p>The best checkpoint on one route was not necessarily the one to take forward. Our predeclared selection rule considered all three development scenarios and chose <strong>update 16</strong>. Across that set, it averaged 485.3 steps and 218.1 physical seconds, against 805.3 steps and 265.5 seconds for the parent. We froze that choice before opening four fresh final-test scenarios.</p>
+<h3 class="subhead">Does the improvement survive fresh tests?</h3>
+<p>On the fresh tests, every policy passed all four scenarios within the quality limits. The selected checkpoint averaged <strong>476.5 step attempts and 219.5 simulated seconds</strong>, against <strong>806.0 steps and 266.4 seconds</strong> for its parent. We also tested the fixed controller and a static policy derived from training data. The static policy uses predetermined controller choices instead of asking the model to choose at each state.</p>
+<p>Across the four paired final scenarios, step attempts fell by 40.9% on average and simulated completion time by 17.6%, exceeding the predeclared 20% step-reduction target. These are results from four cases in one fixed layout, not a claim about performance in a new environment.</p><figure class="results-figure"><picture><source height="730" media="(max-width: 540px)" srcset="media/v15-final-comparison-mobile.svg" width="400"/><img alt="Mean step attempts: parent 806.0, selected update 16 476.5, fixed controller 809.5, training-derived static 482.0. Mean simulated seconds: 266.4, 219.5, 264.9 and 219.1 respectively. All four policies passed all four final scenarios." height="640" loading="lazy" src="media/v15-final-comparison.svg" width="1000"/></picture><figcaption><span class="caption-tag">V15 / Final evaluation</span>Means across four fresh scenarios. Lower is better; all policies passed 4/4. The static policy matches the selected checkpoint closely. Values are descriptive, with no significance claim. <a href="evidence/v15-completed.json">Source data</a>.</figcaption></figure>
+<div aria-label="Completed four-scenario final evaluation" class="checkpoint-progress final-comparison" role="table"><div class="checkpoint-progress-row header" role="row"><span role="columnheader">Policy</span><span role="columnheader">Passed</span><span role="columnheader">Mean steps</span><span role="columnheader">Seconds</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Parent</span><span role="cell">4/4</span><span role="cell">806.0</span><span role="cell">266.4</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Selected update 16</span><span role="cell">4/4</span><span role="cell">476.5</span><span role="cell">219.5</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Fixed controller</span><span role="cell">4/4</span><span role="cell">809.5</span><span role="cell">264.9</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Training-derived static</span><span role="cell">4/4</span><span role="cell">482.0</span><span role="cell">219.1</span></div></div>
+<p>The strongest limit came from the simpler alternative. The training-derived static policy averaged 482.0 steps and 219.1 seconds—close in step count and slightly faster than the selected model. It made the same controller choice in 46 of 48 corresponding decisions; only the laptop profiles on seeds 93000 and 93003 differed. <strong>We learned more efficient choices in this setting, but did not establish a meaningful advantage from adapting the choice to each state.</strong> Small cost differences under identical choice vectors remain unexplained. <a href="evidence/v15-completed.json">Completed numerical assessment</a>.</p>
+<h3 class="subhead">The cost of moving faster</h3>
+<p>Fewer steps also did not mean every motion got better. In the final scenarios, average arm-joint travel per successful recovery rose from 5.54 to 6.93 radians. Torso roll RMS rose slightly, from 0.271 to 0.279 degrees. Both remained inside the declared limits, but the result does not show lower arm travel or smoother motion on every measure.</p>
+<h3 class="subhead">Where the time went</h3>
+<p>Separate matched-state tests helped locate the time savings. On the laptop approach, the compared walking choices used 324 versus 172 steps and 40.6 versus 22.0 seconds. Across four recovery states, total recovery time fell from 6.65 to 5.30 seconds while joint travel rose from 22.15 to 26.77 radians. These branch totals diagnose individual choices; they are not another continuous route.</p>
+<details class="technical"><summary>How we counted steps and described uncertainty</summary><div><p>The declared target was a 20% step reduction. On these four final scenarios, paired reductions averaged <strong>40.9% in steps and 17.6% in time</strong>. The descriptive paired bootstrap intervals were 39.4%–41.8% for steps and 15.7%–18.7% for time. With only four fixed-layout cases, those intervals do not establish broad generalization: even 4/4 completion has an approximately 51%–100% Wilson interval at 95% confidence.</p><p>Throughout the study, “steps” means measured footstep attempts, including turns, book traversal, alignment and unfinished attempts. We only compare efficiency when both routes finish within the quality limits. A failed run cannot win by stopping early: it stays in the completion denominator. Contacts, balance, time and arm travel are reported alongside the step count. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/efficient-v15.md">Frozen study protocol</a>.</p></div></details>
+<details class="technical"><summary>Execution, resource use and the final memory handoff</summary><div><p>At the end of V15, we wrote the measurements to past.dev, recalled them for review, stored a qualified conclusion and recalled that conclusion in the research stage. The audit recorded six writes, seven logical recalls, four writing identities, four verified reading identities and five within-campaign cross-role handoffs. One recall retrieved the earlier assessment across campaigns. The private-canary denial test passed, and no ingestions were left pending.</p><p>The full campaign used 204 physical rollouts and 10.341 function CPU-hours, within limits of 224 rollouts, eighteen hours and four concurrent workers. Tinker recorded 217,812 training-token presentations. Those numbers describe execution and reuse of examples, not billed credits.</p></div></details>
+<h3 class="subhead">What Mochi learned—and what comes next</h3><p>With the physical system held fixed, post-training changed the decision model’s controller choices and reduced the steps needed to finish these routes. The invalid contacts and flat results help define the conditions under which that improvement counts.</p><p>The open question is whether those choices remain useful when the layout, conditions or tasks change—and whether adapting to each state can beat the simple static policy. The puck experiment showed why transfer needs its own test. For now, we can watch and measure the change within this controlled setting.</p><aside class="note"><strong>Scope and limitations</strong><p>This is a small, fixed-layout simulation study using structured state observations. It has no camera-based policy or hardware validation. We have not isolated a causal performance benefit from memory or web search. The results apply to four final cases in one furnished layout.</p></aside>
+</section><section id="memory">
+<p class="eyebrow">Remembering what happened</p>
+<h2>How a failed step became evidence for the next run</h2>
+<p>One recurring failure was a foot that had not cleared the edge of a book before descent. A replay made the stumble visible. Joint positions, foot contacts, body orientation and task outcomes made it possible to describe what happened precisely enough to test a change.</p>
+<p>We kept exact trajectories and numerical results in artifact storage. past.dev held the working record around them: observations, hypotheses, sources, experiment results and conclusions with their qualifications. Each record carried an author, timestamp, audience and source ID, with its type distinguishing a proposed explanation from a measured result.</p>
+<div aria-label="Experiment cycle" class="research-loop"><div><b>Measure</b><span>Physical failure and metrics</span></div><div><b>Store</b><span>Observation and hypothesis</span></div><div><b>Train and test</b><span>Matched physical comparisons</span></div><div><b>Review</b><span>Result and qualification</span></div></div>
+<p>The shared record grew to include those book-edge failures, tests of staged clearance and shorter foot placements, and findings about the clock approach and arm withdrawal. The point was to give the next stage evidence it could inspect, instead of asking it to infer the history from a success count.</p>
+<p>The research stage recalled those observations before searching for methods. The design stage then recalled the sourced hypothesis before deciding how to divide the training examples. This left a trace from a physical failure to a proposed intervention. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/src/mochi/desk/services.py">Inspect the memory code</a>.</p>
+<p>That handoff led the design stage to choose more recovery supervision than the balanced alternative. Both options still included walking and all four manipulation tasks. The <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/web/desk/terrain-training/report.json">decision record</a> identifies which recalled sources informed the choice.</p>
+<p>For V12, each update presented sixteen recovery examples, eight walking examples and four examples for each manipulation task. The same measured examples could be reused across updates. These counts describe training presentations, not new physical experiments.</p>
+<aside class="note"><strong>Memory attribution</strong><p>This shows that recalled evidence informed a training decision. It does not isolate memory’s effect on the robot: that would require the same experiment with and without shared memory.</p></aside>
+<details class="technical"><summary>Memory ingestion and source verification</summary><div><p>A successful write does not mean the finding is ready to read back. Before a dependent read, we wait for ingestion to finish. Pending ingestion IDs are journaled so an interruption does not lose track of the handoff.</p><p>On recall, we check that returned source IDs match the record requested, then retrieve the exact payload from the experiment journal. If the required source is missing, the handoff stops rather than substituting an unrelated result.</p><p>Shared findings and private review notes use different audiences. A synthetic private record was tested from outside its audience; the audit recorded the expected denial. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/src/mochi/terrain_v12/services.py">Ingestion and journaling code</a>.</p></div></details>
+</section><section id="research">
+<p class="eyebrow">From research to evidence</p>
+<h2>Testing the possible fix before training on it</h2>
+<p>A foot catches a book edge; a descent becomes unstable; the hand overshoots; the arm takes too long to withdraw. Those measurements set the research question. Exa searches were recorded with the query, source URL, retrieval time and proposed mechanism. A paper could suggest a change to try, but finding it did not establish that the change would help Mochi. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/src/mochi/integrations.py">Search and memory implementation</a>.</p>
+<p>To find out, we tried the available actions from matching physical states in MuJoCo, running the comparisons on Modal. In V15, four training scenarios each supplied twelve decision points. We tested three actions at each point, then continued the parent model’s route with a guard against invalid choices. That meant 144 action branches plus four continuous collection sequences: <strong>148 physical rollouts</strong> to collect the training evidence.</p>
+<div class="service-map"><div><b>Exa</b><span>Find sources for a measured failure</span></div><div><b>past.dev</b><span>Recall findings and preserve their qualifications</span></div><div><b>Modal + MuJoCo</b><span>Compare actions from identical physical states</span></div><div><b>Tinker</b><span>Update the shared decision model</span></div></div>
+<p>These were small CPU simulations, with at most four workers running at once. We retained seeds, durations, physical outcomes, checkpoint identifiers and resource receipts. The distinction between an action branch and a whole route mattered: the fastest choice from one state could still make a later part of the route worse. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/src/mochi/efficient_v15/remote.py">Physical experiment code</a>.</p>
+</section><section class="sources" id="sources">
+<p class="eyebrow">METHODS AND DATA</p>
+<h2>Sources and artifacts</h2>
+<ul><li><a href="https://github.com/howdymary/mochi-demo/blob/eaec2f7832da277857c71c21579a1f0c5bd4fa59/mochi/docs/efficient-v15-assessment.md">Completed V15 assessment</a> · <a href="evidence/v15-completed.json">Numerical results and component tests</a><span>Full final cohort, static-control audit, motion tradeoffs and actual resource totals.</span></li><li><a href="evidence/v15-development.json">Current development evidence</a> · <a href="replay/efficient-v15/manifest.json">Latest recording manifest</a><span>Actual checkpoint identity, measured step/time changes, and the completed final-test status.</span></li><li><a href="https://github.com/howdymary/mochi-demo/actions/runs/44625135986">Completed Tinker and Modal execution</a><span>The 16-update campaign, four-policy final test, component checks and final memory handoff.</span></li><li><a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/docs/terrain-v12-assessment.md">Completed V12 assessment</a><span>Development selection, six-scenario final test, and component checks.</span></li><li><a href="https://github.com/howdymary/mochi-demo/actions/runs/44482272455">V12 training execution</a> · <a href="https://github.com/howdymary/mochi-demo/actions/runs/44514013316">V12 evaluation execution</a></li><li><a href="replay/terrain-training/manifest.json">V12 checkpoint manifest</a> · <a href="replay/directional-v14/manifest.json">V14 navigation manifest</a></li><li><a href="evidence/v13-followup.json">V13 negative result and incomplete handoff</a></li><li><a href="provenance.json">Replay provenance</a><span>Separate study sources and hashes of the unmodified recordings.</span></li><li><a href="replay/assets/sand3d-attribution.json">Scene attribution</a> · <a href="replay/assets/G1-LICENSE.txt">Robot license</a> · <a href="replay/assets/richdesk/attribution.json">Desk assets</a> · <a href="replay/vendor/LICENSE">Three.js license</a></li></ul>
+<p class="small">This is a state-observation simulation study. Browser replays interpolate recorded physics samples; the development film is a separate screen recording. Displayed simulation time excludes remote inference waits. The clips illustrate particular runs; the assessment counts failures across the cohort.</p>
+</section></article>
+</div>
+</main>
+<footer class="site-footer wrap"><a class="author" href="/">Mary Liu</a><span>Mochi · recordings, methods and results</span><a href="#article">Back to top</a></footer>
 </body>
 </html>

@@ -1,0 +1,101 @@
+{
+  "study": "mochi-terrain-v13-fresh-states",
+  "run_id": "mochi-t13-44600829444",
+  "source_sha": "17374b773ae4b497b76e4b33c8282d23a0667869",
+  "status": "incomplete",
+  "optimizer_updates_completed": 16,
+  "selected_update": 1,
+  "held_out": {
+    "parent": {
+      "n": 4,
+      "complete_successes": 2,
+      "smooth_complete_successes": 2,
+      "wilson_95_complete_rate": [
+        0.15003570882017148,
+        0.8499642911798285
+      ],
+      "task_successes": {
+        "alarm": 3,
+        "drawer": 3,
+        "laptop": 2,
+        "globe": 2
+      },
+      "falls": 0,
+      "invalid_contacts": 1,
+      "mean_duration_s": 204.06737050972876,
+      "mean_roll_rms_deg": 0.2508816949696018,
+      "mean_contact_travel_m": 0.4745017484749723,
+      "recovery_successes": 10,
+      "successful_recovery_mean_joint_travel_rad": 5.670919175404301
+    },
+    "selected": {
+      "n": 4,
+      "complete_successes": 2,
+      "smooth_complete_successes": 2,
+      "wilson_95_complete_rate": [
+        0.15003570882017148,
+        0.8499642911798285
+      ],
+      "task_successes": {
+        "alarm": 3,
+        "drawer": 3,
+        "laptop": 2,
+        "globe": 2
+      },
+      "falls": 0,
+      "invalid_contacts": 1,
+      "mean_duration_s": 204.06737050972876,
+      "mean_roll_rms_deg": 0.2508816949696018,
+      "mean_contact_travel_m": 0.4745017484749723,
+      "recovery_successes": 10,
+      "successful_recovery_mean_joint_travel_rad": 5.670919175404301
+    },
+    "fixed": {
+      "n": 4,
+      "complete_successes": 3,
+      "smooth_complete_successes": 3,
+      "wilson_95_complete_rate": [
+        0.3006360524426366,
+        0.9544139373553637
+      ],
+      "task_successes": {
+        "alarm": 3,
+        "drawer": 3,
+        "laptop": 3,
+        "globe": 3
+      },
+      "falls": 0,
+      "invalid_contacts": 0,
+      "mean_duration_s": 210.40439428540137,
+      "mean_roll_rms_deg": 0.25315987315447014,
+      "mean_contact_travel_m": 0.4374557993237843,
+      "recovery_successes": 12,
+      "successful_recovery_mean_joint_travel_rad": 5.6997634253862905
+    },
+    "static": {
+      "n": 4,
+      "complete_successes": 3,
+      "smooth_complete_successes": 3,
+      "wilson_95_complete_rate": [
+        0.3006360524426366,
+        0.9544139373553637
+      ],
+      "task_successes": {
+        "alarm": 3,
+        "drawer": 3,
+        "laptop": 3,
+        "globe": 3
+      },
+      "falls": 0,
+      "invalid_contacts": 0,
+      "mean_duration_s": 202.50600371257516,
+      "mean_roll_rms_deg": 0.26860803240348463,
+      "mean_contact_travel_m": 0.5068473509762546,
+      "recovery_successes": 12,
+      "successful_recovery_mean_joint_travel_rad": 6.802725980419314
+    }
+  },
+  "error_type": "RuntimeError",
+  "error": "Required memory source absent; no silent fallback",
+  "note": "Numerical final-test outputs were retained. Required memory recall failed, so the complete workflow is not marked successful. No additional training was launched for this publication."
+}

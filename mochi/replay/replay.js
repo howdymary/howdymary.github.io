@@ -1,9 +1,11 @@
 import {createCurriculumStage} from './curriculum-stage.js';
+import {activityAt,stepCountAt,comparisonEvidence} from './efficient-evidence.mjs';
 
 const $ = selector => document.querySelector(selector);
 const query = new URLSearchParams(location.search);
 const navigation = query.get('study') === 'navigation';
-const folder = navigation ? 'directional-v14/' : 'terrain-training/';
+const efficiency = query.get('study') === 'efficiency';
+const folder = efficiency?'efficient-v15/':navigation ? 'directional-v14/' : 'terrain-training/';
 const cache = new Map();
 let manifest, cases, current, stages, episodes, metadata;
 let time = 0, maximum = 0, playing = false, loading = true, dirty = true;
@@ -59,17 +61,24 @@ async function loadPair() {
   $('#scrub').max = Math.ceil(maximum * 20) / 20;
   $('#left-label').textContent = navigation ? 'Previous route' : 'Parent model';
   $('#right-label').textContent = navigation ? 'Turn-first navigation' : `${version.update === manifest.selected_update ? 'Selected' : 'Development'} · update ${version.update}`;
+  for(const [i,side] of ['left','right'].entries())$('#'+side+'-id').textContent=metadata[i]?.checkpoint_id?`Model ${metadata[i].checkpoint_id.slice(0,12)}`:'';
   if (navigation) {
     const before = current.before.direction_metrics.forward_facing_fraction * 100;
     const after = current.after.direction_metrics.forward_facing_fraction * 100;
     $('#scope').textContent = 'Controller engineering comparison. Zero new Tinker optimizer updates. Same initial scenario and playback speed.';
     $('#metrics').textContent = `${before.toFixed(0)}% vs. ${after.toFixed(0)}% facing travel. Route duration: ${current.before.duration_s.toFixed(1)} s vs. ${current.after.duration_s.toFixed(1)} s. Stationary turns and book traversal are excluded from the heading metric.`;
+  } else if(efficiency){
+    const finalTest=current.partition==='held_out';
+    $('#scope').textContent=finalTest?'Final test: checkpoint selection preceded this scenario. Each pane is one uninterrupted recorded episode.':
+      'Development scenario. Checkpoint selection and final testing are '+(manifest.selection_finalized?'reported separately.':'still pending. Each pane is one uninterrupted recorded episode.');
+    const pair=comparisonEvidence(metadata[0],metadata[1]);
+    $('#metrics').textContent=`${pair.headline}. ${pair.detail} Recorded update ${version.update}; ${manifest.optimizer_updates_completed} new optimizer updates completed in the campaign. Native gait weights remain fixed. Physical time excludes inference waits.`;
   } else {
     const finalTest = current.partition === 'held_out';
     $('#scope').textContent = finalTest ? 'Final test: the checkpoint was selected on development scenarios before this test. Each pane is a separate, uninterrupted episode.' : 'Development scenario used for checkpoint selection. Intermediate checkpoints are not additional held-out results.';
     $('#metrics').textContent = '32 new optimizer updates in the campaign; selected update 1. Native gait and physical controllers stay fixed. Simulation time excludes remote inference waits.';
   }
-  $('#status').textContent = 'Ready. Press Play to watch both recordings together, or drag the timeline.';
+  $('#status').textContent = 'Ready. Use Play/Pause to watch both recordings together, or drag the timeline.';
   $('#play').disabled = $('#restart').disabled = $('#scrub').disabled = false;
   loading = false;
   dirty = true;
@@ -86,7 +95,8 @@ async function selectCase(id) {
       const option = new Option(`Update ${version.update}${version.update === manifest.selected_update ? ' · selected' : ''}`, version.update);
       $('#checkpoint').add(option);
     });
-    const preferred = current.versions.find(v => v.update === manifest.selected_update) || current.versions[0];
+    const requested=Number(query.get('update'));
+    const preferred = (query.has('update')&&current.versions.find(v=>v.update===requested))||current.versions.find(v => v.update === (manifest.default_update??manifest.selected_update)) || current.versions.at(-1);
     $('#checkpoint').value = preferred.update;
     $('#checkpoint').disabled = current.versions.length === 1;
   }
@@ -102,16 +112,18 @@ function render() {
     const outcome = $(`#${side}-outcome`);
     const complete = metadata[i]?.complete;
     outcome.className = ended ? (complete ? 'ended-success' : 'ended-failure') : '';
-    outcome.textContent = ended ? (complete ? 'Completed' : String(metadata[i]?.failure || 'Incomplete').replaceAll('_', ' ')) : '';
-    const phase = frame?.task || frame?.phase || 'walking';
-    $(`#${side}-reading`).textContent = `${ended ? 'Recorded finish' : phase} · ${Math.min(time, episode.duration).toFixed(1)} s`;
+    outcome.textContent = ended ? (complete ? (efficiency&&!metadata[i].qualified_complete?'Tasks complete; quality limit failed':'Completed') : String(metadata[i]?.failure || 'Incomplete').replaceAll('_', ' ')) : '';
+    if(ended&&efficiency&&!metadata[i].qualified_complete)outcome.className='ended-failure';
+    const phase = efficiency?activityAt(episode,time).label:frame?.task || frame?.phase || 'walking';
+    const steps=episode.step_events?` · ${stepCountAt(episode,time)} steps`:'';
+    $(`#${side}-reading`).textContent = `${ended ? 'Recorded finish' : phase} · ${Math.min(time, episode.duration).toFixed(1)} s${steps}`;
   });
   $('#time').textContent = `${time.toFixed(1)} / ${maximum.toFixed(1)} s`;
   $('#scrub').value = time;
 }
 
 function tick(now) {
-  const elapsed = Math.min(0.1, (now - last) / 1000);
+  const elapsed = Math.max(0, Math.min(0.1, (now - last) / 1000));
   last = now;
   if (episodes && !loading && visible && !document.hidden) {
     if (playing) {
@@ -129,15 +141,15 @@ function tick(now) {
 }
 
 async function init() {
-  $('#study-label').textContent = navigation ? 'MOCHI · NAVIGATION REFINEMENT' : 'MOCHI · TRAINING CHECKPOINTS';
-  $('#title').textContent = navigation ? 'Turn toward the next corridor.' : 'Same scenario. Different checkpoint.';
-  const response = await fetch(folder + 'manifest.json');
+  $('#study-label').textContent = efficiency?'MOCHI · WALKING AND TASK-CONTROL TRAINING':navigation ? 'MOCHI · NAVIGATION REFINEMENT' : 'MOCHI · TRAINING CHECKPOINTS';
+  $('#title').textContent = efficiency?'Walking and task control across checkpoints.':navigation ? 'Turn toward the next corridor.' : 'Same scenario. Different checkpoint.';
+  const response = await fetch(folder + 'manifest.json',{cache:'no-store'});
   if (!response.ok) throw Error('Study manifest unavailable.');
   manifest = await response.json();
-  cases = navigation ? manifest.cases : manifest.scenarios.filter(s => s.partition === 'held_out' || s.id === 'development-43000');
+  cases = efficiency?manifest.scenarios:navigation ? manifest.cases : manifest.scenarios.filter(s => s.partition === 'held_out' || s.id === 'development-43000');
   $('#scenario').replaceChildren();
   cases.forEach(c => $('#scenario').add(new Option(c.label, c.id)));
-  const fallback = navigation ? 'four-tasks' : 'held-out-44000';
+  const fallback = efficiency?(manifest.default_scenario||cases[0].id):navigation ? 'four-tasks' : 'held-out-44000';
   const initial = cases.find(c => c.id === query.get('scenario')) || cases.find(c => c.id === fallback) || cases[0];
   $('#scenario').value = initial.id;
   $('#checkpoint-field').hidden = navigation;
@@ -162,6 +174,7 @@ async function init() {
     dirty = true;
   }));
   await selectCase(initial.id);
+  if(query.get('autoplay')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)setPlaying(true);
   requestAnimationFrame(tick);
 }
 

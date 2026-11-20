@@ -12,7 +12,7 @@
     "held-out-44005"
   ],
   "directional_study": "directional-v14",
-  "note": "Archived MuJoCo trajectories are unmodified. Renderer interpolates recorded samples; no model calls or new simulation occur in the browser. The development MP4 is a separate screen recording and is not a matched final-test pair.",
+  "note": "Archived MuJoCo trajectories are unmodified. Studies have separate source commits, environments and evaluation cohorts. Browser replays interpolate samples. The November17 MP4 is an earlier development screen recording, not a final-test comparison.",
   "files": [
     {
       "path": "curriculum-stage.js",
@@ -298,6 +298,73 @@
       "path": "directional-v14/manifest.json",
       "source_git_blob": "6ff56a421cc5c94fdca1a1b3441f02b04ec47802",
       "sha256": "b77d1466b7af18f570062cff74d9e5c1f104366aec153e3e34d614d645e985d1"
+    },
+    {
+      "path": "efficient-evidence.mjs",
+      "source_commit": "c01d12a8c9ae827a986cc0d3e0d7123e4c08d313",
+      "sha256": "788b66b69ba901d70e2f59fb4603ec144e296e3d4fd0d57ef41554af6c6c6e57",
+      "scope": "Read-only timing, activity labels, and qualified-comparison presentation helper."
+    },
+    {
+      "path": "efficient-v15/development-92000-0.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "125438bf031ce1ef5f729a8fe4a5578857e70768102834a378e22be6eb259968",
+      "uncompressed_sha256": "f1fa8e2e57de51f390d878ded1264a72072666fb9b573ccac9ffba000f6172fa",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-0-92000-policy.json.gz",
+        "uncompressed_sha256": "ddf3d985cd7d1922f3c20156444f47915b89ea1d828eba43f80facd92ceaefd9",
+        "compressed_bytes": 45028546
+      },
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975"
+    },
+    {
+      "path": "efficient-v15/development-92000-1.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "713db0737ea9243ae4517f98a81ef735fd24b4911c08eff95c5f87b47d8919b6",
+      "uncompressed_sha256": "527c0d6abde0eec7feb800bf04fd9671d257713ae62a6f49ac5c45ab32bf7619",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-1-92000-policy.json.gz",
+        "uncompressed_sha256": "3296190d01e18e9aefc8ca9ae49150cd81cc6cddf4338f57996cc54620ab77aa",
+        "compressed_bytes": 40248792
+      },
+      "checkpoint_id": "afedde43fdb90ca6db2313f2990b8f4eabf030ad46a36dabd22848c15c134235"
+    },
+    {
+      "path": "efficient-v15/development-92000-4.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "cfdd891ea42f7a5fcad666a096a8d5067cc5c3a9e03997a4258b57af638b6f0c",
+      "uncompressed_sha256": "de40d9fab5515edecafa365dde65e8007ac2ec5c12d442bd1ade678d3998fbcb",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-4-92000-policy.json.gz",
+        "sha256": "e659b28a009ccf147288123ab60fa1226e903a7188dc1742c6b3ea9b94e3317f",
+        "uncompressed_sha256": "3b0baec9a1f06d45258583fbbaaa9e4d88901d3b1fe815f675b2826557805a6e"
+      },
+      "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b"
     }
-  ]
+  ],
+  "studies": {
+    "terrain_v12": {
+      "source_commit": "26e60fed923d286ac4082aba5d07b5d7fc8bf485"
+    },
+    "directional_v14": {
+      "source_commit": "26e60fed923d286ac4082aba5d07b5d7fc8bf485"
+    },
+    "efficient_v15": {
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "workflow_run": "mochi-t15-44625135986",
+      "recorded_update": 4,
+      "scenario": 92000,
+      "selection": "First declared development scenario; not chosen for its outcome."
+    }
+  },
+  "latest_recording": {
+    "study": "efficient_v15",
+    "checkpoint_update": 4,
+    "scenario": 92000,
+    "evaluation_status": "development_preview",
+    "observed_at": "2026-11-20T00:07:01.219646+00:00"
+  }
 }

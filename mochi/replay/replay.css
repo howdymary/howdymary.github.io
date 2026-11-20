@@ -8,3 +8,5 @@
 @media(max-width:500px){.selectors select{font-size:12px}.transport button{font-size:13px}.stage{height:215px}}
 
 [hidden]{display:none!important}
+.pane-id{padding:0 11px 8px;background:#f1f3ed;color:#65725f;font:10px ui-monospace,monospace}
+.pane-id:empty{display:none}

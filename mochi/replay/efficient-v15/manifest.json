@@ -1,14 +1,8 @@
 {
   "study": "mochi-efficient-v15",
-  "source_sha": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
-  "workflow_run": "mochi-t15-44625135986",
-  "evaluation_status": "development_preview",
-  "selection_finalized": true,
-  "selected_update": 16,
-  "default_update": 16,
   "optimizer_updates_completed": 16,
-  "recorded_update": 16,
-  "observed_at": "2026-11-20T00:32:29.073087+00:00",
+  "selected_update": 16,
+  "scope": "Tinker post-trains shared Qwen3.5-4B LoRA decision weights for directional walking strategies, four contact tasks and arm recovery. Both parent and every checkpoint use the same new navigator and bounded action library. Native ONNX gait weights, MuJoCo physics, scene, route, verifiers and step detector stay fixed. Engineering gains are separate from measured weight-training gains.",
   "scene": {
     "version": "richdesk-v9",
     "units": "metres",
@@ -430,7 +424,6 @@
       "id": "development-92000",
       "label": "Development scenario \u00b7 92000",
       "partition": "development",
-      "parent_file": "development-92000-0.json.gz",
       "versions": [
         {
           "update": 0,
@@ -452,6 +445,111 @@
           "update": 16,
           "file": "development-92000-16.json.gz"
         }
+      ],
+      "parent_file": "development-92000-0.json.gz"
+    },
+    {
+      "id": "development-92001",
+      "label": "Development scenario \u00b7 92001",
+      "partition": "development",
+      "versions": [
+        {
+          "update": 0,
+          "file": "development-92001-0.json.gz"
+        },
+        {
+          "update": 1,
+          "file": "development-92001-1.json.gz"
+        },
+        {
+          "update": 4,
+          "file": "development-92001-4.json.gz"
+        },
+        {
+          "update": 8,
+          "file": "development-92001-8.json.gz"
+        },
+        {
+          "update": 16,
+          "file": "development-92001-16.json.gz"
+        }
+      ],
+      "parent_file": "development-92001-0.json.gz"
+    },
+    {
+      "id": "development-92002",
+      "label": "Development scenario \u00b7 92002",
+      "partition": "development",
+      "versions": [
+        {
+          "update": 0,
+          "file": "development-92002-0.json.gz"
+        },
+        {
+          "update": 1,
+          "file": "development-92002-1.json.gz"
+        },
+        {
+          "update": 4,
+          "file": "development-92002-4.json.gz"
+        },
+        {
+          "update": 8,
+          "file": "development-92002-8.json.gz"
+        },
+        {
+          "update": 16,
+          "file": "development-92002-16.json.gz"
+        }
+      ],
+      "parent_file": "development-92002-0.json.gz"
+    },
+    {
+      "id": "held-out-93000",
+      "label": "Final test scenario \u00b7 93000",
+      "partition": "held_out",
+      "parent_file": "held-out-parent-93000-0.json.gz",
+      "versions": [
+        {
+          "update": 16,
+          "file": "held-out-selected-93000-16.json.gz"
+        }
+      ]
+    },
+    {
+      "id": "held-out-93001",
+      "label": "Final test scenario \u00b7 93001",
+      "partition": "held_out",
+      "parent_file": "held-out-parent-93001-0.json.gz",
+      "versions": [
+        {
+          "update": 16,
+          "file": "held-out-selected-93001-16.json.gz"
+        }
+      ]
+    },
+    {
+      "id": "held-out-93002",
+      "label": "Final test scenario \u00b7 93002",
+      "partition": "held_out",
+      "parent_file": "held-out-parent-93002-0.json.gz",
+      "versions": [
+        {
+          "update": 16,
+          "file": "held-out-selected-93002-16.json.gz"
+        }
+      ]
+    },
+    {
+      "id": "held-out-93003",
+      "label": "Final test scenario \u00b7 93003",
+      "partition": "held_out",
+      "parent_file": "held-out-parent-93003-0.json.gz",
+      "versions": [
+        {
+          "update": 16,
+          "file": "held-out-selected-93003-16.json.gz"
+        }
       ]
     }
   ],
@@ -464,7 +562,14 @@
       "complete": true,
       "qualified_complete": true,
       "failure": null,
-      "duration": 265.402109143464,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-0-92000-policy.json.gz",
+        "uncompressed_sha256": "ddf3d985cd7d1922f3c20156444f47915b89ea1d828eba43f80facd92ceaefd9",
+        "compressed_bytes": 45028546
+      },
+      "sha256": "125438bf031ce1ef5f729a8fe4a5578857e70768102834a378e22be6eb259968",
+      "uncompressed_sha256": "f1fa8e2e57de51f390d878ded1264a72072666fb9b573ccac9ffba000f6172fa",
       "steps": {
         "attempts": 806,
         "completed": 806,
@@ -480,20 +585,28 @@
         },
         "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
       },
+      "duration": 265.402109,
+      "direction_metrics": {
+        "moving_distance_m": 1.2488728856077336,
+        "forward_distance_m": 1.1772268013377232,
+        "lateral_travel_m": 0.22127822291580387,
+        "backward_distance_m": 0.03424582989993159,
+        "distance_weighted_heading_error_degrees": 14.868128631998628,
+        "forward_facing_fraction": 0.9243685975745574,
+        "turning_seconds": 22.87197990448192,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 134.500767,
+        "sampled_torque_change_rms_nm": 0.003091,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
       "task_outcomes": {
         "alarm": true,
         "drawer": true,
         "laptop": true,
         "globe": true
-      },
-      "archive": {
-        "volume": "mochi-efficient-v15-artifacts",
-        "path": "mochi-t15-44625135986/dev-0-92000-policy.json.gz",
-        "uncompressed_sha256": "ddf3d985cd7d1922f3c20156444f47915b89ea1d828eba43f80facd92ceaefd9",
-        "compressed_bytes": 45028546
-      },
-      "sha256": "125438bf031ce1ef5f729a8fe4a5578857e70768102834a378e22be6eb259968",
-      "uncompressed_sha256": "f1fa8e2e57de51f390d878ded1264a72072666fb9b573ccac9ffba000f6172fa"
+      }
     },
     "development-92000-1.json.gz": {
       "checkpoint_update": 1,
@@ -503,7 +616,14 @@
       "complete": true,
       "qualified_complete": true,
       "failure": null,
-      "duration": 237.756924669045,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-1-92000-policy.json.gz",
+        "uncompressed_sha256": "3296190d01e18e9aefc8ca9ae49150cd81cc6cddf4338f57996cc54620ab77aa",
+        "compressed_bytes": 40248792
+      },
+      "sha256": "713db0737ea9243ae4517f98a81ef735fd24b4911c08eff95c5f87b47d8919b6",
+      "uncompressed_sha256": "527c0d6abde0eec7feb800bf04fd9671d257713ae62a6f49ac5c45ab32bf7619",
       "steps": {
         "attempts": 586,
         "completed": 586,
@@ -519,20 +639,28 @@
         },
         "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
       },
+      "duration": 237.756925,
+      "direction_metrics": {
+        "moving_distance_m": 1.3346273598817977,
+        "forward_distance_m": 1.269126076966136,
+        "lateral_travel_m": 0.203384182716817,
+        "backward_distance_m": 0.033547137233014945,
+        "distance_weighted_heading_error_degrees": 13.01242244166012,
+        "forward_facing_fraction": 0.9340294150902823,
+        "turning_seconds": 19.547331336930256,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 136.652849,
+        "sampled_torque_change_rms_nm": 0.003123,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
       "task_outcomes": {
         "alarm": true,
         "drawer": true,
         "laptop": true,
         "globe": true
-      },
-      "archive": {
-        "volume": "mochi-efficient-v15-artifacts",
-        "path": "mochi-t15-44625135986/dev-1-92000-policy.json.gz",
-        "uncompressed_sha256": "3296190d01e18e9aefc8ca9ae49150cd81cc6cddf4338f57996cc54620ab77aa",
-        "compressed_bytes": 40248792
-      },
-      "sha256": "713db0737ea9243ae4517f98a81ef735fd24b4911c08eff95c5f87b47d8919b6",
-      "uncompressed_sha256": "527c0d6abde0eec7feb800bf04fd9671d257713ae62a6f49ac5c45ab32bf7619"
+      }
     },
     "development-92000-4.json.gz": {
       "checkpoint_update": 4,
@@ -542,7 +670,14 @@
       "complete": true,
       "qualified_complete": true,
       "failure": null,
-      "duration": 216.74877528681972,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-4-92000-policy.json.gz",
+        "uncompressed_sha256": "3b0baec9a1f06d45258583fbbaaa9e4d88901d3b1fe815f675b2826557805a6e",
+        "compressed_bytes": 36635842
+      },
+      "sha256": "cfdd891ea42f7a5fcad666a096a8d5067cc5c3a9e03997a4258b57af638b6f0c",
+      "uncompressed_sha256": "de40d9fab5515edecafa365dde65e8007ac2ec5c12d442bd1ade678d3998fbcb",
       "steps": {
         "attempts": 480,
         "completed": 480,
@@ -558,20 +693,28 @@
         },
         "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
       },
+      "duration": 216.748775,
+      "direction_metrics": {
+        "moving_distance_m": 1.3594789823628002,
+        "forward_distance_m": 1.3000578371080815,
+        "lateral_travel_m": 0.1827288534688123,
+        "backward_distance_m": 0.03311760539721247,
+        "distance_weighted_heading_error_degrees": 11.801889543515152,
+        "forward_facing_fraction": 0.9530910203135452,
+        "turning_seconds": 17.384306967679777,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 139.291413,
+        "sampled_torque_change_rms_nm": 0.003152,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
       "task_outcomes": {
         "alarm": true,
         "drawer": true,
         "laptop": true,
         "globe": true
-      },
-      "archive": {
-        "volume": "mochi-efficient-v15-artifacts",
-        "path": "mochi-t15-44625135986/dev-4-92000-policy.json.gz",
-        "sha256": "e659b28a009ccf147288123ab60fa1226e903a7188dc1742c6b3ea9b94e3317f",
-        "uncompressed_sha256": "3b0baec9a1f06d45258583fbbaaa9e4d88901d3b1fe815f675b2826557805a6e"
-      },
-      "sha256": "cfdd891ea42f7a5fcad666a096a8d5067cc5c3a9e03997a4258b57af638b6f0c",
-      "uncompressed_sha256": "de40d9fab5515edecafa365dde65e8007ac2ec5c12d442bd1ade678d3998fbcb"
+      }
     },
     "development-92000-8.json.gz": {
       "checkpoint_update": 8,
@@ -581,7 +724,14 @@
       "complete": true,
       "qualified_complete": true,
       "failure": null,
-      "duration": 216.4340495188071,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-8-92000-policy.json.gz",
+        "uncompressed_sha256": "d72193757f039d79a2e514d1bb629df56aa9672029e938ee2a16b307807dc3cd",
+        "compressed_bytes": 36582560
+      },
+      "sha256": "ccd6dd6a31a2440c23c56eaa4b786f023c58db5c5e9612b6c93e2311a9b1b3b4",
+      "uncompressed_sha256": "18ee12931d9b4d5f153a9394764770a5c9f50a46199ed22022330925b7966d57",
       "steps": {
         "attempts": 476,
         "completed": 476,
@@ -597,20 +747,28 @@
         },
         "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
       },
+      "duration": 216.43405,
+      "direction_metrics": {
+        "moving_distance_m": 1.362251109395755,
+        "forward_distance_m": 1.3025994407827057,
+        "lateral_travel_m": 0.18290885984752026,
+        "backward_distance_m": 0.03326343579944544,
+        "distance_weighted_heading_error_degrees": 11.793659400526252,
+        "forward_facing_fraction": 0.9541649936891742,
+        "turning_seconds": 17.26413894716586,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 139.347851,
+        "sampled_torque_change_rms_nm": 0.003153,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
       "task_outcomes": {
         "alarm": true,
         "drawer": true,
         "laptop": true,
         "globe": true
-      },
-      "archive": {
-        "volume": "mochi-efficient-v15-artifacts",
-        "path": "mochi-t15-44625135986/dev-8-92000-policy.json.gz",
-        "sha256": "32bcfb8a772ce87817c4a9b58155ca8fd459844383166d4c9ece2f0ecdb0a969",
-        "uncompressed_sha256": "d72193757f039d79a2e514d1bb629df56aa9672029e938ee2a16b307807dc3cd"
-      },
-      "sha256": "ccd6dd6a31a2440c23c56eaa4b786f023c58db5c5e9612b6c93e2311a9b1b3b4",
-      "uncompressed_sha256": "18ee12931d9b4d5f153a9394764770a5c9f50a46199ed22022330925b7966d57"
+      }
     },
     "development-92000-16.json.gz": {
       "checkpoint_update": 16,
@@ -620,7 +778,14 @@
       "complete": true,
       "qualified_complete": true,
       "failure": null,
-      "duration": 217.172224501964,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-16-92000-policy.json.gz",
+        "uncompressed_sha256": "b48b8fca8a2e2f01ffde1c76a33423e7691289b2cde9be16039f1ecf0f94b279",
+        "compressed_bytes": 36702960
+      },
+      "sha256": "ac002fd99c0815ace09ad87441dcaf1f6719f4654c88811b1fc42ffaf9544514",
+      "uncompressed_sha256": "8757cacab25f80691ab43bf27da90b2c7998d06760fa053b56f4ffcfb12f456f",
       "steps": {
         "attempts": 482,
         "completed": 482,
@@ -636,31 +801,4619 @@
         },
         "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
       },
+      "duration": 217.172225,
+      "direction_metrics": {
+        "moving_distance_m": 1.364364328700838,
+        "forward_distance_m": 1.3046572247740678,
+        "lateral_travel_m": 0.18228531139335524,
+        "backward_distance_m": 0.033401417047992286,
+        "distance_weighted_heading_error_degrees": 11.782478316469014,
+        "forward_facing_fraction": 0.9530279582568578,
+        "turning_seconds": 17.304194954003833,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 138.783962,
+        "sampled_torque_change_rms_nm": 0.00315,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
       "task_outcomes": {
         "alarm": true,
         "drawer": true,
         "laptop": true,
         "globe": true
+      }
+    },
+    "development-92001-0.json.gz": {
+      "checkpoint_update": 0,
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975",
+      "cumulative_updates": 105,
+      "seed": 92001,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-0-92001-policy.json.gz",
+        "uncompressed_sha256": "706e5c13b3e04e3ca5ecb085dd8d0133fa65fc2624a6e6e14be75352117634da",
+        "compressed_bytes": 45071196
+      },
+      "sha256": "506f5f68d9823605f4a896cbf61eb636e4029dfc12c33e6353eec677aaa67ae0",
+      "uncompressed_sha256": "13a9fab2249da8ef6cadc8bbf672303c54ec62d7bed3b2b6fdb0cf98b3ee4f71",
+      "steps": {
+        "attempts": 796,
+        "completed": 796,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 187,
+          "flat_transit": 413,
+          "alignment": 134,
+          "fixture_clearance": 26
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 265.669422,
+      "direction_metrics": {
+        "moving_distance_m": 1.2475930354362978,
+        "forward_distance_m": 1.1771132753690845,
+        "lateral_travel_m": 0.21864495237638726,
+        "backward_distance_m": 0.033472527427796224,
+        "distance_weighted_heading_error_degrees": 14.643234490751952,
+        "forward_facing_fraction": 0.9235241803861011,
+        "turning_seconds": 22.71175587713003,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 134.483511,
+        "sampled_torque_change_rms_nm": 0.003092,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92001-1.json.gz": {
+      "checkpoint_update": 1,
+      "checkpoint_id": "afedde43fdb90ca6db2313f2990b8f4eabf030ad46a36dabd22848c15c134235",
+      "cumulative_updates": 106,
+      "seed": 92001,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-1-92001-policy.json.gz",
+        "uncompressed_sha256": "1824528d39ac62f2218a8b38dca9388bb8a0b3b6bc9fd619a9a3fc462c47ad7a",
+        "compressed_bytes": 40507537
+      },
+      "sha256": "88faf3939b6e4c6973472f3142c0f44864f4723d409b2baff2b8aceefb144c49",
+      "uncompressed_sha256": "be7397e273661f8cd56b5cde43b7649b8e61a6bdc56318bd03cda97d412473f9",
+      "steps": {
+        "attempts": 580,
+        "completed": 580,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 161,
+          "flat_transit": 284,
+          "alignment": 71,
+          "fixture_clearance": 28
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 239.265973,
+      "direction_metrics": {
+        "moving_distance_m": 1.341749601836094,
+        "forward_distance_m": 1.2754317058657232,
+        "lateral_travel_m": 0.2039208204304043,
+        "backward_distance_m": 0.035002076652229354,
+        "distance_weighted_heading_error_degrees": 13.160718862217873,
+        "forward_facing_fraction": 0.9387559167646039,
+        "turning_seconds": 19.42716331641634,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 136.70241,
+        "sampled_torque_change_rms_nm": 0.003121,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92001-4.json.gz": {
+      "checkpoint_update": 4,
+      "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b",
+      "cumulative_updates": 109,
+      "seed": 92001,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-4-92001-policy.json.gz",
+        "uncompressed_sha256": "3611fb379051a371067e448b45ee86630a715442033d465cdebe7e6a0fa10bfc",
+        "compressed_bytes": 37197452
+      },
+      "sha256": "178fc4603af38c40254dc705baa6ce49fbe5aa1fa2285bb69a5098b3cba04ebe",
+      "uncompressed_sha256": "83c0b97bb24bbce82f0ebdd4ef63a8ae064ea92a37bdda85d15986be68dce656",
+      "steps": {
+        "attempts": 496,
+        "completed": 496,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 145,
+          "flat_transit": 224,
+          "alignment": 51,
+          "fixture_clearance": 40
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 220.020288,
+      "direction_metrics": {
+        "moving_distance_m": 1.3560923074670084,
+        "forward_distance_m": 1.2963870228410241,
+        "lateral_travel_m": 0.18302902106313115,
+        "backward_distance_m": 0.033435442331021824,
+        "distance_weighted_heading_error_degrees": 11.886256376233852,
+        "forward_facing_fraction": 0.9532326073645502,
+        "turning_seconds": 17.504474988193692,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 138.639538,
+        "sampled_torque_change_rms_nm": 0.003144,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92001-8.json.gz": {
+      "checkpoint_update": 8,
+      "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45",
+      "cumulative_updates": 113,
+      "seed": 92001,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-8-92001-policy.json.gz",
+        "uncompressed_sha256": "7ace13ed1651eba1b2ba1a911606d2d28ac9016d9ac6361682df259eacd88d3c",
+        "compressed_bytes": 37005508
+      },
+      "sha256": "06e9b332017e260fa04d7a0166173d9592f749782fa18a00f07c78faaadde308",
+      "uncompressed_sha256": "53e21eaaf56cf769083b5bc074080b1c9f497f860de0b1c1333b0e86bad00173",
+      "steps": {
+        "attempts": 488,
+        "completed": 488,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 143,
+          "flat_transit": 225,
+          "alignment": 52,
+          "fixture_clearance": 32
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 218.879918,
+      "direction_metrics": {
+        "moving_distance_m": 1.3598292208671356,
+        "forward_distance_m": 1.2994617744514827,
+        "lateral_travel_m": 0.18289792265026011,
+        "backward_distance_m": 0.03413862454515197,
+        "distance_weighted_heading_error_degrees": 11.91801435500563,
+        "forward_facing_fraction": 0.9525886349531064,
+        "turning_seconds": 17.384306967679777,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 138.639187,
+        "sampled_torque_change_rms_nm": 0.003144,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92001-16.json.gz": {
+      "checkpoint_update": 16,
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+      "cumulative_updates": 121,
+      "seed": 92001,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-16-92001-policy.json.gz",
+        "uncompressed_sha256": "9cb10d1541a97a90fe518c1514eb83da357a6c888c8747d7e20ed6d088871f2d",
+        "compressed_bytes": 37197495
+      },
+      "sha256": "f99ee03d4290ffb0fbf8f695f4e01ee7ca70af762227bf0bc934e20dc6aad830",
+      "uncompressed_sha256": "5f2c3bfad70cb3afbb4da3c2c50a252544c17d600f8e9a4976afe8c739095c13",
+      "steps": {
+        "attempts": 496,
+        "completed": 496,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 145,
+          "flat_transit": 224,
+          "alignment": 51,
+          "fixture_clearance": 40
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 220.020288,
+      "direction_metrics": {
+        "moving_distance_m": 1.3560923074670084,
+        "forward_distance_m": 1.2963870228410241,
+        "lateral_travel_m": 0.18302902106313115,
+        "backward_distance_m": 0.033435442331021824,
+        "distance_weighted_heading_error_degrees": 11.886256376233852,
+        "forward_facing_fraction": 0.9532326073645502,
+        "turning_seconds": 17.504474988193692,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 138.639538,
+        "sampled_torque_change_rms_nm": 0.003144,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92002-0.json.gz": {
+      "checkpoint_update": 0,
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975",
+      "cumulative_updates": 105,
+      "seed": 92002,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-0-92002-policy.json.gz",
+        "uncompressed_sha256": "3c7dd9a746aac5d4311630575bddfe37e66f2bc102300c60b3a209b1110f5b7b",
+        "compressed_bytes": 45037897
+      },
+      "sha256": "b616498acd677a3931a9891646786c391baa62c9bbfe5be726d5775504fb81de",
+      "uncompressed_sha256": "950d32502d9fcae0bc696706560ae1e7d5abf8a7465d749d5b83f6c749738008",
+      "steps": {
+        "attempts": 814,
+        "completed": 814,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 189,
+          "flat_transit": 411,
+          "alignment": 150,
+          "fixture_clearance": 28
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 265.442983,
+      "direction_metrics": {
+        "moving_distance_m": 1.2489664750740652,
+        "forward_distance_m": 1.1774075829305408,
+        "lateral_travel_m": 0.2217376636860337,
+        "backward_distance_m": 0.03358203449215463,
+        "distance_weighted_heading_error_degrees": 14.798933918865373,
+        "forward_facing_fraction": 0.9230297806531305,
+        "turning_seconds": 22.91203591131989,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 134.341206,
+        "sampled_torque_change_rms_nm": 0.003092,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92002-1.json.gz": {
+      "checkpoint_update": 1,
+      "checkpoint_id": "afedde43fdb90ca6db2313f2990b8f4eabf030ad46a36dabd22848c15c134235",
+      "cumulative_updates": 106,
+      "seed": 92002,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-1-92002-policy.json.gz",
+        "uncompressed_sha256": "98d48dcd9f1ff201e03b9b9c91fb98e8a939b8ba4957a1120a7c994f7e35d941",
+        "compressed_bytes": 40096887
+      },
+      "sha256": "51c71a03bb9be9ea3570125752f7228aa0abf9f4eb60359d179f106b71bcae72",
+      "uncompressed_sha256": "7f8a6c28f3f7b8d3ba5c8d32b2c52ba7fa934c3191dc3c4a4427b9c3c5a7ae14",
+      "steps": {
+        "attempts": 584,
+        "completed": 584,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 163,
+          "flat_transit": 284,
+          "alignment": 75,
+          "fixture_clearance": 26
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 236.822557,
+      "direction_metrics": {
+        "moving_distance_m": 1.3460939986572462,
+        "forward_distance_m": 1.281124164941785,
+        "lateral_travel_m": 0.20462443047546539,
+        "backward_distance_m": 0.03336662548413296,
+        "distance_weighted_heading_error_degrees": 12.926845755042807,
+        "forward_facing_fraction": 0.9400277434231311,
+        "turning_seconds": 19.507275330092284,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 136.755022,
+        "sampled_torque_change_rms_nm": 0.003122,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92002-4.json.gz": {
+      "checkpoint_update": 4,
+      "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b",
+      "cumulative_updates": 109,
+      "seed": 92002,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-4-92002-policy.json.gz",
+        "uncompressed_sha256": "78e42bbbf252798603111184873edb023133e0264643fa1e9c79ab3e7e37d2de",
+        "compressed_bytes": 37255167
+      },
+      "sha256": "1d4bf669027456940ec6391a630ad0b2673bf1dcf4d698cfcf723bb616dce332",
+      "uncompressed_sha256": "53efe12d4978843c20ffb0346a7d4b27851b4855bf91aeb04fe9eb023f6cbc99",
+      "steps": {
+        "attempts": 508,
+        "completed": 508,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 143,
+          "flat_transit": 226,
+          "alignment": 61,
+          "fixture_clearance": 42
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 220.335014,
+      "direction_metrics": {
+        "moving_distance_m": 1.3621692772762204,
+        "forward_distance_m": 1.2985800450574698,
+        "lateral_travel_m": 0.18355398068809062,
+        "backward_distance_m": 0.03697976379349491,
+        "distance_weighted_heading_error_degrees": 12.31531259768158,
+        "forward_facing_fraction": 0.9515882900455901,
+        "turning_seconds": 17.304194954003833,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 138.809354,
+        "sampled_torque_change_rms_nm": 0.00314,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92002-8.json.gz": {
+      "checkpoint_update": 8,
+      "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45",
+      "cumulative_updates": 113,
+      "seed": 92002,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-8-92002-policy.json.gz",
+        "uncompressed_sha256": "4a75358b912a8d1e2db8dad6634cc1e611b1d35e82464078c500086cfc98ef7f",
+        "compressed_bytes": 37077555
+      },
+      "sha256": "0cf2010241f9d11c5d8c9ae5f35bfa830549c90a60f300270c9109f99e8cdb83",
+      "uncompressed_sha256": "0583ecd38a7594b90b2050f087e97e4228ab2405ffc993b2f169a9c1d90ea0ef",
+      "steps": {
+        "attempts": 500,
+        "completed": 500,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 143,
+          "flat_transit": 226,
+          "alignment": 61,
+          "fixture_clearance": 34
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 219.291923,
+      "direction_metrics": {
+        "moving_distance_m": 1.3645836909364382,
+        "forward_distance_m": 1.3006606962626903,
+        "lateral_travel_m": 0.18334407402885325,
+        "backward_distance_m": 0.03757356270860061,
+        "distance_weighted_heading_error_degrees": 12.334831462972268,
+        "forward_facing_fraction": 0.9511548190027616,
+        "turning_seconds": 17.304194954003833,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 138.916668,
+        "sampled_torque_change_rms_nm": 0.003139,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "development-92002-16.json.gz": {
+      "checkpoint_update": 16,
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+      "cumulative_updates": 121,
+      "seed": 92002,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-16-92002-policy.json.gz",
+        "uncompressed_sha256": "496759b02c5953299e663df63dce04df2149ddb1a5b6519255ed6f2d05dd36e2",
+        "compressed_bytes": 36702556
+      },
+      "sha256": "7bd93d1a4e4b16c2ee81ceca360260583a8fab3c49b2507e1d46097cdd5c6bc3",
+      "uncompressed_sha256": "921f0ee5b55b0e996fe3da8a75fd1a9f4a430f0e516a75d2d0b9e52b36588a9e",
+      "steps": {
+        "attempts": 478,
+        "completed": 478,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 142,
+          "flat_transit": 226,
+          "alignment": 42,
+          "fixture_clearance": 32
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 217.137891,
+      "direction_metrics": {
+        "moving_distance_m": 1.3593721725067978,
+        "forward_distance_m": 1.2988231216337212,
+        "lateral_travel_m": 0.18384492267771974,
+        "backward_distance_m": 0.03379979032222979,
+        "distance_weighted_heading_error_degrees": 11.908632533007795,
+        "forward_facing_fraction": 0.9524641096068004,
+        "turning_seconds": 17.384306967679777,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 139.40525,
+        "sampled_torque_change_rms_nm": 0.003153,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-parent-93000-0.json.gz": {
+      "checkpoint_update": 0,
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975",
+      "cumulative_updates": 105,
+      "seed": 93000,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93000-parent.json.gz",
+        "uncompressed_sha256": "dd5076b987be9b6ae4b5a5257762e8dd94fe5f3ece04d8f5b3e5575fe9e03d6d",
+        "compressed_bytes": 44975359
+      },
+      "sha256": "4aea43e2c8b64b67df9512803d5226a2599cc63aa57cceb2a54de5779f638a43",
+      "uncompressed_sha256": "11a52e4ac38a0e103a3e56159426a189527cd021f8965e54556afc6b96c0a738",
+      "steps": {
+        "attempts": 804,
+        "completed": 804,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 190,
+          "flat_transit": 410,
+          "alignment": 134,
+          "fixture_clearance": 34
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 265.102098,
+      "direction_metrics": {
+        "moving_distance_m": 1.2436954538221423,
+        "forward_distance_m": 1.1718379389973135,
+        "lateral_travel_m": 0.2201412584722562,
+        "backward_distance_m": 0.03428414973002412,
+        "distance_weighted_heading_error_degrees": 14.856091936077377,
+        "forward_facing_fraction": 0.9262164493120384,
+        "turning_seconds": 22.87197990448192,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 134.386392,
+        "sampled_torque_change_rms_nm": 0.00309,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-selected-93000-16.json.gz": {
+      "checkpoint_update": 16,
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+      "cumulative_updates": 121,
+      "seed": 93000,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93000-selected.json.gz",
+        "uncompressed_sha256": "4b13efc50da88ffb3f06e9ddf7fff102b90d7f43f872557f5df6b107367368fb",
+        "compressed_bytes": 36608703
+      },
+      "sha256": "a00219b027ae8cb2877bf8da05b6a7f4f82310fedc82de269420f0345955bc49",
+      "uncompressed_sha256": "cc29af3963230c172d4850bb56c876a63aaeaac04fde2d25d10bec9296333742",
+      "steps": {
+        "attempts": 472,
+        "completed": 472,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 145,
+          "flat_transit": 226,
+          "alignment": 41,
+          "fixture_clearance": 24
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 216.570567,
+      "direction_metrics": {
+        "moving_distance_m": 1.3696081222733953,
+        "forward_distance_m": 1.3088485693795846,
+        "lateral_travel_m": 0.18517273616887414,
+        "backward_distance_m": 0.03415222133966904,
+        "distance_weighted_heading_error_degrees": 11.914142852701795,
+        "forward_facing_fraction": 0.9542964606863779,
+        "turning_seconds": 17.42436297451775,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 139.064962,
+        "sampled_torque_change_rms_nm": 0.003157,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-parent-93001-0.json.gz": {
+      "checkpoint_update": 0,
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975",
+      "cumulative_updates": 105,
+      "seed": 93001,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93001-parent.json.gz",
+        "uncompressed_sha256": "ddb3d820cb6a533ff0f13c94f7422c1adc6841079aa11fa01030500ee1985692",
+        "compressed_bytes": 45351309
+      },
+      "sha256": "8d78621a7dc10b806a6188bdad6035577037feccaf66fe10b079f1f3b65ddf5b",
+      "uncompressed_sha256": "7fd081d9921bd6682c8fe0ec882be5dfc7e7e4bbd1545b739eb8a55a9a3904ea",
+      "steps": {
+        "attempts": 804,
+        "completed": 804,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 187,
+          "flat_transit": 413,
+          "alignment": 142,
+          "fixture_clearance": 26
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 267.294551,
+      "direction_metrics": {
+        "moving_distance_m": 1.243461468099392,
+        "forward_distance_m": 1.1734614089575763,
+        "lateral_travel_m": 0.21714708489436868,
+        "backward_distance_m": 0.03361574797752773,
+        "distance_weighted_heading_error_degrees": 14.641648863287855,
+        "forward_facing_fraction": 0.9281367795063602,
+        "turning_seconds": 22.71175587713003,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 134.469438,
+        "sampled_torque_change_rms_nm": 0.00309,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-selected-93001-16.json.gz": {
+      "checkpoint_update": 16,
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+      "cumulative_updates": 121,
+      "seed": 93001,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93001-selected.json.gz",
+        "uncompressed_sha256": "dc20b334d61e33ce58496644b35fce0f0792a2b70eb0343bef24edf6f5209942",
+        "compressed_bytes": 36666021
+      },
+      "sha256": "4f5f70a85a40ceb0582d34c1855545f48b7dfc2f448946c8304888e295d58b35",
+      "uncompressed_sha256": "d964dff3333f6ad2ce0818b03d894bab45138442b047e244d956d12ae7228596",
+      "steps": {
+        "attempts": 470,
+        "completed": 470,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 143,
+          "flat_transit": 225,
+          "alignment": 42,
+          "fixture_clearance": 24
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 216.917991,
+      "direction_metrics": {
+        "moving_distance_m": 1.3679970385728897,
+        "forward_distance_m": 1.3077665021083376,
+        "lateral_travel_m": 0.1826455582990847,
+        "backward_distance_m": 0.03343848177764984,
+        "distance_weighted_heading_error_degrees": 11.75192666289387,
+        "forward_facing_fraction": 0.9517674749329165,
+        "turning_seconds": 17.143970926651946,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 139.261044,
+        "sampled_torque_change_rms_nm": 0.003156,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-parent-93002-0.json.gz": {
+      "checkpoint_update": 0,
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975",
+      "cumulative_updates": 105,
+      "seed": 93002,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93002-parent.json.gz",
+        "uncompressed_sha256": "4d6be9e7f0d6ce96232be2eae188d234a9176e9d3a06cdfb23301560043b3f50",
+        "compressed_bytes": 44843530
+      },
+      "sha256": "ca29ca105b334a1f8f924b46c8040f7e5bff51193a82ab4424b92b19b7c5dc13",
+      "uncompressed_sha256": "21c8a70911a0f58f4bc6683fcd39df52b0b25a6d1d937617ce9ead6df68a9655",
+      "steps": {
+        "attempts": 802,
+        "completed": 802,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 189,
+          "flat_transit": 411,
+          "alignment": 134,
+          "fixture_clearance": 32
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 264.365558,
+      "direction_metrics": {
+        "moving_distance_m": 1.24592692948325,
+        "forward_distance_m": 1.1743004217943238,
+        "lateral_travel_m": 0.22043378281887008,
+        "backward_distance_m": 0.034186865557861726,
+        "distance_weighted_heading_error_degrees": 14.83991836923365,
+        "forward_facing_fraction": 0.9236577766988258,
+        "turning_seconds": 22.831923897643946,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 134.44267,
+        "sampled_torque_change_rms_nm": 0.003089,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-selected-93002-16.json.gz": {
+      "checkpoint_update": 16,
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+      "cumulative_updates": 121,
+      "seed": 93002,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93002-selected.json.gz",
+        "uncompressed_sha256": "3bb661bd8b276c642f848f972bfeadcba178d9370ce366559ec857af48cfa953",
+        "compressed_bytes": 38059438
+      },
+      "sha256": "b53e5eee41b9355b1853dcad922c004ef553bf848407992102a2673ec8ed016f",
+      "uncompressed_sha256": "b5261fc53f3c3d51d29ecb8ba0b3040f7110278c9fe478e50e45b199f38b0428",
+      "steps": {
+        "attempts": 492,
+        "completed": 492,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 145,
+          "flat_transit": 224,
+          "alignment": 49,
+          "fixture_clearance": 38
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 225.227569,
+      "direction_metrics": {
+        "moving_distance_m": 1.3570937422052762,
+        "forward_distance_m": 1.2973358754732194,
+        "lateral_travel_m": 0.18336314042292942,
+        "backward_distance_m": 0.033179888582888416,
+        "distance_weighted_heading_error_degrees": 11.87230087992981,
+        "forward_facing_fraction": 0.9557426215508784,
+        "turning_seconds": 17.504474988193692,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 139.082311,
+        "sampled_torque_change_rms_nm": 0.003149,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-parent-93003-0.json.gz": {
+      "checkpoint_update": 0,
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975",
+      "cumulative_updates": 105,
+      "seed": 93003,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93003-parent.json.gz",
+        "uncompressed_sha256": "a916e872da63fb4792eb2de3712c6caf5a96348b32d1c23b9cb12960eb51e204",
+        "compressed_bytes": 45622162
+      },
+      "sha256": "fa7a7c143e4ca95e02776153b8f67d24cf4df19e8a606359fc15ee43767ae0c9",
+      "uncompressed_sha256": "1a7d2873541711071b4ce5fe23169a9b0ba11a5992de36cd8328854922eebfb3",
+      "steps": {
+        "attempts": 814,
+        "completed": 814,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 188,
+          "flat_transit": 409,
+          "alignment": 143,
+          "fixture_clearance": 38
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 268.953197,
+      "direction_metrics": {
+        "moving_distance_m": 1.2402302078676812,
+        "forward_distance_m": 1.1699028059800107,
+        "lateral_travel_m": 0.2181125303441787,
+        "backward_distance_m": 0.03364319124597606,
+        "distance_weighted_heading_error_degrees": 14.733444785573864,
+        "forward_facing_fraction": 0.9257257811991355,
+        "turning_seconds": 22.511475842940172,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 134.351765,
+        "sampled_torque_change_rms_nm": 0.003092,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    },
+    "held-out-selected-93003-16.json.gz": {
+      "checkpoint_update": 16,
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+      "cumulative_updates": 121,
+      "seed": 93003,
+      "complete": true,
+      "qualified_complete": true,
+      "failure": null,
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93003-selected.json.gz",
+        "uncompressed_sha256": "547f34d88353fb6df30162b8de053551417ab5a5b4d9ce586b6181244cc3e804",
+        "compressed_bytes": 37059789
+      },
+      "sha256": "fce789611470b0dae659ecb0fc7c9bca9f08dd62ff2be37850008bad055ad3f1",
+      "uncompressed_sha256": "3028980981b79aa53977db2bd89ea5bde1ecff2b6eb9bb9e59ece094fa7c843d",
+      "steps": {
+        "attempts": 472,
+        "completed": 472,
+        "unfinished": 0,
+        "by_category": {
+          "book_ascent": 20,
+          "book_descent": 14,
+          "stance_transition": 2,
+          "turning": 145,
+          "flat_transit": 226,
+          "alignment": 41,
+          "fixture_clearance": 24
+        },
+        "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+      },
+      "duration": 219.390019,
+      "direction_metrics": {
+        "moving_distance_m": 1.3676093423901186,
+        "forward_distance_m": 1.3073532068033207,
+        "lateral_travel_m": 0.18389279528351962,
+        "backward_distance_m": 0.033556942752302615,
+        "distance_weighted_heading_error_degrees": 11.82384028067146,
+        "forward_facing_fraction": 0.9552092315221069,
+        "turning_seconds": 17.46441898135572,
+        "scope": "Travel velocity averaged over one miniature gait cycle; turning and low-speed balance excluded. Raw rendered motion is unfiltered."
+      },
+      "native_smoothness": {
+        "sampled_acceleration_rms_rad_s2": 139.709335,
+        "sampled_torque_change_rms_nm": 0.003153,
+        "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+      },
+      "task_outcomes": {
+        "alarm": true,
+        "drawer": true,
+        "laptop": true,
+        "globe": true
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "update": 0,
+      "cumulative_updates": 105,
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975",
+      "development": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 265.50483781406206,
+        "mean_roll_rms_deg": 0.27057619503527935,
+        "mean_contact_travel_m": 0.8999625852931127,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 5.366520368134999,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 805.3333333333334,
+        "successful_mean_seconds": 265.50483781406206,
+        "successful_mean_forward_facing_fraction": 0.9236408528712629
+      },
+      "probe_distributions": [
+        {
+          "domain": "walk",
+          "distribution": {
+            "W0": 0.9341068267822266,
+            "W1": 0.04650643840432167,
+            "W2": 0.019386768341064453
+          }
+        },
+        {
+          "domain": "alarm",
+          "distribution": {
+            "B": 0.1790020763874054,
+            "C": 0.4865780770778656,
+            "F": 0.33441993594169617
+          }
+        },
+        {
+          "domain": "drawer",
+          "distribution": {
+            "A": 0.9792018532752991,
+            "B": 0.012326332740485668,
+            "C": 0.008471756242215633
+          }
+        },
+        {
+          "domain": "laptop",
+          "distribution": {
+            "P0": 0.9216352701187134,
+            "P1": 0.06676303595304489,
+            "P2": 0.011601676233112812
+          }
+        },
+        {
+          "domain": "globe",
+          "distribution": {
+            "A": 0.9139721393585205,
+            "G0": 0.05842828378081322,
+            "G1": 0.02759956754744053
+          }
+        },
+        {
+          "domain": "recovery",
+          "distribution": {
+            "R0": 0.9313315153121948,
+            "R1": 0.05953802913427353,
+            "R3": 0.009130452759563923
+          }
+        }
+      ]
+    },
+    {
+      "update": 1,
+      "cumulative_updates": 106,
+      "checkpoint_id": "afedde43fdb90ca6db2313f2990b8f4eabf030ad46a36dabd22848c15c134235",
+      "development": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 237.9484850282769,
+        "mean_roll_rms_deg": 0.26820595059030383,
+        "mean_contact_travel_m": 0.7746948807094455,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 5.536469181147109,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 583.3333333333334,
+        "successful_mean_seconds": 237.9484850282769,
+        "successful_mean_forward_facing_fraction": 0.9376043584260058
+      },
+      "probe_distributions": [
+        {
+          "domain": "walk",
+          "distribution": {
+            "W0": 0.7944363355636597,
+            "W1": 0.12183073908090591,
+            "W2": 0.083732970058918
+          }
+        },
+        {
+          "domain": "alarm",
+          "distribution": {
+            "B": 0.18985703587532043,
+            "C": 0.35469964146614075,
+            "F": 0.4554433524608612
+          }
+        },
+        {
+          "domain": "drawer",
+          "distribution": {
+            "A": 0.9547419548034668,
+            "B": 0.01981503702700138,
+            "C": 0.02544301003217697
+          }
+        },
+        {
+          "domain": "laptop",
+          "distribution": {
+            "P0": 0.7742252349853516,
+            "P1": 0.1957547962665558,
+            "P2": 0.0300199706107378
+          }
+        },
+        {
+          "domain": "globe",
+          "distribution": {
+            "A": 0.7033140063285828,
+            "G0": 0.20150284469127655,
+            "G1": 0.09518320113420486
+          }
+        },
+        {
+          "domain": "recovery",
+          "distribution": {
+            "R0": 0.6332326531410217,
+            "R1": 0.33894503116607666,
+            "R3": 0.027822300791740417
+          }
+        }
+      ]
+    },
+    {
+      "update": 4,
+      "cumulative_updates": 109,
+      "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b",
+      "development": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 219.03469257500845,
+        "mean_roll_rms_deg": 0.2777728554477921,
+        "mean_contact_travel_m": 0.6380059030844686,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 6.523481398636016,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 494.6666666666667,
+        "successful_mean_seconds": 219.03469257500845,
+        "successful_mean_forward_facing_fraction": 0.9526373059078951
+      },
+      "probe_distributions": [
+        {
+          "domain": "walk",
+          "distribution": {
+            "W0": 0.017527518793940544,
+            "W1": 0.025502387434244156,
+            "W2": 0.9569700360298157
+          }
+        },
+        {
+          "domain": "alarm",
+          "distribution": {
+            "B": 0.02857310324907303,
+            "C": 0.025215674191713333,
+            "F": 0.9462112188339233
+          }
+        },
+        {
+          "domain": "drawer",
+          "distribution": {
+            "A": 0.17095278203487396,
+            "B": 0.06289001554250717,
+            "C": 0.7661572098731995
+          }
+        },
+        {
+          "domain": "laptop",
+          "distribution": {
+            "P0": 0.14140118658542633,
+            "P1": 0.5592525601387024,
+            "P2": 0.29934632778167725
+          }
+        },
+        {
+          "domain": "globe",
+          "distribution": {
+            "A": 0.025379084050655365,
+            "G0": 0.5776252746582031,
+            "G1": 0.3969956636428833
+          }
+        },
+        {
+          "domain": "recovery",
+          "distribution": {
+            "R0": 0.024093767628073692,
+            "R1": 0.7978760004043579,
+            "R3": 0.17803020775318146
+          }
+        }
+      ]
+    },
+    {
+      "update": 8,
+      "cumulative_updates": 113,
+      "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45",
+      "development": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 218.20196361652654,
+        "mean_roll_rms_deg": 0.2777862847214925,
+        "mean_contact_travel_m": 0.6397910203003546,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 6.51914303341368,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 488.0,
+        "successful_mean_seconds": 218.20196361652654,
+        "successful_mean_forward_facing_fraction": 0.952636149215014
+      },
+      "probe_distributions": [
+        {
+          "domain": "walk",
+          "distribution": {
+            "W0": 0.0013172004837542772,
+            "W1": 0.005903283134102821,
+            "W2": 0.992779552936554
+          }
+        },
+        {
+          "domain": "alarm",
+          "distribution": {
+            "B": 0.0024561150930821896,
+            "C": 0.006676412653177977,
+            "F": 0.9908674955368042
+          }
+        },
+        {
+          "domain": "drawer",
+          "distribution": {
+            "A": 0.0011509289033710957,
+            "B": 0.01588808372616768,
+            "C": 0.9829609990119934
+          }
+        },
+        {
+          "domain": "laptop",
+          "distribution": {
+            "P0": 0.009004911407828331,
+            "P1": 0.43388092517852783,
+            "P2": 0.5571141242980957
+          }
+        },
+        {
+          "domain": "globe",
+          "distribution": {
+            "A": 0.0016486473614349961,
+            "G0": 0.7536703944206238,
+            "G1": 0.2446809560060501
+          }
+        },
+        {
+          "domain": "recovery",
+          "distribution": {
+            "R0": 0.0011988335754722357,
+            "R1": 0.9035659432411194,
+            "R3": 0.09523514658212662
+          }
+        }
+      ]
+    },
+    {
+      "update": 16,
+      "cumulative_updates": 121,
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
+      "development": {
+        "n": 3,
+        "complete_successes": 3,
+        "smooth_complete_successes": 3,
+        "wilson_95_complete_rate": [
+          0.43849391955098227,
+          1
+        ],
+        "task_successes": {
+          "alarm": 3,
+          "drawer": 3,
+          "laptop": 3,
+          "globe": 3
+        },
+        "falls": 0,
+        "invalid_contacts": 0,
+        "mean_duration_s": 218.11013453962588,
+        "mean_roll_rms_deg": 0.27788055865517763,
+        "mean_contact_travel_m": 0.5848544538896608,
+        "recovery_successes": 12,
+        "successful_recovery_mean_joint_travel_rad": 6.540577760636515,
+        "qualified_complete_successes": 3,
+        "successful_mean_steps": 485.3333333333333,
+        "successful_mean_seconds": 218.11013453962588,
+        "successful_mean_forward_facing_fraction": 0.9529082250760695
+      },
+      "probe_distributions": [
+        {
+          "domain": "walk",
+          "distribution": {
+            "W0": 5.131502257427201e-05,
+            "W1": 0.002472496358677745,
+            "W2": 0.9974761605262756
+          }
+        },
+        {
+          "domain": "alarm",
+          "distribution": {
+            "B": 0.00010859192843781784,
+            "C": 0.0028006229549646378,
+            "F": 0.9970908164978027
+          }
+        },
+        {
+          "domain": "drawer",
+          "distribution": {
+            "A": 1.0733607268775813e-05,
+            "B": 0.0046095228753983974,
+            "C": 0.9953798055648804
+          }
+        },
+        {
+          "domain": "laptop",
+          "distribution": {
+            "P0": 3.431991717661731e-05,
+            "P1": 0.9706544280052185,
+            "P2": 0.029311224818229675
+          }
+        },
+        {
+          "domain": "globe",
+          "distribution": {
+            "A": 6.1378318605420645e-06,
+            "G0": 0.9989615678787231,
+            "G1": 0.0010322246234863997
+          }
+        },
+        {
+          "domain": "recovery",
+          "distribution": {
+            "R0": 1.0028101087300456e-06,
+            "R1": 0.9997956156730652,
+            "R3": 0.00020342678180895746
+          }
+        }
+      ]
+    }
+  ],
+  "held_out": {
+    "parent": {
+      "n": 4,
+      "complete_successes": 4,
+      "smooth_complete_successes": 4,
+      "wilson_95_complete_rate": [
+        0.5100999795960008,
+        1
+      ],
+      "task_successes": {
+        "alarm": 4,
+        "drawer": 4,
+        "laptop": 4,
+        "globe": 4
+      },
+      "falls": 0,
+      "invalid_contacts": 0,
+      "mean_duration_s": 266.42885086975974,
+      "mean_roll_rms_deg": 0.27081536101178383,
+      "mean_contact_travel_m": 0.8388524188863842,
+      "recovery_successes": 16,
+      "successful_recovery_mean_joint_travel_rad": 5.541615332518818,
+      "qualified_complete_successes": 4,
+      "successful_mean_steps": 806.0,
+      "successful_mean_seconds": 266.42885086975974,
+      "successful_mean_forward_facing_fraction": 0.9259341966790899
+    },
+    "selected": {
+      "n": 4,
+      "complete_successes": 4,
+      "smooth_complete_successes": 4,
+      "wilson_95_complete_rate": [
+        0.5100999795960008,
+        1
+      ],
+      "task_successes": {
+        "alarm": 4,
+        "drawer": 4,
+        "laptop": 4,
+        "globe": 4
+      },
+      "falls": 0,
+      "invalid_contacts": 0,
+      "mean_duration_s": 219.52653674060397,
+      "mean_roll_rms_deg": 0.27935157826066487,
+      "mean_contact_travel_m": 0.5853094974789955,
+      "recovery_successes": 16,
+      "successful_recovery_mean_joint_travel_rad": 6.934460242258642,
+      "qualified_complete_successes": 4,
+      "successful_mean_steps": 476.5,
+      "successful_mean_seconds": 219.52653674060397,
+      "successful_mean_forward_facing_fraction": 0.9542539471730699
+    },
+    "fixed": {
+      "n": 4,
+      "complete_successes": 4,
+      "smooth_complete_successes": 4,
+      "wilson_95_complete_rate": [
+        0.5100999795960008,
+        1
+      ],
+      "task_successes": {
+        "alarm": 4,
+        "drawer": 4,
+        "laptop": 4,
+        "globe": 4
+      },
+      "falls": 0,
+      "invalid_contacts": 0,
+      "mean_duration_s": 264.9126492639898,
+      "mean_roll_rms_deg": 0.2711315260180246,
+      "mean_contact_travel_m": 0.8080809621742948,
+      "recovery_successes": 16,
+      "successful_recovery_mean_joint_travel_rad": 5.613827459640207,
+      "qualified_complete_successes": 4,
+      "successful_mean_steps": 809.5,
+      "successful_mean_seconds": 264.9126492639898,
+      "successful_mean_forward_facing_fraction": 0.9232623471847546
+    },
+    "static": {
+      "n": 4,
+      "complete_successes": 4,
+      "smooth_complete_successes": 4,
+      "wilson_95_complete_rate": [
+        0.5100999795960008,
+        1
+      ],
+      "task_successes": {
+        "alarm": 4,
+        "drawer": 4,
+        "laptop": 4,
+        "globe": 4
+      },
+      "falls": 0,
+      "invalid_contacts": 0,
+      "mean_duration_s": 219.13762561298836,
+      "mean_roll_rms_deg": 0.27931615573952234,
+      "mean_contact_travel_m": 0.6132480632531518,
+      "recovery_successes": 16,
+      "successful_recovery_mean_joint_travel_rad": 6.854251294354425,
+      "qualified_complete_successes": 4,
+      "successful_mean_steps": 482.0,
+      "successful_mean_seconds": 219.13762561298836,
+      "successful_mean_forward_facing_fraction": 0.953482560109502
+    }
+  },
+  "paired_held_out": {
+    "n": 4,
+    "scenario_step_reductions": [
+      {
+        "seed": 93000,
+        "before": 804,
+        "after": 472,
+        "reduction_fraction": 0.4129353233830846
+      },
+      {
+        "seed": 93001,
+        "before": 804,
+        "after": 470,
+        "reduction_fraction": 0.41542288557213936
+      },
+      {
+        "seed": 93002,
+        "before": 802,
+        "after": 492,
+        "reduction_fraction": 0.3865336658354115
+      },
+      {
+        "seed": 93003,
+        "before": 814,
+        "after": 472,
+        "reduction_fraction": 0.4201474201474201
+      }
+    ],
+    "mean_step_reduction_fraction": 0.4087598237345139,
+    "mean_time_reduction_fraction": 0.17596560310653225,
+    "mean_step_reduction_bootstrap_95": [
+      0.39375597076959346,
+      0.4183443959563362
+    ],
+    "mean_time_reduction_bootstrap_95": [
+      0.1571041687221228,
+      0.18711808329277363
+    ],
+    "uncertainty_scope": "Deterministic paired resampling of this small fixed-layout cohort; not a guarantee for other layouts or hardware."
+  },
+  "improvement_goal_met": true,
+  "component_results": [
+    {
+      "seed": 93000,
+      "task": "alarm",
+      "results": [
+        {
+          "domain": "walk",
+          "task": "alarm",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "d1ee682a998afca22192dbc05202e48e748d0adb4e05338ee9c45e25f7898b26",
+          "action": "W0",
+          "distribution": {
+            "W0": 0.9341068267822266,
+            "W1": 0.04650643840432167,
+            "W2": 0.019386768341064453
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "book-ascent",
+              "success": true,
+              "duration_s": 71.52776616957266,
+              "dwell_s": 0.4005600683781674,
+              "root": [
+                -0.3749465087217338,
+                0.03777742437754812,
+                0.14226893571148005
+              ],
+              "sole_patches": {
+                "left": {
+                  "loaded": true,
+                  "load_n": 0.787922710359003,
+                  "contact_points": 4,
+                  "area_m2": 0.00026096232660246404,
+                  "capture_margin_m": -0.007063288786317845,
+                  "tilt_degrees": 0.03937598018555491
+                },
+                "right": {
+                  "loaded": true,
+                  "load_n": 0.785329752394581,
+                  "contact_points": 4,
+                  "area_m2": 0.0002609623128829765,
+                  "capture_margin_m": -0.007040624323979838,
+                  "tilt_degrees": 0.04353894333495443
+                }
+              },
+              "book_top": {
+                "instant_valid": true,
+                "top_book_load_n": {
+                  "left": 0.787922710359003,
+                  "right": 0.785329752394581
+                },
+                "feet_inside_top_book": true,
+                "tilt_deg": 0.34623067756112924,
+                "scope": "Needs 0.4-second continuous dwell before success."
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 71.52776616957266,
+          "steps": {
+            "attempts": 20,
+            "completed": 20,
+            "unfinished": 0,
+            "by_category": {
+              "book_ascent": 20
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.21925176446165173,
+            "lateral_rms_m": 0.013482591499443933,
+            "roll_peak_deg": 0.7467751951223027,
+            "sampled_joint_speed_rms_rad_s": 0.25612859841167757
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "walk",
+          "task": "alarm",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "d1ee682a998afca22192dbc05202e48e748d0adb4e05338ee9c45e25f7898b26",
+          "action": "W2",
+          "distribution": {
+            "W0": 5.131502257427201e-05,
+            "W1": 0.002472496358677745,
+            "W2": 0.9974761605262756
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "book-ascent",
+              "success": true,
+              "duration_s": 68.55217709018046,
+              "dwell_s": 0.4005600683781674,
+              "root": [
+                -0.37494417646899264,
+                0.03781690908883995,
+                0.14226000912450218
+              ],
+              "sole_patches": {
+                "left": {
+                  "loaded": true,
+                  "load_n": 0.7879075298779312,
+                  "contact_points": 4,
+                  "area_m2": 0.00026096229293201084,
+                  "capture_margin_m": -0.004980306900399578,
+                  "tilt_degrees": 0.04896519728516441
+                },
+                "right": {
+                  "loaded": true,
+                  "load_n": 0.7853465701191855,
+                  "contact_points": 4,
+                  "area_m2": 0.0002609622787101868,
+                  "capture_margin_m": -0.00496143896629353,
+                  "tilt_degrees": 0.052491911301609344
+                }
+              },
+              "book_top": {
+                "instant_valid": true,
+                "top_book_load_n": {
+                  "left": 0.7879075298779312,
+                  "right": 0.7853465701191855
+                },
+                "feet_inside_top_book": true,
+                "tilt_deg": 0.34661855930527036,
+                "scope": "Needs 0.4-second continuous dwell before success."
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 68.55217709018046,
+          "steps": {
+            "attempts": 20,
+            "completed": 20,
+            "unfinished": 0,
+            "by_category": {
+              "book_ascent": 20
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.2509286704408246,
+            "lateral_rms_m": 0.011754915211118488,
+            "roll_peak_deg": 0.7650225865694344,
+            "sampled_joint_speed_rms_rad_s": 0.25914006677254436
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "alarm",
+          "task": "alarm",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "a3fe7e040aff48be735da2c61a5e343f5a33065096af6f69e30079181b7546a2",
+          "action": "C",
+          "distribution": {
+            "B": 0.11271920055150986,
+            "C": 0.6486542224884033,
+            "F": 0.23862655460834503
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "alarm",
+            "success": true,
+            "value": -0.00043404899317629644,
+            "duration": 7.320439617021179,
+            "contacts": 2384,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.07041649289043467,
+            "fall": false,
+            "profile": {
+              "code": "C",
+              "speed": 0.04,
+              "depth": 0.0006,
+              "force": 0.22,
+              "brake": 0.002,
+              "hold": 0.25
+            },
+            "phase": "release",
+            "final_tip": [
+              -0.33407640194750543,
+              0.10081459938805842,
+              0.15858239240351082
+            ],
+            "final_target": [
+              -0.335,
+              0.1,
+              0.17049999999999998
+            ],
+            "controller": "v12 collision-aware staged absolute IK",
+            "approach_stage": 1
+          },
+          "coupled_recovery": {
+            "task": "alarm",
+            "action": "R0",
+            "success": true,
+            "duration_s": 2.219429766634562,
+            "arm_joint_travel_rad": 9.06579811390473,
+            "hand_path_m": 0.20110460975136824,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.294939047740033e-06,
+            "end_max_joint_speed_rad_s": 0.00011380691218778629,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "alarm",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                80.0,
+                -117.5,
+                -82.1,
+                -67.5,
+                -112.9,
+                -35.0,
+                -23.6
+              ],
+              "joint_speed_degrees_s": [
+                -109.6,
+                -1.0,
+                31.7,
+                10.3,
+                0.3,
+                -83.7,
+                -67.9
+              ],
+              "hand_body_offset_mm": [
+                62.3,
+                -41.7,
+                17.0
+              ],
+              "body_tilt_degrees": 0.7,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 117.5
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 9.539869383655741,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.09597347572695754,
+            "lateral_rms_m": 0.0016023366010959298,
+            "roll_peak_deg": 0.2416532804386469,
+            "sampled_joint_speed_rms_rad_s": 0.07849164211287171
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "alarm",
+          "task": "alarm",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "a3fe7e040aff48be735da2c61a5e343f5a33065096af6f69e30079181b7546a2",
+          "action": "F",
+          "distribution": {
+            "B": 0.00017859096988104284,
+            "C": 0.005219193175435066,
+            "F": 0.9946021437644958
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "alarm",
+            "success": true,
+            "value": -0.000434048805945126,
+            "duration": 6.202958773194496,
+            "contacts": 1026,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.07300700835494672,
+            "fall": false,
+            "profile": {
+              "code": "F",
+              "speed": 0.025,
+              "depth": 0.0008,
+              "force": 0.3,
+              "brake": 0.0005,
+              "hold": 0.4
+            },
+            "phase": "release",
+            "final_tip": [
+              -0.33398291514975265,
+              0.10083792340956603,
+              0.15859539968816969
+            ],
+            "final_target": [
+              -0.335,
+              0.1,
+              0.17049999999999998
+            ],
+            "controller": "v12 collision-aware staged absolute IK",
+            "approach_stage": 1
+          },
+          "coupled_recovery": {
+            "task": "alarm",
+            "action": "R0",
+            "success": true,
+            "duration_s": 2.219429766634562,
+            "arm_joint_travel_rad": 9.053335614510425,
+            "hand_path_m": 0.20131261406434514,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.286446614287042e-06,
+            "end_max_joint_speed_rad_s": 0.00011377473743763517,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "alarm",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                79.9,
+                -117.5,
+                -82.1,
+                -67.4,
+                -112.9,
+                -35.1,
+                -23.7
+              ],
+              "joint_speed_degrees_s": [
+                -46.7,
+                1.1,
+                8.5,
+                5.1,
+                -0.2,
+                -31.2,
+                -25.3
+              ],
+              "hand_body_offset_mm": [
+                62.3,
+                -41.8,
+                17.1
+              ],
+              "body_tilt_degrees": 0.7,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 117.5
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 8.422388539829058,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.07640851840363913,
+            "lateral_rms_m": 0.0016398006228992652,
+            "roll_peak_deg": 0.24496835959891844,
+            "sampled_joint_speed_rms_rad_s": 0.08391044040333231
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "alarm",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "efae364420d0dc11c44294cc6c623c574eb86df6fbb4b9a2664123b8bd09b606",
+          "action": "R0",
+          "distribution": {
+            "R0": 0.8966978192329407,
+            "R1": 0.0945112481713295,
+            "R3": 0.008790915831923485
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "alarm",
+            "action": "R0",
+            "success": true,
+            "duration_s": 2.219429766634562,
+            "arm_joint_travel_rad": 9.053335614510425,
+            "hand_path_m": 0.20131261406434514,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.286446614287042e-06,
+            "end_max_joint_speed_rad_s": 0.00011377473743763517,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "alarm",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                79.9,
+                -117.5,
+                -82.1,
+                -67.4,
+                -112.9,
+                -35.1,
+                -23.7
+              ],
+              "joint_speed_degrees_s": [
+                -46.7,
+                1.1,
+                8.5,
+                5.1,
+                -0.2,
+                -31.2,
+                -25.3
+              ],
+              "hand_body_offset_mm": [
+                62.3,
+                -41.8,
+                17.1
+              ],
+              "body_tilt_degrees": 0.7,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 117.5
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 2.219429766634562,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.08157423731469783,
+            "lateral_rms_m": 0.0016476501703199674,
+            "roll_peak_deg": 0.14726531327782943,
+            "sampled_joint_speed_rms_rad_s": 0.10484860029463641
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "alarm",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "efae364420d0dc11c44294cc6c623c574eb86df6fbb4b9a2664123b8bd09b606",
+          "action": "R1",
+          "distribution": {
+            "R0": 7.336893190768023e-07,
+            "R1": 0.999819815158844,
+            "R3": 0.00017952786583919078
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "alarm",
+            "action": "R1",
+            "success": true,
+            "duration_s": 2.159754491141257,
+            "arm_joint_travel_rad": 9.2171423645839,
+            "hand_path_m": 0.21369489682162351,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 6.851651076856902e-06,
+            "end_max_joint_speed_rad_s": 0.00017637501136530552,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "alarm",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                79.9,
+                -117.5,
+                -82.1,
+                -67.4,
+                -112.9,
+                -35.1,
+                -23.7
+              ],
+              "joint_speed_degrees_s": [
+                -46.7,
+                1.1,
+                8.5,
+                5.1,
+                -0.2,
+                -31.2,
+                -25.3
+              ],
+              "hand_body_offset_mm": [
+                62.3,
+                -41.8,
+                17.1
+              ],
+              "body_tilt_degrees": 0.7,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 117.5
+            },
+            "profile": {
+              "code": "R1",
+              "waypoint": "clearance",
+              "slew": 0.04,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 2.159754491141257,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.09599543954774814,
+            "lateral_rms_m": 0.001657769704664207,
+            "roll_peak_deg": 0.16042763950906422,
+            "sampled_joint_speed_rms_rad_s": 0.14327098724305248
+          },
+          "longest_unsupported_seconds": 0.0
+        }
+      ],
+      "reference": {
+        "path": "mochi-t15-44625135986/held-out-93000-states.pickle",
+        "keys": [
+          "walk:alarm",
+          "alarm:alarm",
+          "recovery:alarm",
+          "walk:drawer",
+          "drawer:drawer",
+          "recovery:drawer",
+          "walk:laptop",
+          "laptop:laptop",
+          "recovery:laptop",
+          "walk:globe",
+          "globe:globe",
+          "recovery:globe"
+        ],
+        "sha256": "63dd2a37774e77dff0022a064bfc2b6be8c1481ff196657c43bed02f5a826c24"
+      },
+      "receipt": {
+        "provider": "Modal",
+        "physical_rollouts": 6,
+        "cpu": 1,
+        "memory_mib": 3072,
+        "duration_seconds": 552.232641298,
+        "architecture": "x86_64",
+        "threadpools": [
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/numpy.libs/libscipy_openblas64_-8fb3d286.so",
+            "version": "0.3.30",
+            "threading_layer": "pthreads",
+            "architecture": "Haswell"
+          },
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/scipy.libs/libscipy_openblas-b75cc656.so",
+            "version": "0.3.29.dev",
+            "threading_layer": "pthreads",
+            "architecture": "Haswell"
+          },
+          {
+            "user_api": "openmp",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libgomp",
+            "filepath": "/usr/local/lib/python3.11/site-packages/torch/lib/libgomp.so.1",
+            "version": null
+          }
+        ],
+        "duration_scope": "Function execution including imports; not an invoice or cold-start billing receipt",
+        "inference_input_plus_max_output_tokens": 2120
       },
       "archive": {
         "volume": "mochi-efficient-v15-artifacts",
-        "path": "mochi-t15-44625135986/dev-16-92000-policy.json.gz",
-        "sha256": "e169f4ba169a6184d51b1c6f1447e359903593d43804c775cbc0e55af1ee477f",
-        "uncompressed_sha256": "b48b8fca8a2e2f01ffde1c76a33423e7691289b2cde9be16039f1ecf0f94b279"
+        "path": "mochi-t15-44625135986/components-93000-alarm.json.gz",
+        "uncompressed_sha256": "105687ce9bdaa7161e03fa7391fb4bc7d3d6744700a988d44b5629c35189ab3f",
+        "compressed_bytes": 3613
+      }
+    },
+    {
+      "seed": 93000,
+      "task": "drawer",
+      "results": [
+        {
+          "domain": "walk",
+          "task": "drawer",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "ffba1d422bbc80e9c0128ec8399ca8a545c81b9a10b120ae7b8f73ef12ea26dd",
+          "action": "W0",
+          "distribution": {
+            "W0": 0.6094778180122375,
+            "W3": 0.3696669936180115,
+            "W4": 0.02085518278181553
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "book-descent",
+              "success": true,
+              "duration_s": 49.76672735283442,
+              "dwell_s": 0.4005600683781674,
+              "root": [
+                -0.37502565087701367,
+                -0.18224486173726837,
+                0.1182689224685764
+              ],
+              "sole_patches": {
+                "left": {
+                  "loaded": true,
+                  "load_n": 0.7873942230274587,
+                  "contact_points": 4,
+                  "area_m2": 0.0002609623242265447,
+                  "capture_margin_m": -0.007055461866276591,
+                  "tilt_degrees": 0.04012784679839685
+                },
+                "right": {
+                  "loaded": true,
+                  "load_n": 0.7858582414372948,
+                  "contact_points": 4,
+                  "area_m2": 0.0002609623153383374,
+                  "capture_margin_m": -0.007037267989617346,
+                  "tilt_degrees": 0.042823645419324124
+                }
+              },
+              "book_top": null
+            },
+            {
+              "label": "flat-stance-transition",
+              "success": true,
+              "duration_s": 8.901425682830109,
+              "dwell_s": 0.4005600683781674,
+              "root": [
+                -0.3749371806764828,
+                -0.1823774393981444,
+                0.11828356650226036
+              ],
+              "sole_patches": {
+                "left": {
+                  "loaded": true,
+                  "load_n": 0.787511969240767,
+                  "contact_points": 4,
+                  "area_m2": 0.00026096237600565554,
+                  "capture_margin_m": -0.015359865689667518,
+                  "tilt_degrees": 0.017536290376071607
+                },
+                "right": {
+                  "loaded": true,
+                  "load_n": 0.7857380418218062,
+                  "contact_points": 4,
+                  "area_m2": 0.00026096237565759184,
+                  "capture_margin_m": -0.015330598527679484,
+                  "tilt_degrees": 0.01778422136353006
+                }
+              },
+              "book_top": null
+            },
+            {
+              "label": "drawer-corridor-0",
+              "goal": [
+                -0.19,
+                -0.18,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 8.428110826520196,
+              "position_error_mm": 17.990044747858548,
+              "heading_error_degrees": 32.11990885479955,
+              "root": [
+                -0.20300262708943115,
+                -0.16756724492306133,
+                0.13130484020374955
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.5185754669534184,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "drawer-corridor-1",
+              "goal": [
+                -0.19,
+                -0.03,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 7.891850816607757,
+              "position_error_mm": 17.993547137885603,
+              "heading_error_degrees": 34.547376364485324,
+              "root": [
+                -0.20162099563499125,
+                -0.04373754705378022,
+                0.13105999508899532
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.0,
+                "right": 1.6209556239246954
+              }
+            },
+            {
+              "label": "drawer-corridor-2",
+              "goal": [
+                -0.13,
+                -0.03,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 4.38817642257618,
+              "position_error_mm": 17.993618890374805,
+              "heading_error_degrees": 21.763389469410445,
+              "root": [
+                -0.14559483239074772,
+                -0.02102383581497425,
+                0.13124404029725373
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.361299830609024,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "drawer-station",
+              "goal": [
+                -0.13,
+                0.02,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 9.594639841985213,
+              "position_error_mm": 12.657567685929076,
+              "heading_error_degrees": 2.857760933229218,
+              "root": [
+                -0.14195275992638554,
+                0.01583520110136539,
+                0.13130411877477716
+              ],
+              "dwell_s": 0.4005600683781674,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.7763079589993221,
+                "right": 0.7969810113577096
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 89.66169269392707,
+          "steps": {
+            "attempts": 256,
+            "completed": 256,
+            "unfinished": 0,
+            "by_category": {
+              "book_descent": 14,
+              "stance_transition": 2,
+              "turning": 60,
+              "flat_transit": 132,
+              "alignment": 48
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": 134.61406280878361,
+            "sampled_torque_change_rms_nm": 0.003095085876771002,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.24676968990783077,
+            "lateral_rms_m": 0.01152357878976586,
+            "roll_peak_deg": 2.1359276469351123,
+            "sampled_joint_speed_rms_rad_s": 1.3607752898738708
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "walk",
+          "task": "drawer",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "ffba1d422bbc80e9c0128ec8399ca8a545c81b9a10b120ae7b8f73ef12ea26dd",
+          "action": "W4",
+          "distribution": {
+            "W0": 5.7694346651260275e-06,
+            "W3": 0.00043055458809249103,
+            "W4": 0.9995636343955994
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "book-descent",
+              "success": true,
+              "duration_s": 49.76672735283442,
+              "dwell_s": 0.4005600683781674,
+              "root": [
+                -0.37502565087701367,
+                -0.18224486173726837,
+                0.1182689224685764
+              ],
+              "sole_patches": {
+                "left": {
+                  "loaded": true,
+                  "load_n": 0.7873942230274587,
+                  "contact_points": 4,
+                  "area_m2": 0.0002609623242265447,
+                  "capture_margin_m": -0.007055461866276591,
+                  "tilt_degrees": 0.04012784679839685
+                },
+                "right": {
+                  "loaded": true,
+                  "load_n": 0.7858582414372948,
+                  "contact_points": 4,
+                  "area_m2": 0.0002609623153383374,
+                  "capture_margin_m": -0.007037267989617346,
+                  "tilt_degrees": 0.042823645419324124
+                }
+              },
+              "book_top": null
+            },
+            {
+              "label": "flat-stance-transition",
+              "success": true,
+              "duration_s": 8.901425682830109,
+              "dwell_s": 0.4005600683781674,
+              "root": [
+                -0.3749371806764828,
+                -0.1823774393981444,
+                0.11828356650226036
+              ],
+              "sole_patches": {
+                "left": {
+                  "loaded": true,
+                  "load_n": 0.787511969240767,
+                  "contact_points": 4,
+                  "area_m2": 0.00026096237600565554,
+                  "capture_margin_m": -0.015359865689667518,
+                  "tilt_degrees": 0.017536290376071607
+                },
+                "right": {
+                  "loaded": true,
+                  "load_n": 0.7857380418218062,
+                  "contact_points": 4,
+                  "area_m2": 0.00026096237565759184,
+                  "capture_margin_m": -0.015330598527679484,
+                  "tilt_degrees": 0.01778422136353006
+                }
+              },
+              "book_top": null
+            },
+            {
+              "label": "drawer-corridor-0",
+              "goal": [
+                -0.19,
+                -0.18,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 4.985746647036535,
+              "position_error_mm": 17.982283648368746,
+              "heading_error_degrees": 26.502682573292184,
+              "root": [
+                -0.2039717209262407,
+                -0.16867950798023168,
+                0.1312942936903441
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.4851013565687214,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "drawer-corridor-1",
+              "goal": [
+                -0.19,
+                -0.03,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 4.886832834232564,
+              "position_error_mm": 17.991314963043006,
+              "heading_error_degrees": 16.016429373414343,
+              "root": [
+                -0.19956679127942065,
+                -0.045236926157050716,
+                0.1312687737509278
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.4864119147854513,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "drawer-corridor-2",
+              "goal": [
+                -0.13,
+                -0.03,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 2.964144506009916,
+              "position_error_mm": 17.982220477879448,
+              "heading_error_degrees": 16.213406305907395,
+              "root": [
+                -0.14561651924708002,
+                -0.021084587506982846,
+                0.13128339186153998
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.4893508478282733,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "drawer-station",
+              "goal": [
+                -0.13,
+                0.02,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 4.720069050662232,
+              "position_error_mm": 11.626141098249686,
+              "heading_error_degrees": 1.7565011112795923,
+              "root": [
+                -0.1406882775833274,
+                0.015425300104033953,
+                0.13130879400352016
+              ],
+              "dwell_s": 0.4005600683781674,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.7737448973787012,
+                "right": 0.7995364882201295
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 76.91570782417897,
+          "steps": {
+            "attempts": 152,
+            "completed": 152,
+            "unfinished": 0,
+            "by_category": {
+              "book_descent": 14,
+              "stance_transition": 2,
+              "turning": 49,
+              "flat_transit": 73,
+              "alignment": 14
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": 139.5633641075917,
+            "sampled_torque_change_rms_nm": 0.003154700099035652,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.23555410331465784,
+            "lateral_rms_m": 0.011821240317972265,
+            "roll_peak_deg": 2.1359276469351123,
+            "sampled_joint_speed_rms_rad_s": 1.1572965125090795
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "drawer",
+          "task": "drawer",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "243f4bbacd2edf118b655dfe187ced5bb0a1f76a3b982b4dd79f64afd2037ab0",
+          "action": "A",
+          "distribution": {
+            "A": 0.9881565570831299,
+            "B": 0.006658146623522043,
+            "C": 0.005185369867831469
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "drawer",
+            "success": true,
+            "value": -6.543040094389203e-07,
+            "duration": 5.296385067412643,
+            "contacts": 1207,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.27636640376987937,
+            "fall": false,
+            "max_tilt_deg": 4.356547063849878,
+            "profile": {
+              "code": "A",
+              "speed": 0.012,
+              "depth": 0.0002,
+              "force": 0.055,
+              "brake": 0.001,
+              "hold": 0.3
+            },
+            "phase": "release",
+            "contact_progress": 0.017352395303701564
+          },
+          "coupled_recovery": {
+            "task": "drawer",
+            "action": "R0",
+            "success": true,
+            "duration_s": 1.1362826429547113,
+            "arm_joint_travel_rad": 2.9112480269373866,
+            "hand_path_m": 0.09490769549926768,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.216841281934779e-06,
+            "end_max_joint_speed_rad_s": 0.00017185071138275406,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "drawer",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -35.2,
+                -17.9,
+                6.1,
+                -9.1,
+                -57.0,
+                -15.1,
+                -25.1
+              ],
+              "joint_speed_degrees_s": [
+                104.2,
+                -25.6,
+                -3.3,
+                -63.6,
+                0.8,
+                -67.0,
+                -109.2
+              ],
+              "hand_body_offset_mm": [
+                74.6,
+                -52.3,
+                0.9
+              ],
+              "body_tilt_degrees": 2.3,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 57.0
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 6.432667710367355,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.2754346862492646,
+            "lateral_rms_m": 0.009734443886299125,
+            "roll_peak_deg": 0.30861303887587405,
+            "sampled_joint_speed_rms_rad_s": 0.036305221111990436
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "drawer",
+          "task": "drawer",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "243f4bbacd2edf118b655dfe187ced5bb0a1f76a3b982b4dd79f64afd2037ab0",
+          "action": "C",
+          "distribution": {
+            "A": 7.372592335741501e-06,
+            "B": 0.00522008677944541,
+            "C": 0.9947724938392639
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "drawer",
+            "success": true,
+            "value": -8.394883701617758e-07,
+            "duration": 3.3050292988963292,
+            "contacts": 391,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.5352612887965327,
+            "fall": false,
+            "max_tilt_deg": 4.356547063849878,
+            "profile": {
+              "code": "C",
+              "speed": 0.04,
+              "depth": 0.0006,
+              "force": 0.22,
+              "brake": 0.002,
+              "hold": 0.25
+            },
+            "phase": "release",
+            "contact_progress": 0.016346381361504476
+          },
+          "coupled_recovery": {
+            "task": "drawer",
+            "action": "R0",
+            "success": true,
+            "duration_s": 1.1362826429547113,
+            "arm_joint_travel_rad": 2.8377750771049897,
+            "hand_path_m": 0.09563194134210574,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.170703444842603e-06,
+            "end_max_joint_speed_rad_s": 0.00018183326960995164,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "drawer",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -37.5,
+                -17.5,
+                6.2,
+                -7.8,
+                -57.0,
+                -13.7,
+                -22.8
+              ],
+              "joint_speed_degrees_s": [
+                19.9,
+                -2.8,
+                0.1,
+                -7.1,
+                -0.1,
+                -9.6,
+                -15.0
+              ],
+              "hand_body_offset_mm": [
+                75.9,
+                -52.4,
+                0.8
+              ],
+              "body_tilt_degrees": 2.4,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 57.0
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 4.4413119418510405,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.27456504718802904,
+            "lateral_rms_m": 0.009711655249792004,
+            "roll_peak_deg": 0.3275632447293537,
+            "sampled_joint_speed_rms_rad_s": 0.04854124266194624
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "drawer",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "5d4770b54405ddf0229917a0719062551d77a74deaeb0c1468c1f1db5b3248b2",
+          "action": "R0",
+          "distribution": {
+            "R0": 0.8864582777023315,
+            "R1": 0.10587234795093536,
+            "R3": 0.007669366896152496
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "drawer",
+            "action": "R0",
+            "success": true,
+            "duration_s": 1.1362826429547113,
+            "arm_joint_travel_rad": 2.736245650990457,
+            "hand_path_m": 0.0976406393062884,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.265317014908825e-06,
+            "end_max_joint_speed_rad_s": 0.00018210366771328633,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "drawer",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -43.3,
+                -15.8,
+                6.4,
+                -5.0,
+                -56.9,
+                -11.3,
+                -16.8
+              ],
+              "joint_speed_degrees_s": [
+                97.8,
+                -25.3,
+                -0.6,
+                -60.9,
+                0.5,
+                -68.3,
+                -95.6
+              ],
+              "hand_body_offset_mm": [
+                79.1,
+                -50.7,
+                0.7
+              ],
+              "body_tilt_degrees": 2.4,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 56.9
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 1.1362826429547113,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.29049254881955655,
+            "lateral_rms_m": 0.00968811961744818,
+            "roll_peak_deg": 0.3195817271212091,
+            "sampled_joint_speed_rms_rad_s": 0.07899472138973074
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "drawer",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "5d4770b54405ddf0229917a0719062551d77a74deaeb0c1468c1f1db5b3248b2",
+          "action": "R1",
+          "distribution": {
+            "R0": 1.287598365706799e-06,
+            "R1": 0.9997681975364685,
+            "R3": 0.00023050641175359488
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "drawer",
+            "action": "R1",
+            "success": true,
+            "duration_s": 0.7913105024317701,
+            "arm_joint_travel_rad": 4.058544956493348,
+            "hand_path_m": 0.10318693818974965,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 2.0930889571213027e-06,
+            "end_max_joint_speed_rad_s": 0.00017564080862270752,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "drawer",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -43.3,
+                -15.8,
+                6.4,
+                -5.0,
+                -56.9,
+                -11.3,
+                -16.8
+              ],
+              "joint_speed_degrees_s": [
+                97.8,
+                -25.3,
+                -0.6,
+                -60.9,
+                0.5,
+                -68.3,
+                -95.6
+              ],
+              "hand_body_offset_mm": [
+                79.1,
+                -50.7,
+                0.7
+              ],
+              "body_tilt_degrees": 2.4,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 56.9
+            },
+            "profile": {
+              "code": "R1",
+              "waypoint": "clearance",
+              "slew": 0.04,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 0.7913105024317701,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.292650018449061,
+            "lateral_rms_m": 0.009712369778189713,
+            "roll_peak_deg": 0.327069104797568,
+            "sampled_joint_speed_rms_rad_s": 0.11695019373133807
+          },
+          "longest_unsupported_seconds": 0.0
+        }
+      ],
+      "reference": {
+        "path": "mochi-t15-44625135986/held-out-93000-states.pickle",
+        "keys": [
+          "walk:alarm",
+          "alarm:alarm",
+          "recovery:alarm",
+          "walk:drawer",
+          "drawer:drawer",
+          "recovery:drawer",
+          "walk:laptop",
+          "laptop:laptop",
+          "recovery:laptop",
+          "walk:globe",
+          "globe:globe",
+          "recovery:globe"
+        ],
+        "sha256": "63dd2a37774e77dff0022a064bfc2b6be8c1481ff196657c43bed02f5a826c24"
       },
-      "sha256": "ac002fd99c0815ace09ad87441dcaf1f6719f4654c88811b1fc42ffaf9544514",
-      "uncompressed_sha256": "8757cacab25f80691ab43bf27da90b2c7998d06760fa053b56f4ffcfb12f456f"
+      "receipt": {
+        "provider": "Modal",
+        "physical_rollouts": 6,
+        "cpu": 1,
+        "memory_mib": 3072,
+        "duration_seconds": 651.26886706,
+        "architecture": "x86_64",
+        "threadpools": [
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/numpy.libs/libscipy_openblas64_-8fb3d286.so",
+            "version": "0.3.30",
+            "threading_layer": "pthreads",
+            "architecture": "Haswell"
+          },
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/scipy.libs/libscipy_openblas-b75cc656.so",
+            "version": "0.3.29.dev",
+            "threading_layer": "pthreads",
+            "architecture": "Haswell"
+          },
+          {
+            "user_api": "openmp",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libgomp",
+            "filepath": "/usr/local/lib/python3.11/site-packages/torch/lib/libgomp.so.1",
+            "version": null
+          }
+        ],
+        "duration_scope": "Function execution including imports; not an invoice or cold-start billing receipt",
+        "inference_input_plus_max_output_tokens": 2102
+      },
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/components-93000-drawer.json.gz",
+        "uncompressed_sha256": "3a524785c95d91434be5f081da003f20d2c3b53d5b8b4e6b822f45d9b066e5a6",
+        "compressed_bytes": 4635
+      }
+    },
+    {
+      "seed": 93000,
+      "task": "laptop",
+      "results": [
+        {
+          "domain": "walk",
+          "task": "laptop",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "447197a339166a23ed3f0c459cdab4d42755a7db6ba2db26b28c1db7e7e5be85",
+          "action": "W0",
+          "distribution": {
+            "W0": 0.6371539235115051,
+            "W3": 0.34104394912719727,
+            "W4": 0.021802207455039024
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "laptop-corridor-0",
+              "goal": [
+                0.08,
+                0.02,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 9.181817730695911,
+              "position_error_mm": 17.99778862909709,
+              "heading_error_degrees": 30.945323442607453,
+              "root": [
+                0.06621230767097112,
+                0.031568056698412866,
+                0.1312446681971681
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.3619995526926385,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "laptop-corridor-1",
+              "goal": [
+                0.08,
+                -0.055,
+                -1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 4.884380425650647,
+              "position_error_mm": 17.99094214477621,
+              "heading_error_degrees": 24.894045090031902,
+              "root": [
+                0.09061819979696217,
+                -0.040476645279809584,
+                0.13131113523009563
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.508554243632011,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "laptop-corridor-2",
+              "goal": [
+                0.3,
+                -0.055,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 9.572568164747963,
+              "position_error_mm": 17.990584343836822,
+              "heading_error_degrees": 36.646585616148904,
+              "root": [
+                0.28822159962181637,
+                -0.04140108792719393,
+                0.13129296908556284
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.5312025659448567,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "laptop-corridor-3",
+              "goal": [
+                0.3,
+                0.02,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 5.894772761400304,
+              "position_error_mm": 17.989373448650326,
+              "heading_error_degrees": 34.10374476236821,
+              "root": [
+                0.2869950823613185,
+                0.007570612473411412,
+                0.13125695202549972
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.5189437559182963,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "laptop-station",
+              "goal": [
+                0.305,
+                0.155,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 11.069354869244421,
+              "position_error_mm": 12.514789048393286,
+              "heading_error_degrees": 2.860438626210075,
+              "root": [
+                0.2931621867231107,
+                0.1509396894518661,
+                0.13130494901251588
+              ],
+              "dwell_s": 0.4005600683781674,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.7765571198802509,
+                "right": 0.7967316874390888
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 40.60289395173925,
+          "steps": {
+            "attempts": 324,
+            "completed": 324,
+            "unfinished": 0,
+            "by_category": {
+              "turning": 65,
+              "flat_transit": 204,
+              "alignment": 55
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": 135.7422654585379,
+            "sampled_torque_change_rms_nm": 0.0031123587034740173,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.3585436802490051,
+            "lateral_rms_m": 0.009006608671935697,
+            "roll_peak_deg": 1.0316696236539995,
+            "sampled_joint_speed_rms_rad_s": 2.343778982402078
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "walk",
+          "task": "laptop",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "447197a339166a23ed3f0c459cdab4d42755a7db6ba2db26b28c1db7e7e5be85",
+          "action": "W4",
+          "distribution": {
+            "W0": 5.769104063801933e-06,
+            "W3": 0.0004878542968071997,
+            "W4": 0.9995063543319702
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "laptop-corridor-0",
+              "goal": [
+                0.08,
+                0.02,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 5.385489245888948,
+              "position_error_mm": 17.99267410666926,
+              "heading_error_degrees": 23.365356141476013,
+              "root": [
+                0.06443738984835928,
+                0.029030032490354383,
+                0.13126620905412156
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.0,
+                "right": 1.4645311717694363
+              }
+            },
+            {
+              "label": "laptop-corridor-1",
+              "goal": [
+                0.08,
+                -0.055,
+                -1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 3.0458914587404706,
+              "position_error_mm": 17.99864330601615,
+              "heading_error_degrees": 20.237334118495973,
+              "root": [
+                0.0895929875929975,
+                -0.03977089136233522,
+                0.13127715552126382
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.5150816161463367,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "laptop-corridor-2",
+              "goal": [
+                0.3,
+                -0.055,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 5.645444555572112,
+              "position_error_mm": 17.98537827754747,
+              "heading_error_degrees": 18.619243983192575,
+              "root": [
+                0.284273475998011,
+                -0.04627358752972674,
+                0.13126346953699586
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.5416368828301585,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "laptop-corridor-3",
+              "goal": [
+                0.3,
+                0.02,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 3.4325545451559947,
+              "position_error_mm": 17.99932424957921,
+              "heading_error_degrees": 12.439647503471367,
+              "root": [
+                0.29367497168605355,
+                0.003148599753454726,
+                0.13126825169992704
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.5386939852681423,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "laptop-station",
+              "goal": [
+                0.305,
+                0.155,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 4.458478801924457,
+              "position_error_mm": 12.060793167271045,
+              "heading_error_degrees": 2.4691832676477983,
+              "root": [
+                0.29400666854043533,
+                0.15003921425136724,
+                0.13130756527826748
+              ],
+              "dwell_s": 0.4005600683781674,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.7738509408760597,
+                "right": 0.7994310238432201
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 21.967858607281983,
+          "steps": {
+            "attempts": 172,
+            "completed": 172,
+            "unfinished": 0,
+            "by_category": {
+              "turning": 48,
+              "flat_transit": 111,
+              "alignment": 13
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": 143.06068386260256,
+            "sampled_torque_change_rms_nm": 0.0032060609835108124,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.40880905846651533,
+            "lateral_rms_m": 0.008416758626831758,
+            "roll_peak_deg": 1.2430439456369557,
+            "sampled_joint_speed_rms_rad_s": 2.453855646842484
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "laptop",
+          "task": "laptop",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "ee9e6274d68a0f5e190194e6dbdf72b979f9a3ef6639baf461f7a56f9a56b901",
+          "action": "P0",
+          "distribution": {
+            "P0": 0.9323317408561707,
+            "P1": 0.05960197374224663,
+            "P2": 0.008066250011324883
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "laptop",
+            "success": true,
+            "value": -0.0028269109025693684,
+            "duration": 10.486499096275566,
+            "contacts": 849,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.5162531209789089,
+            "fall": false,
+            "max_tilt_deg": 4.356547063849878,
+            "profile": {
+              "code": "P0",
+              "force": 0.45,
+              "radius": 0.15,
+              "contact_x": 0.263,
+              "pulse_on": 10,
+              "pulse_off": 0,
+              "slew": 0.012,
+              "release_degrees": 56.0
+            },
+            "phase": "release",
+            "contact_progress": 1.2395572922840519,
+            "abort": null,
+            "approach_stage": 1,
+            "final_tip": [
+              0.2696386449945494,
+              0.15046063288468847,
+              0.1537143231669103
+            ],
+            "final_target": [
+              0.26266305000932455,
+              0.15104978802927232,
+              0.15925795171773863
+            ]
+          },
+          "coupled_recovery": {
+            "task": "laptop",
+            "action": "R0",
+            "success": true,
+            "duration_s": 2.078007538410702,
+            "arm_joint_travel_rad": 7.079368402772916,
+            "hand_path_m": 0.09192189999688467,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.490400996397943e-06,
+            "end_max_joint_speed_rad_s": 0.0001174039329560156,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "laptop",
+              "active_arm": "left",
+              "joint_error_degrees": [
+                109.6,
+                12.3,
+                41.0,
+                -104.8,
+                -16.5,
+                -68.9,
+                -52.4
+              ],
+              "joint_speed_degrees_s": [
+                43.4,
+                -67.3,
+                -11.5,
+                -10.0,
+                -9.0,
+                -6.8,
+                12.6
+              ],
+              "hand_body_offset_mm": [
+                -1.0,
+                23.3,
+                22.5
+              ],
+              "body_tilt_degrees": 1.8,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 109.6
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 12.564506634686268,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.2538474348155212,
+            "lateral_rms_m": 0.011181978596423598,
+            "roll_peak_deg": 0.2903699511339653,
+            "sampled_joint_speed_rms_rad_s": 0.045383299620870156
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "laptop",
+          "task": "laptop",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "ee9e6274d68a0f5e190194e6dbdf72b979f9a3ef6639baf461f7a56f9a56b901",
+          "action": "P1",
+          "distribution": {
+            "P0": 8.907529263524339e-05,
+            "P1": 0.5621263980865479,
+            "P2": 0.43778449296951294
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "laptop",
+            "success": true,
+            "value": -0.0028270542108606023,
+            "duration": 10.416196716927288,
+            "contacts": 801,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.5532407651586104,
+            "fall": false,
+            "max_tilt_deg": 4.356547063849878,
+            "profile": {
+              "code": "P1",
+              "force": 0.5,
+              "radius": 0.15,
+              "contact_x": 0.263,
+              "pulse_on": 10,
+              "pulse_off": 0,
+              "slew": 0.012,
+              "release_degrees": 56.0
+            },
+            "phase": "release",
+            "contact_progress": 1.2395574356398764,
+            "abort": null,
+            "approach_stage": 1,
+            "final_tip": [
+              0.26950577626428335,
+              0.15048582471089345,
+              0.15352578972336023
+            ],
+            "final_target": [
+              0.26275715159909824,
+              0.15115124803656688,
+              0.1591841517453981
+            ]
+          },
+          "coupled_recovery": {
+            "task": "laptop",
+            "action": "R0",
+            "success": true,
+            "duration_s": 2.078007538410702,
+            "arm_joint_travel_rad": 7.0589317063048265,
+            "hand_path_m": 0.09148435229082344,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.210170157106974e-06,
+            "end_max_joint_speed_rad_s": 9.786539390207994e-05,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "laptop",
+              "active_arm": "left",
+              "joint_error_degrees": [
+                109.9,
+                12.7,
+                40.2,
+                -104.7,
+                -16.6,
+                -68.2,
+                -52.1
+              ],
+              "joint_speed_degrees_s": [
+                9.9,
+                -14.3,
+                -1.9,
+                -2.2,
+                -1.7,
+                -1.4,
+                2.1
+              ],
+              "hand_body_offset_mm": [
+                -1.1,
+                23.4,
+                22.3
+              ],
+              "body_tilt_degrees": 1.8,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 109.9
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 12.49420425533799,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.25656007884850124,
+            "lateral_rms_m": 0.01120377105533741,
+            "roll_peak_deg": 0.34345498085392334,
+            "sampled_joint_speed_rms_rad_s": 0.04815280743774434
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "laptop",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "06495dbd159d36f8f4abbd65251610798f797f928063805367f850819ec1e6ca",
+          "action": "R0",
+          "distribution": {
+            "R0": 0.829487681388855,
+            "R1": 0.16333581507205963,
+            "R3": 0.007176474668085575
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "laptop",
+            "action": "R0",
+            "success": true,
+            "duration_s": 2.078007538410702,
+            "arm_joint_travel_rad": 7.079368402772916,
+            "hand_path_m": 0.09192189999688467,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.490400996397943e-06,
+            "end_max_joint_speed_rad_s": 0.0001174039329560156,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "laptop",
+              "active_arm": "left",
+              "joint_error_degrees": [
+                109.6,
+                12.3,
+                41.0,
+                -104.8,
+                -16.5,
+                -68.9,
+                -52.4
+              ],
+              "joint_speed_degrees_s": [
+                43.4,
+                -67.3,
+                -11.5,
+                -10.0,
+                -9.0,
+                -6.8,
+                12.6
+              ],
+              "hand_body_offset_mm": [
+                -1.0,
+                23.3,
+                22.5
+              ],
+              "body_tilt_degrees": 1.8,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 109.6
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 2.078007538410702,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.2584920970953105,
+            "lateral_rms_m": 0.011399950346834515,
+            "roll_peak_deg": 0.2716311328788913,
+            "sampled_joint_speed_rms_rad_s": 0.04468374836901731
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "laptop",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "06495dbd159d36f8f4abbd65251610798f797f928063805367f850819ec1e6ca",
+          "action": "R1",
+          "distribution": {
+            "R0": 1.0027829375758301e-06,
+            "R1": 0.9997685551643372,
+            "R3": 0.00023050649906508625
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "laptop",
+            "action": "R1",
+            "success": true,
+            "duration_s": 1.440381307112375,
+            "arm_joint_travel_rad": 9.054655580658784,
+            "hand_path_m": 0.11898324658452702,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 4.315973252120839e-06,
+            "end_max_joint_speed_rad_s": 0.00015532899804880532,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "laptop",
+              "active_arm": "left",
+              "joint_error_degrees": [
+                109.6,
+                12.3,
+                41.0,
+                -104.8,
+                -16.5,
+                -68.9,
+                -52.4
+              ],
+              "joint_speed_degrees_s": [
+                43.4,
+                -67.3,
+                -11.5,
+                -10.0,
+                -9.0,
+                -6.8,
+                12.6
+              ],
+              "hand_body_offset_mm": [
+                -1.0,
+                23.3,
+                22.5
+              ],
+              "body_tilt_degrees": 1.8,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 109.6
+            },
+            "profile": {
+              "code": "R1",
+              "waypoint": "clearance",
+              "slew": 0.04,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 1.440381307112375,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.24120272707836002,
+            "lateral_rms_m": 0.011513577575807015,
+            "roll_peak_deg": 0.2765696199814246,
+            "sampled_joint_speed_rms_rad_s": 0.101607952394422
+          },
+          "longest_unsupported_seconds": 0.0
+        }
+      ],
+      "reference": {
+        "path": "mochi-t15-44625135986/held-out-93000-states.pickle",
+        "keys": [
+          "walk:alarm",
+          "alarm:alarm",
+          "recovery:alarm",
+          "walk:drawer",
+          "drawer:drawer",
+          "recovery:drawer",
+          "walk:laptop",
+          "laptop:laptop",
+          "recovery:laptop",
+          "walk:globe",
+          "globe:globe",
+          "recovery:globe"
+        ],
+        "sha256": "63dd2a37774e77dff0022a064bfc2b6be8c1481ff196657c43bed02f5a826c24"
+      },
+      "receipt": {
+        "provider": "Modal",
+        "physical_rollouts": 6,
+        "cpu": 1,
+        "memory_mib": 3072,
+        "duration_seconds": 262.139964285,
+        "architecture": "x86_64",
+        "threadpools": [
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/numpy.libs/libscipy_openblas64_-8fb3d286.so",
+            "version": "0.3.30",
+            "threading_layer": "pthreads",
+            "architecture": "Haswell"
+          },
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/scipy.libs/libscipy_openblas-b75cc656.so",
+            "version": "0.3.29.dev",
+            "threading_layer": "pthreads",
+            "architecture": "Haswell"
+          },
+          {
+            "user_api": "openmp",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libgomp",
+            "filepath": "/usr/local/lib/python3.11/site-packages/torch/lib/libgomp.so.1",
+            "version": null
+          }
+        ],
+        "duration_scope": "Function execution including imports; not an invoice or cold-start billing receipt",
+        "inference_input_plus_max_output_tokens": 2034
+      },
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/components-93000-laptop.json.gz",
+        "uncompressed_sha256": "d285062951eed879692b4e7ae1e7c2ff54f1ace83a2beac41441172dcfd3aaa8",
+        "compressed_bytes": 4451
+      }
+    },
+    {
+      "seed": 93000,
+      "task": "globe",
+      "results": [
+        {
+          "domain": "walk",
+          "task": "globe",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "90e8a7327bb2ef63ec719af007896c9fcf11971e246bb579d792714fb496d511",
+          "action": "W0",
+          "distribution": {
+            "W0": 0.7815622091293335,
+            "W3": 0.19760987162590027,
+            "W4": 0.020827926695346832
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "laptop-clearance",
+              "goal": [
+                0.32,
+                0.105,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 3.8069555886619355,
+              "position_error_mm": 11.040845329022513,
+              "heading_error_degrees": 2.6603370841865566,
+              "root": [
+                0.31183590262836863,
+                0.11243288501767112,
+                0.13130527484289614
+              ],
+              "loads_n": {
+                "left": 0.7792912496166797,
+                "right": 0.7940019817613422
+              },
+              "dwell_s": 0.4005600683781674,
+              "book_top": null
+            },
+            {
+              "label": "globe-corridor-0",
+              "goal": [
+                0.32,
+                0.02,
+                -1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 8.694605892421805,
+              "position_error_mm": 17.985187309877656,
+              "heading_error_degrees": 26.598121247790782,
+              "root": [
+                0.33093582895619056,
+                0.03427846657076062,
+                0.1311986509211389
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.4470754572655977,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "globe-corridor-1",
+              "goal": [
+                0.32,
+                -0.145,
+                -1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 5.896407700454915,
+              "position_error_mm": 17.975735518739544,
+              "heading_error_degrees": 31.37170317473293,
+              "root": [
+                0.3312685174917787,
+                -0.13099473024261396,
+                0.1310478792564279
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.7285566054166205,
+                "right": 1.7874601420505123
+              }
+            },
+            {
+              "label": "globe-station",
+              "goal": [
+                0.35,
+                -0.145,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 8.848290163555248,
+              "position_error_mm": 12.298723705241793,
+              "heading_error_degrees": 2.875595886924375,
+              "root": [
+                0.34605704221796385,
+                -0.13335046401323394,
+                0.13130915146266975
+              ],
+              "dwell_s": 0.4005600683781674,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.7767066341474067,
+                "right": 0.7965803424089382
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 27.246259345093904,
+          "steps": {
+            "attempts": 208,
+            "completed": 208,
+            "unfinished": 0,
+            "by_category": {
+              "fixture_clearance": 24,
+              "turning": 66,
+              "flat_transit": 79,
+              "alignment": 39
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": 132.58905048689317,
+            "sampled_torque_change_rms_nm": 0.003059831563500766,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.35053738874460844,
+            "lateral_rms_m": 0.007895632339425284,
+            "roll_peak_deg": 1.0679744641084705,
+            "sampled_joint_speed_rms_rad_s": 2.2309102677122876
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "walk",
+          "task": "globe",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "90e8a7327bb2ef63ec719af007896c9fcf11971e246bb579d792714fb496d511",
+          "action": "W4",
+          "distribution": {
+            "W0": 1.1472422556835227e-05,
+            "W3": 0.0005527722532860935,
+            "W4": 0.9994357228279114
+          },
+          "success": true,
+          "failure": null,
+          "result": [
+            {
+              "label": "laptop-clearance",
+              "goal": [
+                0.32,
+                0.105,
+                1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 3.8069555886619355,
+              "position_error_mm": 11.040845329022513,
+              "heading_error_degrees": 2.6603370841865566,
+              "root": [
+                0.31183590262836863,
+                0.11243288501767112,
+                0.13130527484289614
+              ],
+              "loads_n": {
+                "left": 0.7792912496166797,
+                "right": 0.7940019817613422
+              },
+              "dwell_s": 0.4005600683781674,
+              "book_top": null
+            },
+            {
+              "label": "globe-corridor-0",
+              "goal": [
+                0.32,
+                0.02,
+                -1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 5.748445716012611,
+              "position_error_mm": 17.99052033624881,
+              "heading_error_degrees": 2.4090241143329623,
+              "root": [
+                0.32325505680795935,
+                0.03769359847927887,
+                0.13121407848912237
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.358861264758887,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "globe-corridor-1",
+              "goal": [
+                0.32,
+                -0.145,
+                -1.5707963267948966
+              ],
+              "success": true,
+              "duration_s": 3.164424540199775,
+              "position_error_mm": 17.983181305166404,
+              "heading_error_degrees": 17.684664031653327,
+              "root": [
+                0.3287241384082775,
+                -0.1292747267468033,
+                0.13128730535253233
+              ],
+              "dwell_s": 0.0,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 1.4899081151601963,
+                "right": 0.0
+              }
+            },
+            {
+              "label": "globe-station",
+              "goal": [
+                0.35,
+                -0.145,
+                0.0
+              ],
+              "success": true,
+              "duration_s": 4.7069895382253435,
+              "position_error_mm": 12.419264738735789,
+              "heading_error_degrees": 1.527817407741615,
+              "root": [
+                0.34644672718741265,
+                -0.13309989962352695,
+                0.13132800290628194
+              ],
+              "dwell_s": 0.4005600683781674,
+              "navigation": "turn toward travel, forward walk, align for task",
+              "loads_n": {
+                "left": 0.7737876373617225,
+                "right": 0.7994806533556451
+              }
+            }
+          ],
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 17.426815383099665,
+          "steps": {
+            "attempts": 128,
+            "completed": 128,
+            "unfinished": 0,
+            "by_category": {
+              "fixture_clearance": 24,
+              "turning": 48,
+              "flat_transit": 42,
+              "alignment": 14
+            },
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": 134.68808577406523,
+            "sampled_torque_change_rms_nm": 0.003088380615944481,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.37259128021905114,
+            "lateral_rms_m": 0.006712608477788985,
+            "roll_peak_deg": 1.2220567699646163,
+            "sampled_joint_speed_rms_rad_s": 2.2339859324375517
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "globe",
+          "task": "globe",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "25bf4d35e819c96fd5403153df88aa6f6bc0ff6f559443a3458fee2ae1c2c745",
+          "action": "A",
+          "distribution": {
+            "A": 0.8871284127235413,
+            "G0": 0.08251579850912094,
+            "G1": 0.030355865135788918
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "globe",
+            "success": true,
+            "value": 0.0341710597107137,
+            "duration": 6.032107641987608,
+            "contacts": 2799,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.3246467830641919,
+            "fall": false,
+            "max_tilt_deg": 4.356547063849878,
+            "profile": {
+              "code": "A",
+              "speed": 0.012,
+              "depth": 0.0002,
+              "force": 0.055,
+              "brake": 0.001,
+              "hold": 0.3
+            },
+            "phase": "release",
+            "contact_progress": -0.4014673160629021
+          },
+          "coupled_recovery": {
+            "task": "globe",
+            "action": "R0",
+            "success": true,
+            "duration_s": 1.236013925285988,
+            "arm_joint_travel_rad": 3.288094945276956,
+            "hand_path_m": 0.0825763650708568,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 1.8568337783010983e-06,
+            "end_max_joint_speed_rad_s": 4.115801552345409e-05,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "globe",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -5.1,
+                -0.1,
+                35.2,
+                -40.1,
+                -5.8,
+                -36.9,
+                -61.7
+              ],
+              "joint_speed_degrees_s": [
+                87.3,
+                0.9,
+                10.8,
+                -95.9,
+                -62.8,
+                -99.1,
+                -95.5
+              ],
+              "hand_body_offset_mm": [
+                52.7,
+                -32.4,
+                2.6
+              ],
+              "body_tilt_degrees": 2.1,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 61.7
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 7.268121567273596,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.26254997813094133,
+            "lateral_rms_m": 0.006509090383802237,
+            "roll_peak_deg": 0.2875447087447243,
+            "sampled_joint_speed_rms_rad_s": 0.03987487079978203
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "globe",
+          "task": "globe",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "25bf4d35e819c96fd5403153df88aa6f6bc0ff6f559443a3458fee2ae1c2c745",
+          "action": "G0",
+          "distribution": {
+            "A": 5.417279680841602e-06,
+            "G0": 0.9990836381912231,
+            "G1": 0.0009110463433898985
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "globe",
+            "success": true,
+            "value": 0.00785246687538918,
+            "duration": 5.91602696911022,
+            "contacts": 2710,
+            "non_hand_contact_steps": 0,
+            "max_force_n": 0.3246467830641919,
+            "fall": false,
+            "max_tilt_deg": 4.356547063849878,
+            "profile": {
+              "code": "G0",
+              "speed": 0.012,
+              "depth": 0.0002,
+              "force": 0.055,
+              "brake": 0.003,
+              "hold": 0.25
+            },
+            "phase": "release",
+            "contact_progress": -0.37733907181878257
+          },
+          "coupled_recovery": {
+            "task": "globe",
+            "action": "R0",
+            "success": true,
+            "duration_s": 1.2319265776494603,
+            "arm_joint_travel_rad": 3.3208921842170662,
+            "hand_path_m": 0.08285405421858485,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 2.0442830026479463e-06,
+            "end_max_joint_speed_rad_s": 6.714393619554905e-05,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "globe",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -4.1,
+                0.3,
+                35.9,
+                -41.1,
+                -6.4,
+                -37.9,
+                -61.9
+              ],
+              "joint_speed_degrees_s": [
+                46.4,
+                3.2,
+                8.6,
+                -44.6,
+                -29.3,
+                -46.1,
+                -42.1
+              ],
+              "hand_body_offset_mm": [
+                52.0,
+                -31.1,
+                3.0
+              ],
+              "body_tilt_degrees": 2.1,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 61.9
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 7.14795354675968,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.26217193532851546,
+            "lateral_rms_m": 0.006514643784488113,
+            "roll_peak_deg": 0.2875447087447243,
+            "sampled_joint_speed_rms_rad_s": 0.04003619699362688
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "globe",
+          "model": "parent",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "7a7a2b77485527cf67fba7b775e0dea1504c53ea0fd3f9d04c925c50e6e18620",
+          "action": "R0",
+          "distribution": {
+            "R0": 0.9378929138183594,
+            "R1": 0.05291229858994484,
+            "R3": 0.00919477827847004
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "globe",
+            "action": "R0",
+            "success": true,
+            "duration_s": 1.2188470652125716,
+            "arm_joint_travel_rad": 3.2821475389738954,
+            "hand_path_m": 0.0826200594298403,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 3.600800969795691e-06,
+            "end_max_joint_speed_rad_s": 0.00013664401546558378,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "globe",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -5.0,
+                -0.0,
+                35.1,
+                -40.2,
+                -5.7,
+                -36.9,
+                -61.2
+              ],
+              "joint_speed_degrees_s": [
+                66.0,
+                -0.4,
+                7.9,
+                -73.9,
+                -48.8,
+                -77.3,
+                -73.3
+              ],
+              "hand_body_offset_mm": [
+                52.7,
+                -32.2,
+                2.5
+              ],
+              "body_tilt_degrees": 2.1,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 61.2
+            },
+            "profile": {
+              "code": "R0",
+              "waypoint": "direct",
+              "slew": 0.02,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 1.2188470652125716,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.26523860675991034,
+            "lateral_rms_m": 0.006577097146129602,
+            "roll_peak_deg": 0.2756888784748529,
+            "sampled_joint_speed_rms_rad_s": 0.036815411088978234
+          },
+          "longest_unsupported_seconds": 0.0
+        },
+        {
+          "domain": "recovery",
+          "task": "globe",
+          "model": "selected",
+          "scope": "Exact-state diagnostic; not a continuous demonstration",
+          "initial_state_sha256": "7a7a2b77485527cf67fba7b775e0dea1504c53ea0fd3f9d04c925c50e6e18620",
+          "action": "R1",
+          "distribution": {
+            "R0": 1.3705989658774342e-06,
+            "R1": 0.9997373223304749,
+            "R3": 0.00026118993991985917
+          },
+          "success": true,
+          "failure": null,
+          "result": {
+            "task": "globe",
+            "action": "R1",
+            "success": true,
+            "duration_s": 0.9057562362545468,
+            "arm_joint_travel_rad": 4.4443220887120445,
+            "hand_path_m": 0.08791096243948834,
+            "fixture_contact_steps": 0,
+            "peak_fixture_force_n": 0.0,
+            "end_max_joint_error_rad": 1.3211163089795513e-06,
+            "end_max_joint_speed_rad_s": 8.951720883403926e-05,
+            "fall": false,
+            "observation": {
+              "domain": "recovery",
+              "task": "globe",
+              "active_arm": "right",
+              "joint_error_degrees": [
+                -5.0,
+                -0.0,
+                35.1,
+                -40.2,
+                -5.7,
+                -36.9,
+                -61.2
+              ],
+              "joint_speed_degrees_s": [
+                66.0,
+                -0.4,
+                7.9,
+                -73.9,
+                -48.8,
+                -77.3,
+                -73.3
+              ],
+              "hand_body_offset_mm": [
+                52.7,
+                -32.2,
+                2.5
+              ],
+              "body_tilt_degrees": 2.1,
+              "hand_contact": false,
+              "maximum_joint_error_degrees": 61.2
+            },
+            "profile": {
+              "code": "R1",
+              "waypoint": "clearance",
+              "slew": 0.04,
+              "pause": 0
+            }
+          },
+          "coupled_recovery": null,
+          "fall": false,
+          "invalid_contact": false,
+          "duration_s": 0.9057562362545468,
+          "steps": {
+            "attempts": 0,
+            "completed": 0,
+            "unfinished": 0,
+            "by_category": {},
+            "definition": "Measured unload, at least 30 ms and 2 mm sole motion or 8 degree rotation, followed by loaded touchdown with 40 ms dwell. Unfinished attempts retained."
+          },
+          "native_smoothness": {
+            "sampled_acceleration_rms_rad_s2": null,
+            "sampled_torque_change_rms_nm": null,
+            "scope": "Only adjacent samples inside native walking and turning, excluding holds and book-controller phases."
+          },
+          "metrics": {
+            "roll_rms_deg": 0.264886562531431,
+            "lateral_rms_m": 0.0065715832625580575,
+            "roll_peak_deg": 0.27749796386324016,
+            "sampled_joint_speed_rms_rad_s": 0.05000443041508236
+          },
+          "longest_unsupported_seconds": 0.0
+        }
+      ],
+      "reference": {
+        "path": "mochi-t15-44625135986/held-out-93000-states.pickle",
+        "keys": [
+          "walk:alarm",
+          "alarm:alarm",
+          "recovery:alarm",
+          "walk:drawer",
+          "drawer:drawer",
+          "recovery:drawer",
+          "walk:laptop",
+          "laptop:laptop",
+          "recovery:laptop",
+          "walk:globe",
+          "globe:globe",
+          "recovery:globe"
+        ],
+        "sha256": "63dd2a37774e77dff0022a064bfc2b6be8c1481ff196657c43bed02f5a826c24"
+      },
+      "receipt": {
+        "provider": "Modal",
+        "physical_rollouts": 6,
+        "cpu": 1,
+        "memory_mib": 3072,
+        "duration_seconds": 176.208430439,
+        "architecture": "x86_64",
+        "threadpools": [
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/numpy.libs/libscipy_openblas64_-8fb3d286.so",
+            "version": "0.3.30",
+            "threading_layer": "pthreads",
+            "architecture": "SkylakeX"
+          },
+          {
+            "user_api": "blas",
+            "internal_api": "openblas",
+            "num_threads": 1,
+            "prefix": "libscipy_openblas",
+            "filepath": "/usr/local/lib/python3.11/site-packages/scipy.libs/libscipy_openblas-b75cc656.so",
+            "version": "0.3.29.dev",
+            "threading_layer": "pthreads",
+            "architecture": "SkylakeX"
+          },
+          {
+            "user_api": "openmp",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libgomp",
+            "filepath": "/usr/local/lib/python3.11/site-packages/torch/lib/libgomp.so.1",
+            "version": null
+          }
+        ],
+        "duration_scope": "Function execution including imports; not an invoice or cold-start billing receipt",
+        "inference_input_plus_max_output_tokens": 2146
+      },
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/components-93000-globe.json.gz",
+        "uncompressed_sha256": "fae9a0e1f574da069fcd872cb6d586353906fe3757941c0291d93d9b64c3e336",
+        "compressed_bytes": 4205
+      }
     }
+  ],
+  "test_pairs_available": 4,
+  "evaluation_status": "completed",
+  "selection_finalized": true,
+  "default_scenario": "held-out-93000",
+  "workflow_run": "mochi-t15-44625135986",
+  "source_sha": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+  "services": {
+    "writers": 4,
+    "readers": 4,
+    "cross_agent_reads": 5,
+    "isolation_passed": true
   },
-  "first_update_pair": {
-    "parent_steps": 806,
-    "updated_steps": 586,
-    "parent_seconds": 265.402109143464,
-    "updated_seconds": 237.756924669045,
-    "step_reduction_fraction": 0.2729528535980149,
-    "time_reduction_fraction": 0.10416339404249153,
-    "paired_scenarios": 1,
-    "scope": "First predeclared development scenario; no final-test or general reliability claim."
-  },
-  "note": "Actual uninterrupted MuJoCo trajectories on the first declared development scenario. Final-test results are reported separately. Native gait weights remain fixed."
+  "campaign_modal_rollouts_completed": 204,
+  "display_note": "Actual uninterrupted 25-Hz MuJoCo trajectories, display precision six decimals. Steps are measured from 100-Hz sole poses and contacts. Both sides use the turning fix and identical playback speed. Native gait weights remain fixed.",
+  "default_update": 16,
+  "recorded_update": 16,
+  "observed_at": "2026-11-20T01:39:54.970406+00:00"
 }

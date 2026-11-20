@@ -2,13 +2,13 @@
   "study": "mochi-efficient-v15",
   "source_sha": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
   "workflow_run": "mochi-t15-44625135986",
-  "observed_at": "2026-11-20T00:32:29.073087+00:00",
-  "status": "running",
-  "phase": "Unopened final tests against parent, fixed and training-only static policies",
+  "observed_at": "2026-11-20T01:39:54.970406+00:00",
+  "status": "completed",
+  "phase": "Frozen V15 evaluation complete",
   "optimizer_updates_completed": 16,
   "recorded_checkpoint_update": 16,
   "recorded_checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe",
-  "physical_rollouts_returned": 164,
+  "physical_rollouts_returned": 204,
   "first_update_qualified_pair": {
     "parent_steps": 806,
     "updated_steps": 586,
@@ -957,7 +957,7 @@
       }
     }
   ],
-  "final_test_results_pending": true,
+  "final_test_results_pending": false,
   "first_update_changed_actions": [
     {
       "domain": "alarm",
@@ -1059,10 +1059,10 @@
     }
   ],
   "memory_eligibility_at_snapshot": {
-    "writers": 3,
-    "readers": 3,
-    "cross_agent_reads": 3,
-    "isolation_passed": false
+    "writers": 4,
+    "readers": 4,
+    "cross_agent_reads": 5,
+    "isolation_passed": true
   },
   "cross_run_memory_verified": true,
   "first_update_pair": {

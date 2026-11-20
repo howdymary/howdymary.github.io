@@ -23,3 +23,5 @@
 .checkpoint-progress-row.header{font-size:11px;color:var(--muted);font-weight:500}
 @media(max-width:740px){.latest-film-heading{padding:14px 16px}.latest-film-heading>a{font-size:11px}.latest-film figcaption{padding:14px 16px}.latest-film iframe{height:840px}}
 @media(max-width:500px){.latest-film iframe{height:1050px}.latest-film-heading{align-items:flex-start}.latest-film-heading .caption-tag{font-size:9px}.service-map>div{padding:14px}.history-film figcaption{padding:14px 16px}}
+
+.final-comparison .checkpoint-progress-row{grid-template-columns:1.55fr .65fr 1fr 1fr}

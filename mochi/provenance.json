@@ -339,8 +339,8 @@
       "archive": {
         "volume": "mochi-efficient-v15-artifacts",
         "path": "mochi-t15-44625135986/dev-4-92000-policy.json.gz",
-        "sha256": "e659b28a009ccf147288123ab60fa1226e903a7188dc1742c6b3ea9b94e3317f",
-        "uncompressed_sha256": "3b0baec9a1f06d45258583fbbaaa9e4d88901d3b1fe815f675b2826557805a6e"
+        "uncompressed_sha256": "3b0baec9a1f06d45258583fbbaaa9e4d88901d3b1fe815f675b2826557805a6e",
+        "compressed_bytes": 36635842
       },
       "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b"
     },
@@ -352,8 +352,8 @@
       "archive": {
         "volume": "mochi-efficient-v15-artifacts",
         "path": "mochi-t15-44625135986/dev-8-92000-policy.json.gz",
-        "sha256": "32bcfb8a772ce87817c4a9b58155ca8fd459844383166d4c9ece2f0ecdb0a969",
-        "uncompressed_sha256": "d72193757f039d79a2e514d1bb629df56aa9672029e938ee2a16b307807dc3cd"
+        "uncompressed_sha256": "d72193757f039d79a2e514d1bb629df56aa9672029e938ee2a16b307807dc3cd",
+        "compressed_bytes": 36582560
       },
       "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45"
     },
@@ -365,8 +365,242 @@
       "archive": {
         "volume": "mochi-efficient-v15-artifacts",
         "path": "mochi-t15-44625135986/dev-16-92000-policy.json.gz",
-        "sha256": "e169f4ba169a6184d51b1c6f1447e359903593d43804c775cbc0e55af1ee477f",
-        "uncompressed_sha256": "b48b8fca8a2e2f01ffde1c76a33423e7691289b2cde9be16039f1ecf0f94b279"
+        "uncompressed_sha256": "b48b8fca8a2e2f01ffde1c76a33423e7691289b2cde9be16039f1ecf0f94b279",
+        "compressed_bytes": 36702960
+      },
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe"
+    },
+    {
+      "path": "efficient-v15/development-92001-0.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "506f5f68d9823605f4a896cbf61eb636e4029dfc12c33e6353eec677aaa67ae0",
+      "uncompressed_sha256": "13a9fab2249da8ef6cadc8bbf672303c54ec62d7bed3b2b6fdb0cf98b3ee4f71",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-0-92001-policy.json.gz",
+        "uncompressed_sha256": "706e5c13b3e04e3ca5ecb085dd8d0133fa65fc2624a6e6e14be75352117634da",
+        "compressed_bytes": 45071196
+      },
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975"
+    },
+    {
+      "path": "efficient-v15/development-92001-1.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "88faf3939b6e4c6973472f3142c0f44864f4723d409b2baff2b8aceefb144c49",
+      "uncompressed_sha256": "be7397e273661f8cd56b5cde43b7649b8e61a6bdc56318bd03cda97d412473f9",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-1-92001-policy.json.gz",
+        "uncompressed_sha256": "1824528d39ac62f2218a8b38dca9388bb8a0b3b6bc9fd619a9a3fc462c47ad7a",
+        "compressed_bytes": 40507537
+      },
+      "checkpoint_id": "afedde43fdb90ca6db2313f2990b8f4eabf030ad46a36dabd22848c15c134235"
+    },
+    {
+      "path": "efficient-v15/development-92001-4.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "178fc4603af38c40254dc705baa6ce49fbe5aa1fa2285bb69a5098b3cba04ebe",
+      "uncompressed_sha256": "83c0b97bb24bbce82f0ebdd4ef63a8ae064ea92a37bdda85d15986be68dce656",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-4-92001-policy.json.gz",
+        "uncompressed_sha256": "3611fb379051a371067e448b45ee86630a715442033d465cdebe7e6a0fa10bfc",
+        "compressed_bytes": 37197452
+      },
+      "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b"
+    },
+    {
+      "path": "efficient-v15/development-92001-8.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "06e9b332017e260fa04d7a0166173d9592f749782fa18a00f07c78faaadde308",
+      "uncompressed_sha256": "53e21eaaf56cf769083b5bc074080b1c9f497f860de0b1c1333b0e86bad00173",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-8-92001-policy.json.gz",
+        "uncompressed_sha256": "7ace13ed1651eba1b2ba1a911606d2d28ac9016d9ac6361682df259eacd88d3c",
+        "compressed_bytes": 37005508
+      },
+      "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45"
+    },
+    {
+      "path": "efficient-v15/development-92001-16.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "f99ee03d4290ffb0fbf8f695f4e01ee7ca70af762227bf0bc934e20dc6aad830",
+      "uncompressed_sha256": "5f2c3bfad70cb3afbb4da3c2c50a252544c17d600f8e9a4976afe8c739095c13",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-16-92001-policy.json.gz",
+        "uncompressed_sha256": "9cb10d1541a97a90fe518c1514eb83da357a6c888c8747d7e20ed6d088871f2d",
+        "compressed_bytes": 37197495
+      },
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe"
+    },
+    {
+      "path": "efficient-v15/development-92002-0.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "b616498acd677a3931a9891646786c391baa62c9bbfe5be726d5775504fb81de",
+      "uncompressed_sha256": "950d32502d9fcae0bc696706560ae1e7d5abf8a7465d749d5b83f6c749738008",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-0-92002-policy.json.gz",
+        "uncompressed_sha256": "3c7dd9a746aac5d4311630575bddfe37e66f2bc102300c60b3a209b1110f5b7b",
+        "compressed_bytes": 45037897
+      },
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975"
+    },
+    {
+      "path": "efficient-v15/development-92002-1.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "51c71a03bb9be9ea3570125752f7228aa0abf9f4eb60359d179f106b71bcae72",
+      "uncompressed_sha256": "7f8a6c28f3f7b8d3ba5c8d32b2c52ba7fa934c3191dc3c4a4427b9c3c5a7ae14",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-1-92002-policy.json.gz",
+        "uncompressed_sha256": "98d48dcd9f1ff201e03b9b9c91fb98e8a939b8ba4957a1120a7c994f7e35d941",
+        "compressed_bytes": 40096887
+      },
+      "checkpoint_id": "afedde43fdb90ca6db2313f2990b8f4eabf030ad46a36dabd22848c15c134235"
+    },
+    {
+      "path": "efficient-v15/development-92002-4.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "1d4bf669027456940ec6391a630ad0b2673bf1dcf4d698cfcf723bb616dce332",
+      "uncompressed_sha256": "53efe12d4978843c20ffb0346a7d4b27851b4855bf91aeb04fe9eb023f6cbc99",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-4-92002-policy.json.gz",
+        "uncompressed_sha256": "78e42bbbf252798603111184873edb023133e0264643fa1e9c79ab3e7e37d2de",
+        "compressed_bytes": 37255167
+      },
+      "checkpoint_id": "202410cd023c2514ec3ebce47e415ad97f462fcbbe0bdc748fa6e89ca171625b"
+    },
+    {
+      "path": "efficient-v15/development-92002-8.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "0cf2010241f9d11c5d8c9ae5f35bfa830549c90a60f300270c9109f99e8cdb83",
+      "uncompressed_sha256": "0583ecd38a7594b90b2050f087e97e4228ab2405ffc993b2f169a9c1d90ea0ef",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-8-92002-policy.json.gz",
+        "uncompressed_sha256": "4a75358b912a8d1e2db8dad6634cc1e611b1d35e82464078c500086cfc98ef7f",
+        "compressed_bytes": 37077555
+      },
+      "checkpoint_id": "f88c621423a3cc010ebc9c4a25d98691241aae6428a434eed7040bf1482d7b45"
+    },
+    {
+      "path": "efficient-v15/development-92002-16.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "7bd93d1a4e4b16c2ee81ceca360260583a8fab3c49b2507e1d46097cdd5c6bc3",
+      "uncompressed_sha256": "921f0ee5b55b0e996fe3da8a75fd1a9f4a430f0e516a75d2d0b9e52b36588a9e",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/dev-16-92002-policy.json.gz",
+        "uncompressed_sha256": "496759b02c5953299e663df63dce04df2149ddb1a5b6519255ed6f2d05dd36e2",
+        "compressed_bytes": 36702556
+      },
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe"
+    },
+    {
+      "path": "efficient-v15/held-out-parent-93000-0.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "4aea43e2c8b64b67df9512803d5226a2599cc63aa57cceb2a54de5779f638a43",
+      "uncompressed_sha256": "11a52e4ac38a0e103a3e56159426a189527cd021f8965e54556afc6b96c0a738",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93000-parent.json.gz",
+        "uncompressed_sha256": "dd5076b987be9b6ae4b5a5257762e8dd94fe5f3ece04d8f5b3e5575fe9e03d6d",
+        "compressed_bytes": 44975359
+      },
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975"
+    },
+    {
+      "path": "efficient-v15/held-out-selected-93000-16.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "a00219b027ae8cb2877bf8da05b6a7f4f82310fedc82de269420f0345955bc49",
+      "uncompressed_sha256": "cc29af3963230c172d4850bb56c876a63aaeaac04fde2d25d10bec9296333742",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93000-selected.json.gz",
+        "uncompressed_sha256": "4b13efc50da88ffb3f06e9ddf7fff102b90d7f43f872557f5df6b107367368fb",
+        "compressed_bytes": 36608703
+      },
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe"
+    },
+    {
+      "path": "efficient-v15/held-out-parent-93001-0.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "8d78621a7dc10b806a6188bdad6035577037feccaf66fe10b079f1f3b65ddf5b",
+      "uncompressed_sha256": "7fd081d9921bd6682c8fe0ec882be5dfc7e7e4bbd1545b739eb8a55a9a3904ea",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93001-parent.json.gz",
+        "uncompressed_sha256": "ddb3d820cb6a533ff0f13c94f7422c1adc6841079aa11fa01030500ee1985692",
+        "compressed_bytes": 45351309
+      },
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975"
+    },
+    {
+      "path": "efficient-v15/held-out-selected-93001-16.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "4f5f70a85a40ceb0582d34c1855545f48b7dfc2f448946c8304888e295d58b35",
+      "uncompressed_sha256": "d964dff3333f6ad2ce0818b03d894bab45138442b047e244d956d12ae7228596",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93001-selected.json.gz",
+        "uncompressed_sha256": "dc20b334d61e33ce58496644b35fce0f0792a2b70eb0343bef24edf6f5209942",
+        "compressed_bytes": 36666021
+      },
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe"
+    },
+    {
+      "path": "efficient-v15/held-out-parent-93002-0.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "ca29ca105b334a1f8f924b46c8040f7e5bff51193a82ab4424b92b19b7c5dc13",
+      "uncompressed_sha256": "21c8a70911a0f58f4bc6683fcd39df52b0b25a6d1d937617ce9ead6df68a9655",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93002-parent.json.gz",
+        "uncompressed_sha256": "4d6be9e7f0d6ce96232be2eae188d234a9176e9d3a06cdfb23301560043b3f50",
+        "compressed_bytes": 44843530
+      },
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975"
+    },
+    {
+      "path": "efficient-v15/held-out-selected-93002-16.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "b53e5eee41b9355b1853dcad922c004ef553bf848407992102a2673ec8ed016f",
+      "uncompressed_sha256": "b5261fc53f3c3d51d29ecb8ba0b3040f7110278c9fe478e50e45b199f38b0428",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93002-selected.json.gz",
+        "uncompressed_sha256": "3bb661bd8b276c642f848f972bfeadcba178d9370ce366559ec857af48cfa953",
+        "compressed_bytes": 38059438
+      },
+      "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe"
+    },
+    {
+      "path": "efficient-v15/held-out-parent-93003-0.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "fa7a7c143e4ca95e02776153b8f67d24cf4df19e8a606359fc15ee43767ae0c9",
+      "uncompressed_sha256": "1a7d2873541711071b4ce5fe23169a9b0ba11a5992de36cd8328854922eebfb3",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93003-parent.json.gz",
+        "uncompressed_sha256": "a916e872da63fb4792eb2de3712c6caf5a96348b32d1c23b9cb12960eb51e204",
+        "compressed_bytes": 45622162
+      },
+      "checkpoint_id": "3513e4b5d2f530d5eb1c5dd1b14d516d7d9d9724f1a28321d60aa4abccc86975"
+    },
+    {
+      "path": "efficient-v15/held-out-selected-93003-16.json.gz",
+      "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
+      "sha256": "fce789611470b0dae659ecb0fc7c9bca9f08dd62ff2be37850008bad055ad3f1",
+      "uncompressed_sha256": "3028980981b79aa53977db2bd89ea5bde1ecff2b6eb9bb9e59ece094fa7c843d",
+      "archive": {
+        "volume": "mochi-efficient-v15-artifacts",
+        "path": "mochi-t15-44625135986/held-out-93003-selected.json.gz",
+        "uncompressed_sha256": "547f34d88353fb6df30162b8de053551417ab5a5b4d9ce586b6181244cc3e804",
+        "compressed_bytes": 37059789
       },
       "checkpoint_id": "63463997da27066bfabda9a834fbd05d627b4dd362720c764077a3d20dd74ebe"
     }
@@ -382,15 +616,16 @@
       "source_commit": "87ba8d482efd13c789bb200ae9424924e0f77ad1",
       "workflow_run": "mochi-t15-44625135986",
       "recorded_update": 16,
-      "scenario": 92000,
-      "selection": "First declared development scenario; not chosen for its outcome."
+      "scenario": 93000,
+      "selection": "First declared final-test scenario, displayed regardless of its outcome. Checkpoint selection used only development scenarios.",
+      "evaluation_status": "completed"
     }
   },
   "latest_recording": {
     "study": "efficient_v15",
     "checkpoint_update": 16,
-    "scenario": 92000,
-    "evaluation_status": "development_preview",
-    "observed_at": "2026-11-20T00:32:29.073087+00:00"
+    "scenario": 93000,
+    "evaluation_status": "completed",
+    "observed_at": "2026-11-20T01:39:54.970406+00:00"
   }
 }

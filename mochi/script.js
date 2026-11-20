@@ -14,10 +14,25 @@ updateReading();
 function watchReplay(iframe) {
   const send = visible => iframe.contentWindow?.postMessage({type:'mochi-visibility',visible},location.origin);
   const observer = new IntersectionObserver(entries => send(entries[0].isIntersecting), {threshold:0.05});
-  const loaded = () => {const rect=iframe.getBoundingClientRect();send(rect.bottom>0&&rect.top<innerHeight);};
+  let sizeObserver;
+  const loaded = () => {
+    // These replays share the article's origin. Fit their actual content so the
+    // stacked phone controls never need a second, nested scrollbar.
+    sizeObserver?.disconnect();
+    const main = iframe.contentDocument?.querySelector('main');
+    if (main) {
+      const fit = () => {iframe.style.height = `${Math.ceil(main.getBoundingClientRect().height) + 2}px`;};
+      sizeObserver = new ResizeObserver(fit);
+      sizeObserver.observe(main);
+      fit();
+    }
+    const rect = iframe.getBoundingClientRect();
+    send(rect.bottom > 0 && rect.top < innerHeight);
+  };
   observer.observe(iframe);
   iframe.addEventListener('load',loaded);
-  return () => {observer.disconnect();iframe.removeEventListener('load',loaded);};
+  if (iframe.contentDocument?.readyState === 'complete') loaded();
+  return () => {observer.disconnect();sizeObserver?.disconnect();iframe.removeEventListener('load',loaded);};
 }
 document.querySelectorAll('[data-visibility-replay]').forEach(watchReplay);
 let closeEmbedded=null;

@@ -12,39 +12,47 @@
   <meta property="og:url" content="https://howdymary.github.io/mochi/">
   <meta property="og:image" content="https://howdymary.github.io/mochi/media/mochi-poster.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#fafbf8">
+  <meta name="theme-color" content="#eeeeeb">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261119-completed">
-  <script src="script.js?v=20261119-completed" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&amp;family=JetBrains+Mono:wght@400..500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261119-taste">
+  <script src="script.js?v=20261119-taste" defer></script>
 </head>
 <body>
   <a class="skip" href="#article">Skip to article</a>
   <div class="reading-progress" aria-hidden="true"></div>
   <header class="site-header wrap">
-    <a class="author" href="/">Mary Liu</a>
+    <a class="author" href="/">Mary Liu<span class="author-detail">Independent research</span></a>
     <nav aria-label="Page navigation"><a href="#watch">Simulation replay</a><a href="#next">Results</a><a href="https://github.com/howdymary/mochi-demo/tree/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi">Source code</a></nav>
   </header>
 
   <main id="article">
     <div class="hero wrap">
-      <p class="eyebrow">ROBOT CONTROL AND MODEL POST-TRAINING</p>
-      <h1>MOCHI: Post-training robot control decisions</h1>
+      <p class="eyebrow"><span>Robotics / Field notes</span><span class="edition">Research report · 2026</span></p>
+      <h1><span class="project-name">MOCHI<span class="title-colon">:</span></span><span class="project-title">Post-training robot control decisions</span></h1>
       <p class="deck">Supervised post-training of a Qwen3.5-4B model to select walking, manipulation and arm-recovery controllers in MuJoCo. This article describes the experiment data, shared memory, checkpoint evaluations and limitations.</p>
-      <div class="byline"><span>By <a href="/">Mary Liu</a></span><span>November 19, 2026</span><span>Simulation study</span></div>
+      <div class="byline"><span>By <a href="/">Mary Liu</a></span><span>November 19, 2026</span><span>Simulation study</span><a class="hero-jump" href="#watch">Watch the matched run <span aria-hidden="true">↘</span></a></div>
     </div>
 
     <figure class="hero-film latest-film wrap" id="watch">
-      <div class="latest-film-heading"><span class="caption-tag">LATEST RECORDED CHECKPOINT</span><a href="replay/?study=efficiency" target="_blank" rel="noopener">Open the full comparison</a></div>
+      <div class="latest-film-heading"><span class="caption-tag">Latest recorded checkpoint</span><a href="replay/?study=efficiency" target="_blank" rel="noopener">Open the full comparison</a></div>
       <iframe src="replay/?study=efficiency&amp;autoplay=1" title="Selected Mochi checkpoint beside its parent model on the same final-test scenario" allowfullscreen data-visibility-replay loading="eager"></iframe>
       <figcaption><span class="caption-tag" id="latest-recording-label">V15 · RECORDED UPDATE 16</span><span id="latest-recording-caption">The selected checkpoint completes the first declared final-test scenario in 472 steps versus 804 and 216.6 physical seconds versus 265.1. Development scenarios retain checkpoints 0, 1, 4, 8 and 16.</span></figcaption>
     </figure>
 
+
+    <section class="study-overview wrap" aria-labelledby="overview-title">
+      <div class="overview-title"><span class="section-index">Study brief</span><h2 id="overview-title">Controller choices,<br>tested in physics.</h2><a href="#next">Go to the V15 results <span aria-hidden="true">↗</span></a></div>
+      <div><h3>The question</h3><p>Can post-training improve controller selection while the robot’s gait, action library and physical environment stay fixed?</p></div>
+      <div><h3>The finding</h3><p>On four final scenarios, the selected checkpoint used 40.9% fewer step attempts than its parent. All four policies completed all four routes.</p></div>
+      <div class="overview-caveat"><h3>The qualification</h3><p>A training-derived static policy performed similarly. The results do not establish an adaptive-selection advantage or a causal benefit from memory or search.</p></div>
+    </section>
+
     <div class="article-layout wrap">
       <aside class="contents" aria-label="On this page">
-        <p class="eyebrow">CONTENTS</p>
+        <p class="eyebrow">In this report</p>
         <a href="#a-small-world">Robot and tasks</a>
         <a href="#beginnings">Initial experiments</a>
         <a href="#memory">Experiment memory</a>
@@ -57,8 +65,22 @@
         <a href="#sources">Sources and artifacts</a>
       </aside>
 
+      <details class="mobile-contents"><summary>Explore this report <span aria-hidden="true">+</span></summary><nav aria-label="Article chapters">        <a href="#a-small-world">Robot and tasks</a>
+        <a href="#beginnings">Initial experiments</a>
+        <a href="#memory">Experiment memory</a>
+        <a href="#research">Research and simulation</a>
+        <a href="#training">Tinker post-training</a>
+        <a href="#results">Checkpoint evaluation</a>
+        <a href="#audit">Contact audit and failures</a>
+        <a href="#navigation">Turn-first navigation</a>
+        <a href="#next">V15 results</a>
+        <a href="#sources">Sources and artifacts</a>
+</nav></details>
+
       <article class="prose">
         <section id="a-small-world">
+          <p class="eyebrow">The setup</p>
+          <h2>A small world, four physical tasks</h2>
           <p class="opening">Mochi is a miniature Unitree G1 in a MuJoCo simulation. It climbs a stack of books, turns off an alarm clock, descends, closes a drawer and a laptop, then turns a globe to a target.</p>
           <p>The study evaluates whether supervised post-training improves controller selection when the simulator, route, available actions and success criteria are held fixed. Recorded failures inform research queries and the allocation of training examples.</p>
           <div class="task-route" aria-label="Four tasks in order"><span>Silence the alarm</span><span>Close the drawer</span><span>Close the laptop</span><span>Align the globe</span></div>
@@ -155,12 +177,17 @@
           <h2>V15: Step-efficient control selection</h2>
           <p>The current campaign includes turn-first navigation in the parent and every checkpoint. It has completed <strong>16 new Tinker optimizer updates and 96 domain-gradient calculations</strong>. The native gait, physical controller library, scene, route and evaluation rules remain fixed. Checkpoints 0, 1, 4, 8 and 16 each completed all three development scenarios within the declared quality limits.</p>
           <p>Before training, V15 recalled the earlier assessment from past.dev. The research stage used it to choose one Exa search about velocity-command tracking and corrective footsteps. After recalling the sourced hypothesis, the design stage selected twelve walking and twelve recovery examples per update, plus four for each object task. The measured set contained 48 labeled observation records, reused during training. <a href="replay/efficient-v15/report.json">Research decisions and API receipts</a>.</p>
+          <h3 class="subhead">Selecting the checkpoint</h3>
           <p>The predeclared selection rule chose <strong>update 16</strong> across that development set. It averaged 485.3 steps and 218.1 physical seconds, compared with 805.3 steps and 265.5 seconds for the parent. The checkpoint was frozen before opening four fresh final-test scenarios.</p>
+          <h3 class="subhead">The final evaluation</h3>
           <p>Final testing is complete. The parent, selected checkpoint, fixed controller and training-derived static policy each completed all four final scenarios within the declared quality limits. The selected checkpoint averaged 476.5 step attempts and 219.5 simulated seconds, compared with 806.0 steps and 266.4 seconds for the parent.</p>
+          <figure class="results-figure"><picture><source media="(max-width: 540px)" srcset="media/v15-final-comparison-mobile.svg" width="400" height="730"><img src="media/v15-final-comparison.svg" width="1000" height="640" loading="lazy" alt="Mean step attempts: parent 806.0, selected update 16 476.5, fixed controller 809.5, training-derived static 482.0. Mean simulated seconds: 266.4, 219.5, 264.9 and 219.1 respectively. All four policies passed all four final scenarios."></picture><figcaption><span class="caption-tag">V15 / Final evaluation</span>Means across four fresh scenarios. Lower is better; all policies passed 4/4. The static policy matches the selected checkpoint closely. Values are descriptive, with no significance claim. <a href="evidence/v15-completed.json">Source data</a>.</figcaption></figure>
           <div class="checkpoint-progress final-comparison" role="table" aria-label="Completed four-scenario final evaluation"><div class="checkpoint-progress-row header" role="row"><span role="columnheader">Policy</span><span role="columnheader">Passed</span><span role="columnheader">Mean steps</span><span role="columnheader">Seconds</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Parent</span><span role="cell">4/4</span><span role="cell">806.0</span><span role="cell">266.4</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Selected update 16</span><span role="cell">4/4</span><span role="cell">476.5</span><span role="cell">219.5</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Fixed controller</span><span role="cell">4/4</span><span role="cell">809.5</span><span role="cell">264.9</span></div><div class="checkpoint-progress-row" role="row"><span role="cell">Training-derived static</span><span role="cell">4/4</span><span role="cell">482.0</span><span role="cell">219.1</span></div></div>
           <p>The declared 20% step-reduction target was met on this cohort. Paired reductions averaged <strong>40.9% in steps and 17.6% in time</strong>. Descriptive paired bootstrap intervals were 39.4% to 41.8% for steps and 15.7% to 18.7% for time. These describe four fixed-layout cases. A 4/4 completion result has an approximately 51% to 100% Wilson interval at 95% confidence.</p>
           <p>The static policy was close at 482.0 steps and 219.1 seconds, slightly faster than the selected model. They made the same controller choice in 46 of 48 corresponding decisions. The two differences were laptop profiles on seeds 93000 and 93003. These results do not establish a meaningful adaptive-selection advantage. Small cost differences under identical choice vectors remain unexplained. <a href="evidence/v15-completed.json">Completed numerical assessment</a>.</p>
+          <h3 class="subhead">The motion tradeoff</h3>
           <p>In the final scenarios, average total arm-joint travel per successful recovery increased from 5.54 to 6.93 radians. Torso roll RMS increased slightly, from 0.271 to 0.279 degrees. Both remained within the declared limits. The step reduction did not establish lower arm travel or smoother motion in every measure.</p>
+          <h3 class="subhead">Following the training progression</h3>
           <p>Update 0 restores a previously trained decision checkpoint with 105 cumulative updates. Counts of 0, 1, 4, 8 and 16 refer to additional optimizer updates in V15.</p>
           <p>On the first declared development scenario, one update changed the model’s flat-desk walking choice and clock setting. Both runs completed within the declared quality limits. Steps fell from <strong>806 to 586</strong>, a 27.3% reduction; physical completion time fell from <strong>265.4 to 237.8 seconds</strong>. Recovery choices in this particular pair remained unchanged. <a href="evidence/v15-development.json">Checkpoint and measurement evidence</a>.</p>
           <p>The first replay shows the selected checkpoint on the first declared final scenario. To inspect updates 0, 1, 4, 8 and 16, select a development scenario or use the replay below. Each row is a separate continuous physical run, not an additional independent test scenario.</p>
@@ -171,11 +198,14 @@
             <div class="replay-placeholder"><img src="media/mochi-poster.jpg" alt="The desk where Mochi completes the clock, drawer, laptop and globe sequence" loading="lazy"><div><p>Recorded controller evaluations</p><span>Switch checkpoints, inspect the feet, and compare the same physical timeline.</span><button class="load-replay" type="button">Load current training progression</button></div></div>
             <figcaption>One development scenario, five separately recorded checkpoints. The starting state, scene, task order, and playback speed match. Each attempt is continuous, including walking and arm recovery.</figcaption>
           </figure>
+          <h3 class="subhead">After four updates</h3>
           <p>After four updates, this case used different choices at all twelve decision points, including every arm recovery. It completed in <strong>480 steps and 216.7 seconds</strong>, within the quality limits. The full-route result does not isolate how much each choice contributed. Completed component tests compared both models from twelve identical supported states, producing 24 valid diagnostic branches. These are separate from the uninterrupted routes.</p>
           <p>We engineered the controller options before collecting these examples. Among actions that passed the physical validity checks, walking labels favored fewer steps and then time; task and recovery labels balanced elapsed time against arm travel. Supervised post-training teaches the model to select from that frozen action library.</p>
           <p>The eight- and sixteen-update recordings make the same categorical choices in this case, while their measured step counts differ slightly. We have not attributed that small difference to a new learned behavior.</p>
+          <h3 class="subhead">What the component tests show</h3>
           <p>The matched-state tests confirmed faster flat walking. The laptop approach used 324 versus 172 steps and 40.6 versus 22.0 seconds. Across four separate recovery states, total recovery time fell from 6.65 to 5.30 seconds while total joint travel increased from 22.15 to 26.77 radians. These branch totals are diagnostic measurements, not a continuous route.</p>
           <p>We count measured footstep attempts, including turns, book traversal, alignment and unfinished attempts. Efficiency comparisons require both runs to complete within the declared limits. Failures remain in the completion denominator. We also report contacts, balance, time and arm travel. <a href="https://github.com/howdymary/mochi-demo/blob/87ba8d482efd13c789bb200ae9424924e0f77ad1/mochi/docs/efficient-v15.md">Frozen study protocol</a>.</p>
+          <h3 class="subhead">Execution and the evidence trail</h3>
           <p>The completed V15 handoff wrote the final measurements to past.dev, recalled them for review, stored a qualified conclusion and recalled that conclusion in the research stage. Six writes and seven logical recalls included four writing identities, four verified reading identities and five within-campaign cross-role handoffs. The private-canary denial test passed and no ingestions remained pending. One of the seven recalls retrieved the earlier assessment across campaigns.</p>
           <p>The complete campaign used 204 physical rollouts and 10.341 function CPU-hours, within its limits of 224 rollouts, 18 hours and four concurrent workers. Tinker recorded 217,812 training-token presentations. These measurements describe execution and example reuse, not billed credits.</p>
           <aside class="note"><strong>Scope and limitations</strong><p>This is a small, fixed-layout simulation study using structured state observations. It has no camera-based policy or hardware validation. We have not isolated a causal performance benefit from memory or web search. The results apply to four final cases in one furnished layout.</p></aside>

@@ -19,7 +19,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&amp;family=JetBrains+Mono:wght@400..500&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css?v=20261119-narrative-2" rel="stylesheet"/>
-<script defer="" src="script.js?v=20261119-narrative"></script>
+<script defer="" src="script.js?v=20261120-notes"></script>
 </head>
 <body>
 <a class="skip" href="#article">Skip to article</a>
@@ -37,7 +37,7 @@
 </div>
 <figure class="hero-film latest-film wrap" id="watch">
 <div class="latest-film-heading"><span class="caption-tag">Latest recorded checkpoint</span><a href="replay/?study=efficiency" rel="noopener" target="_blank">Open the full comparison</a></div>
-<iframe allowfullscreen="" data-visibility-replay="" loading="eager" src="replay/?study=efficiency&amp;autoplay=1" title="Selected Mochi checkpoint beside its parent model on the same final-test scenario"></iframe>
+<iframe allowfullscreen="" data-visibility-replay="" loading="eager" src="replay/?study=efficiency&amp;autoplay=1&amp;v=20261120-notes" title="Selected Mochi checkpoint beside its parent model on the same final-test scenario"></iframe>
 <figcaption><span class="caption-tag" id="latest-recording-label">V15 · RECORDED UPDATE 16</span><span id="latest-recording-caption">The selected checkpoint completes the first declared final-test scenario in 472 steps versus 804 and 216.6 physical seconds versus 265.1. Development scenarios retain checkpoints 0, 1, 4, 8 and 16.</span></figcaption>
 </figure>
 <section aria-labelledby="overview-title" class="study-overview wrap">
@@ -139,7 +139,7 @@
 <p class="small">Full-sequence completion within the specified smoothness limits. Six scenarios, one small simulation study. No hardware validation. <a href="https://github.com/howdymary/mochi-demo/blob/26e60fed923d286ac4082aba5d07b5d7fc8bf485/mochi/docs/terrain-v12-assessment.md">Read the assessment</a>.</p>
 <figure class="replay-block" data-replay="training" data-scenario="development-43000">
 <div class="replay-head"><div><span class="caption-tag">V12 · UPDATES 0 / 1 / 8 / 32</span><h3>Can the trained model finish where its parent falls short?</h3></div><a href="replay/?study=training&amp;scenario=development-43000" rel="noopener" target="_blank">Open the checkpoint sequence</a></div>
-<div class="replay-placeholder"><img alt="Mochi in its simulated desk environment" loading="lazy" src="media/mochi-poster.jpg"/><div><p>Recorded simulation trajectories</p><span>Six final-test pairs, plus a development scenario with intermediate checkpoints.</span><button class="load-replay" type="button">Load training comparison</button></div></div>
+<div class="replay-placeholder"><img alt="Mochi in its simulated desk environment" loading="lazy" src="media/mochi-poster.jpg"/><div><p>Recorded simulation trajectories</p><span>Six final-test pairs, plus a development scenario with intermediate checkpoints. Viewing notes follow your checkpoint selection.</span><button class="load-replay" type="button">Load training comparison</button></div></div>
 <figcaption>The development scenario exposes intermediate checkpoints; six final-test pairs remain available in the scenario menu. Both sides use the same playback speed. These are archived trajectories, not a new model run.</figcaption>
 </figure>
 <p>Component tests narrowed down V12’s gain. When we changed walking alone, the parent fell; the selected model chose differently and finished. In the manipulation and recovery checks, both picked the same profiles. <strong>V12 did not demonstrate learned improvements in manipulation or recovery.</strong></p>
@@ -174,7 +174,7 @@
 <p class="small">First declared development case, seed 92000. Steps include turning, book traversal and alignment. A failed run’s short time or low step count does not establish improvement.</p>
 <figure class="replay-block" data-replay="efficiency" data-scenario="development-92000">
 <div class="replay-head"><div><span class="caption-tag">V15 · UPDATES 0 / 1 / 4 / 8 / 16</span><h3>Follow the same route through five checkpoints</h3></div><a href="replay/?study=efficiency&amp;scenario=development-92000" rel="noopener" target="_blank">Open the full progression</a></div>
-<div class="replay-placeholder"><img alt="The desk where Mochi completes the clock, drawer, laptop and globe sequence" loading="lazy" src="media/mochi-poster.jpg"/><div><p>From 806 steps to roughly 480</p><span>Start at update 0, then compare updates 1 and 4. Updates 8 and 16 show the plateau on this route.</span><button class="load-replay" type="button">Load current training progression</button></div></div>
+<div class="replay-placeholder"><img alt="The desk where Mochi completes the clock, drawer, laptop and globe sequence" loading="lazy" src="media/mochi-poster.jpg"/><div><p>From 806 steps to roughly 480</p><span>Start at update 0, then compare updates 1 and 4. Updates 8 and 16 show the plateau on this route. Viewing notes explain what changed and offer moments to inspect.</span><button class="load-replay" type="button">Load current training progression</button></div></div>
 <figcaption>Five separately recorded checkpoints on development scenario 92000. Every run passes the declared quality checks. The controls keep the scene, task order and playback speed matched; the four-scenario final evaluation below tests the selected checkpoint separately.</figcaption>
 </figure>
 <h3 class="subhead">After four updates</h3>

@@ -1,5 +1,6 @@
 import {createCurriculumStage} from './curriculum-stage.js';
 import {activityAt,stepCountAt,comparisonEvidence} from './efficient-evidence.mjs';
+import {checkpointNotes,currentCue} from './checkpoint-notes.mjs';
 
 const $ = selector => document.querySelector(selector);
 const query = new URLSearchParams(location.search);
@@ -8,6 +9,7 @@ const efficiency = query.get('study') === 'efficiency';
 const folder = efficiency?'efficient-v15/':navigation ? 'directional-v14/' : 'terrain-training/';
 const cache = new Map();
 let manifest, cases, current, stages, episodes, metadata;
+let lastCue = '';
 let time = 0, maximum = 0, playing = false, loading = true, dirty = true;
 let last = performance.now(), rendered = 0, request = 0, visible = true;
 
@@ -32,6 +34,11 @@ function setPlaying(value) {
   playing = value;
   $('#play').textContent = value ? 'Pause' : 'Play';
   last = performance.now();
+  if (!loading && episodes) {
+    const message = maximum > 0 && time >= maximum ? 'Both recordings have ended. Restart to watch them again.' :
+      value ? 'Playing both recordings on the same simulated clock.' : 'Paused. Press Play to continue both recordings.';
+    if ($('#status').textContent !== message) $('#status').textContent = message;
+  }
 }
 
 function showError(error) {
@@ -39,6 +46,10 @@ function showError(error) {
   loading = false;
   $('#status').classList.add('error');
   $('#status').textContent = `The replay could not load. ${error.message} Reload this view to retry; the recording and written assessment remain available in the article.`;
+  $('.checkpoint-notes').setAttribute('aria-busy','false');
+  $('#notes-heading').textContent='Recording notes unavailable';
+  $('#notes-changed').textContent='Reload this view to retry. The written assessment remains available in the article.';
+  $('#cue-title').textContent='Playback unavailable';$('#cue-text').textContent='No matched recording is ready.';
   console.error(error);
 }
 
@@ -48,6 +59,13 @@ async function loadPair() {
   setPlaying(false);
   $('#status').classList.remove('error');
   $('#status').textContent = 'Loading the matched recordings…';
+  $('.checkpoint-notes').setAttribute('aria-busy','true');
+  $('#notes-heading').textContent = 'Loading the selected recording…';
+  $('#notes-changed').textContent = '';
+  $('#watch-moments').replaceChildren();
+  $('#notes-totals').replaceChildren();
+  $('#notes-watch').textContent = $('#notes-limit').textContent = '';
+  $('#moment-scope').hidden = true;
   $('#play').disabled = $('#restart').disabled = $('#scrub').disabled = true;
   const version = navigation ? null : current.versions.find(v => v.update === Number($('#checkpoint').value));
   const files = navigation ? [current.before.file, current.after.file] : [current.parent_file, version.file];
@@ -78,6 +96,32 @@ async function loadPair() {
     $('#scope').textContent = finalTest ? 'Final test: the checkpoint was selected on development scenarios before this test. Each pane is a separate, uninterrupted episode.' : 'Development scenario used for checkpoint selection. Intermediate checkpoints are not additional held-out results.';
     $('#metrics').textContent = '32 new optimizer updates in the campaign; selected update 1. Native gait and physical controllers stay fixed. Simulation time excludes remote inference waits.';
   }
+  const notes = checkpointNotes({study:navigation?'navigation':efficiency?'efficiency':'training',scenario:current,update:version?.update,selectedUpdate:manifest.selected_update,episodes,metadata});
+  $('#notes-heading').textContent = notes.heading;
+  $('#notes-changed').textContent = notes.changed;
+  $('#notes-watch').textContent = notes.watch;
+  $('#notes-limit').textContent = notes.limit;
+  metadata.forEach((record,i) => {
+    const term=document.createElement('dt'), value=document.createElement('dd');
+    term.textContent=i?'Right recording':navigation?'Previous / left':'Parent / left';
+    const seconds=record.duration??record.duration_s;
+    const outcome=efficiency?(record.qualified_complete?'Quality checks passed':record.complete?'Quality limit failed':'Incomplete'):(record.complete?'Route completed':'Incomplete');
+    value.textContent=`${record.steps?record.steps.attempts+' steps · ':''}${seconds.toFixed(1)} s · ${outcome}`;
+    $('#notes-totals').append(term,value);
+  });
+  notes.moments.forEach(moment => {
+    const button=document.createElement('button');button.type='button';
+    button.textContent=`${moment.label} · ${moment.time.toFixed(1)} s`;
+    button.addEventListener('click',()=>{
+      time=Math.min(maximum,moment.time);setPlaying(false);dirty=true;
+      $('#status').textContent=`Paused at ${time.toFixed(1)} s · ${moment.label} in the right recording. Press Play to continue both panes.`;
+      $('.panes').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    });
+    $('#watch-moments').append(button);
+  });
+  $('#moment-scope').hidden=!notes.moments.length;
+  $('.checkpoint-notes').setAttribute('aria-busy','false');
+  lastCue='';
   $('#status').textContent = 'Ready. Use Play/Pause to watch both recordings together, or drag the timeline.';
   $('#play').disabled = $('#restart').disabled = $('#scrub').disabled = false;
   loading = false;
@@ -118,6 +162,8 @@ function render() {
     const steps=episode.step_events?` · ${stepCountAt(episode,time)} steps`:'';
     $(`#${side}-reading`).textContent = `${ended ? 'Recorded finish' : phase} · ${Math.min(time, episode.duration).toFixed(1)} s${steps}`;
   });
+  const cue = navigation ? {key:'navigation',title:'Turning, then travelling',text:'Watch the right robot face the corridor before walking forward. Heading alignment and route duration measure different tradeoffs.'} : currentCue(episodes[1],time);
+  if(cue.key!==lastCue){$('#cue-title').textContent=cue.title;$('#cue-text').textContent=cue.text;lastCue=cue.key;}
   $('#time').textContent = `${time.toFixed(1)} / ${maximum.toFixed(1)} s`;
   $('#scrub').value = time;
 }
